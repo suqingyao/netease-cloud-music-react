@@ -1,3 +1,4 @@
+const baseURL = import.meta.env.VITE_BASE_URL
 interface HttpResponse<T> extends Response {
   parseBody?: T
 }
@@ -19,7 +20,7 @@ export async function get<T>(
   path: string,
   args: RequestInit = { method: 'get' }
 ): Promise<HttpResponse<T>> {
-  return await http<T>(new Request(path, args))
+  return await http<T>(new Request(baseURL + path, args))
 }
 
 export async function post<T>(
@@ -27,7 +28,7 @@ export async function post<T>(
   body: any,
   args: RequestInit = { method: 'post', body: JSON.stringify(body) }
 ): Promise<HttpResponse<T>> {
-  return await http<T>(new Request(path, args))
+  return await http<T>(new Request(baseURL + path, args))
 }
 
 export async function put<T>(
@@ -35,7 +36,7 @@ export async function put<T>(
   body: any,
   args: RequestInit = { method: 'put', body: JSON.stringify(body) }
 ): Promise<HttpResponse<T>> {
-  return await http<T>(new Request(path, args))
+  return await http<T>(new Request(baseURL + path, args))
 }
 
 export async function del<T>(
@@ -43,5 +44,5 @@ export async function del<T>(
   body: any,
   args: RequestInit = { method: 'delete', body: JSON.stringify(body) }
 ): Promise<HttpResponse<T>> {
-  return await http<T>(new Request(path, args))
+  return await http<T>(new Request(baseURL + path, args))
 }
