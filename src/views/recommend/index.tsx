@@ -23,11 +23,7 @@ function Recommend() {
 
   return (
     <RecommendContainer>
-      <Carousel
-        banners={bannerList}
-        autoplay={true}
-        modules={[Navigation, Pagination]}
-      ></Carousel>
+      <Carousel banners={bannerList}></Carousel>
     </RecommendContainer>
   )
 }

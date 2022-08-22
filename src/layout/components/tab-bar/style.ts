@@ -17,6 +17,9 @@ export const TabBarContainer = styled.div`
     text-align: center;
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+    &-active {
+      color: rgba(255, 0, 0, 0.8);
+    }
   }
 `
