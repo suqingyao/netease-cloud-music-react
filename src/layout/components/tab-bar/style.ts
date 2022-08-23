@@ -10,16 +10,15 @@ export const TabBarContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 5px 5px 0 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  background-color: #000;
   .tab-item {
     flex: 1;
     text-align: center;
     display: block;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
+    color: #fff;
     &-active {
-      color: rgba(255, 0, 0, 0.8);
+      color: #d10000;
     }
   }
 `

@@ -1,3 +1,5 @@
+import { ObjectToURLParams } from '.'
+
 const baseURL = import.meta.env.VITE_BASE_URL
 interface HttpResponse<T> extends Response {
   parseBody?: T
@@ -18,9 +20,12 @@ export async function http<T>(request: RequestInfo): Promise<HttpResponse<T>> {
 
 export async function get<T>(
   path: string,
+  params: object = {},
   args: RequestInit = { method: 'get' }
 ): Promise<HttpResponse<T>> {
-  return await http<T>(new Request(baseURL + path, args))
+  return await http<T>(
+    new Request(baseURL + path + ObjectToURLParams(params), args)
+  )
 }
 
 export async function post<T>(

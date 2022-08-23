@@ -23,6 +23,12 @@ function Carousel(props: SwiperProps & BannerList) {
               alt={banner.typeTitle}
               className="cover"
             />
+            <span
+              className="tag"
+              style={{ backgroundColor: banner.titleColor }}
+            >
+              {banner.typeTitle}
+            </span>
           </SwiperSlide>
         ))}
       </Swiper>

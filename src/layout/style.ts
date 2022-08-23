@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
   padding: 50px 0;
-  background-color: #fff;
+  background-color: rgb(36, 36, 36);
+  color: #fff;
 `

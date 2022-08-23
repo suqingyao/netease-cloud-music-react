@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
 export const RecommendContainer = styled.div`
-  background-color: rgba(225, 0, 0, 0.4);
   filter: blur(0.2);
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 `
