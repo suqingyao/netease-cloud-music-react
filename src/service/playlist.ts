@@ -21,3 +21,8 @@ export function getTopPlaylist(
 ) {
   return get('/top/playlist', params)
 }
+
+// 所有榜单
+export function getToplist() {
+  return get('/toplist')
+}
