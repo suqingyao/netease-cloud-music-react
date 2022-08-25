@@ -3,9 +3,11 @@ import Card from '@/components/card'
 import { getToplist } from '@/service/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { RankContainer } from './style'
+import Album from '@/components/album'
 
 interface ListItem {
   name: string
+  coverImgUrl: string
 }
 
 function Rank() {
@@ -33,7 +35,7 @@ function Rank() {
   return (
     <RankContainer>
       {list.map(item => (
-        <div>{item.name}</div>
+        <Album title={item.name} img={item.coverImgUrl}></Album>
       ))}
     </RankContainer>
   )
