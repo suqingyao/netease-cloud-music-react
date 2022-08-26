@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 10:53:26
- * @LastEditTime: 2022-08-26 16:26:19
+ * @LastEditTime: 2022-08-27 01:20:40
  * @LastEditors: cully fung
  * @Description:
  */
@@ -16,6 +16,7 @@ import { isSuccessResponse } from '@/utils/is'
 import { PlayList } from './types'
 import { RecommendContainer } from './style'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -43,13 +44,29 @@ function Recommend() {
       })
   }, [])
 
+  const goPlaylist = (playlistId: string) => {
+    console.log(111)
+
+    const navigate = useNavigate()
+    console.log(
+      '🚀 ~ file: index.tsx ~ line 50 ~ goPlaylist ~ navigate',
+      navigate
+    )
+    navigate(`/playlist/${playlistId}`, { replace: false })
+  }
+
   return (
     <RecommendContainer>
       <Carousel banners={bannerList} />
       <Card title="推荐歌单">
         <div className="wrapper">
           {playlists.map(item => (
-            <Album key={item.id} img={item.coverImgUrl} title={item.name} />
+            <Album
+              key={item.id}
+              img={item.coverImgUrl}
+              title={item.name}
+              onClick={() => goPlaylist(item.id)}
+            />
           ))}
         </div>
       </Card>

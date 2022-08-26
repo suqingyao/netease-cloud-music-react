@@ -1,3 +1,10 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-16 23:35:32
+ * @LastEditTime: 2022-08-27 01:00:05
+ * @LastEditors: cully fung
+ * @Description:
+ */
 // import { IconStyle } from '@/assets/iconfont/iconfont'
 import { GlobalStyle } from './style'
 import routes from '@/router'
@@ -7,6 +14,7 @@ import Rank from './views/rank'
 import Page404 from './views/error/Page404'
 import Recommend from './views/recommend'
 import Singer from './views/singer'
+import Playlist from './views/playlist'
 
 function App() {
   return (
@@ -18,6 +26,7 @@ function App() {
           <Route path="rank" element={<Rank />} />
           <Route path="singer" element={<Singer />} />
           <Route path="recommend" element={<Recommend />} />
+          <Route path="playlist/:id" element={<Playlist />}></Route>
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
