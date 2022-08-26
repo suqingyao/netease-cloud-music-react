@@ -1,3 +1,11 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-19 23:32:04
+ * @LastEditTime: 2022-08-26 11:50:15
+ * @LastEditors: cully fung
+ * @Description:
+ */
+import PlayBar from '@/components/play-bar'
 import React, { useEffect, useState } from 'react'
 import AppMain from './components/app-main'
 import SearchBar from './components/search-bar'
@@ -33,6 +41,7 @@ function Layout() {
       <TopBar title="云音乐" />
       {/* <SearchBar /> */}
       <AppMain />
+      <PlayBar />
       <TabBar tabList={tabList} />
     </LayoutContainer>
   )

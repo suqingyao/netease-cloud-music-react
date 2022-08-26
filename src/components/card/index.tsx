@@ -1,8 +1,15 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-23 22:33:14
+ * @LastEditTime: 2022-08-26 16:21:07
+ * @LastEditors: cully fung
+ * @Description: 
+ */
 import React from 'react'
 import { CardContainer } from './style'
 
 interface Props {
-  title: string
+  title?: string
   children?: any
 }
 
