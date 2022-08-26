@@ -4,16 +4,12 @@ import { getToplist } from '@/service/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { RankContainer } from './style'
 import Album from '@/components/album'
-
-interface ListItem {
-  name: string
-  coverImgUrl: string
-}
+import { ListItem } from './types'
 
 function Rank() {
   const [list, setList] = useState<Array<ListItem>>([])
 
-  useEffect(() => {
+  function getTopList() {
     getToplist()
       .then(res => {
         const data = res.parseBody as any
@@ -30,6 +26,10 @@ function Rank() {
       .catch(err => {
         console.error('🚀 ~ file: index.tsx ~ line 21 ~ useEffect ~ err', err)
       })
+  }
+
+  useEffect(() => {
+    getTopList()
   }, [])
 
   return (

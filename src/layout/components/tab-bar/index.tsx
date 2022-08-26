@@ -1,3 +1,11 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-20 12:09:39
+ * @LastEditTime: 2022-08-26 08:34:05
+ * @LastEditors: cully fung
+ * @Description:
+ */
+import PlayBar from '@/components/play-bar'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { TabBarContainer } from './style'
@@ -17,6 +25,7 @@ function TabBar({ tabList }: IProp) {
 
   return (
     <TabBarContainer>
+      <PlayBar />
       {tabList.map(tab => {
         const isActive = pathname.includes(tab.path)
 
