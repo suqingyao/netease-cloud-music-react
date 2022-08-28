@@ -15,6 +15,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.30.1
+  normalize.css: ^8.0.1
   postcss: ^8.4.16
   postcss-normalize: ^10.0.1
   postcss-preset-env: ^7.8.0
@@ -25,6 +26,7 @@ specifiers:
   react-is: ^18.2.0
   react-redux: ^8.0.2
   react-router-dom: ^6.3.0
+  remixicon: ^2.5.0
   styled-components: ^5.3.5
   swiper: ^8.3.2
   typescript: ^4.6.4
@@ -32,11 +34,13 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.8.5_react-redux@8.0.2+react@18.2.0
+  normalize.css: 8.0.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-is: 18.2.0
   react-redux: 8.0.2_ff80cd9dfb626a6c6c4251864122e347
   react-router-dom: 6.3.0_react-dom@18.2.0+react@18.2.0
+  remixicon: 2.5.0
   swiper: 8.3.2
 
 devDependencies:
@@ -2112,6 +2116,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
+
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
@@ -2770,6 +2778,10 @@ packages:
     resolution: {integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==}
     engines: {node: '>=8'}
     dev: true
+
+  /remixicon/2.5.0:
+    resolution: {integrity: sha512-q54ra2QutYDZpuSnFjmeagmEiN9IMo56/zz5dDNitzKD23oFRw77cWo4TsrAdmdkPiEn8mxlrTqxnkujDbEGww==}
+    dev: false
 
   /reselect/4.1.6:
     resolution: {integrity: sha512-ZovIuXqto7elwnxyXbBtCPo9YFEr3uJqj2rRbcOOog1bmu2Ag85M4hixSwFWyaBMKXNgvPaJ9OSu9SkBPIeJHQ==}

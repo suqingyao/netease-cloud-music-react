@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 10:53:26
- * @LastEditTime: 2022-08-27 01:20:40
+ * @LastEditTime: 2022-08-27 11:25:36
  * @LastEditors: cully fung
  * @Description:
  */
@@ -17,10 +17,12 @@ import { PlayList } from './types'
 import { RecommendContainer } from './style'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Loading from '@/components/loading'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
   const [playlists, setPlaylists] = useState<Array<PlayList>>([])
+  const [loadingVisible, setLoadingVisible] = useState(false)
 
   useEffect(() => {
     getBannerList().then(res => {
@@ -43,6 +45,15 @@ function Recommend() {
         console.log(err)
       })
   }, [])
+
+  // 监听数据是否加载完成，显示loading
+  useEffect(() => {
+    if (!playlists.length) {
+      setLoadingVisible(true)
+    } else {
+      setLoadingVisible(false)
+    }
+  }, [playlists, bannerList])
 
   const goPlaylist = (playlistId: string) => {
     console.log(111)
@@ -70,6 +81,7 @@ function Recommend() {
           ))}
         </div>
       </Card>
+      <Loading visible={loadingVisible} />
     </RecommendContainer>
   )
 }

@@ -1,24 +1,15 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-20 12:09:39
- * @LastEditTime: 2022-08-26 16:19:15
+ * @LastEditTime: 2022-08-27 11:05:04
  * @LastEditors: cully fung
  * @Description:
  */
 import { Link, useLocation } from 'react-router-dom'
 import { TabBarContainer } from './style'
+import { TabBarProps } from './types'
 
-interface IProp {
-  tabList: ITabItem[]
-}
-
-export interface ITabItem {
-  icon: string
-  label: string
-  path: string
-}
-
-function TabBar({ tabList }: IProp) {
+function TabBar({ tabList }: TabBarProps) {
   const { pathname } = useLocation()
 
   return (
@@ -32,8 +23,10 @@ function TabBar({ tabList }: IProp) {
             to={tab.path}
             className={isActive ? 'tab-item tab-item-active' : 'tab-item'}
           >
-            <i className={tab.icon}></i>
-            <span>{tab.label}</span>
+            <span className="icon">
+              <i className={tab.icon}></i>
+            </span>
+            <span className="label">{tab.label}</span>
           </Link>
         )
       })}
