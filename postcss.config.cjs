@@ -1,17 +1,16 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-20 01:12:32
+ * @LastEditTime: 2022-08-28 20:17:01
+ * @LastEditors: cully fung
+ * @Description:
+ */
+const postcssPxToRem = require('postcss-pxtorem')
+
 module.exports = {
-  plugins: {
-    autoprefixer: {
-      overrideBrowserslist: [
-        'Android 4.1',
-        'iOS 7.1',
-        'Chrome > 31',
-        'ff > 31',
-        'ie >= 8',
-        'last 10 versions' // 所有主流浏览器最近10版本用
-      ],
-      grid: true
-    },
-    'postcss-pxtorem': {
+  plugins: [
+    require('autoprefixer'),
+    postcssPxToRem({
       rootValue: 75,
       unitPrecision: 6, // 计算结果保留 6 位小数
       selectorBlackList: ['.no-rem', 'no-rem'], // 要忽略的选择器并保留为px。
@@ -20,10 +19,8 @@ module.exports = {
       mediaQuery: true, // 允许在媒体查询中转换px。
       minPixelValue: 2, // 设置要替换的最小像素值。
       exclude: /node_modules/i // 排除 node_modules 文件(node_modules 内文件禁止转换)
-    }
-  },
-  'postcss-preset-env': {},
-  'postcss-normalize': {
-    browserslist: 'last 2 versions'
-  }
+    }),
+    require('postcss-preset-env'),
+    require('postcss-normalize')
+  ]
 }

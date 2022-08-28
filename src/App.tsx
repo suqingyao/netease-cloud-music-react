@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-16 23:35:32
- * @LastEditTime: 2022-08-28 09:59:43
+ * @LastEditTime: 2022-08-28 17:02:56
  * @LastEditors: cully fung
  * @Description:
  */
@@ -13,11 +13,13 @@ import Page404 from './views/error/Page404'
 import Recommend from './views/recommend'
 import Singer from './views/singer'
 import Playlist from './views/playlist'
-import Empty from './layout/empty'
+import Empty from './layout/Empty'
+import { GlobalStyle } from './style'
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       {/* {routes} */}
       <Routes>
         <Route path="/" element={<Layout />}>

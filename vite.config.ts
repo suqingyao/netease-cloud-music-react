@@ -9,11 +9,14 @@ export default defineConfig({
       '@': resolve(__dirname, './src')
     }
   },
-  css: {
-    preprocessorOptions: {},
-    postcss: {
-      plugins: []
-    }
-  },
-  plugins: [react()]
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          // 适配 styled-component
+          'babel-plugin-styled-components'
+        ]
+      }
+    })
+  ]
 })

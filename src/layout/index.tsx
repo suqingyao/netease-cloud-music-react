@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-19 23:32:04
- * @LastEditTime: 2022-08-28 10:44:10
+ * @LastEditTime: 2022-08-28 17:40:24
  * @LastEditors: cully fung
  * @Description:
  */
@@ -42,7 +42,7 @@ function Layout() {
 
   return (
     <LayoutContainer>
-      <TopBar title="云音乐" />
+      <TopBar title="WebApp" />
       {/* <SearchBar /> */}
       <AppMain />
       <PlayBar />

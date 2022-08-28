@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 10:44:24
- * @LastEditTime: 2022-08-28 11:05:22
+ * @LastEditTime: 2022-08-28 17:41:32
  * @LastEditors: cully fung
  * @Description:
  */
@@ -20,4 +20,8 @@ export const TopBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  h1 {
+    font-size: 25px;
+    color: #f00;
+  }
 `

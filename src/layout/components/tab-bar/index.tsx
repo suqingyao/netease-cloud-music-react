@@ -1,34 +1,28 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-20 12:09:39
- * @LastEditTime: 2022-08-28 10:44:41
+ * @LastEditTime: 2022-08-28 17:38:48
  * @LastEditors: cully fung
  * @Description:
  */
-import { Link, useLocation } from 'react-router-dom'
-import { TabBarContainer } from './style'
+import { NavLink } from 'react-router-dom'
+import { TabItem, Tabs } from './style'
 import { TabBarProps } from './types'
 
 function TabBar({ tabList }: TabBarProps) {
-  const { pathname } = useLocation()
-
   return (
-    <TabBarContainer>
+    <Tabs>
       {tabList.map(tab => {
-        const isActive = pathname.includes(tab.path)
-
         return (
-          <Link
-            key={tab.path}
-            to={tab.path}
-            className={isActive ? 'tab-item tab-item-active' : 'tab-item'}
-          >
-            <i className={isActive ? tab.active : tab.default}></i>
-            <span className="label">{tab.label}</span>
-          </Link>
+          <NavLink key={tab.path} to={tab.path}>
+            <TabItem>
+              <i className={tab.default}></i>
+              <span>{tab.label}</span>
+            </TabItem>
+          </NavLink>
         )
       })}
-    </TabBarContainer>
+    </Tabs>
   )
 }
 

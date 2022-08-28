@@ -1,6 +1,13 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-21 23:25:52
+ * @LastEditTime: 2022-08-28 18:03:13
+ * @LastEditors: cully fung
+ * @Description:
+ */
 import styled from 'styled-components'
 export const CarouselContainer = styled.div`
-  padding: 15px;
+  padding: 10px 15px;
   position: relative;
   .cover {
     display: block;
