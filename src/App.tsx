@@ -1,37 +1,20 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-16 23:35:32
- * @LastEditTime: 2022-08-28 17:02:56
+ * @LastEditTime: 2022-08-28 23:15:12
  * @LastEditors: cully fung
  * @Description:
  */
-import routes from '@/router'
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom'
-import Layout from '@/layout/index'
-import Rank from './views/rank'
-import Page404 from './views/error/Page404'
-import Recommend from './views/recommend'
-import Singer from './views/singer'
-import Playlist from './views/playlist'
-import Empty from './layout/Empty'
+import { BrowserRouter, Outlet } from 'react-router-dom'
 import { GlobalStyle } from './style'
+import Views from '@/router'
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      {/* {routes} */}
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="rank" element={<Rank />} />
-          <Route path="singer" element={<Singer />} />
-          <Route path="recommend" element={<Recommend />} />
-        </Route>
-        <Route path="/" element={<Empty />}>
-          <Route path="playlist/:id" element={<Playlist />}></Route>
-        </Route>
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+      <Views />
+      <Outlet />
     </BrowserRouter>
   )
 }
