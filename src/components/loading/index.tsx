@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-27 08:33:15
- * @LastEditTime: 2022-08-27 11:24:09
+ * @LastEditTime: 2022-08-28 10:23:01
  * @LastEditors: cully fung
  * @Description: 全局loading组件
  */
@@ -15,7 +15,12 @@ function Loading({
   children
 }: LoadingProps) {
   return visible ? (
-    <LoadingWrapper>{children || <div>{content}</div>}</LoadingWrapper>
+    <LoadingWrapper>
+      <div className="two-balls">
+        <div className="pink"></div>
+        <div className="blue"></div>
+      </div>
+    </LoadingWrapper>
   ) : null
 }
 

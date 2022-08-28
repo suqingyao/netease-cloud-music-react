@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-26 08:20:33
- * @LastEditTime: 2022-08-27 15:01:44
+ * @LastEditTime: 2022-08-28 10:59:32
  * @LastEditors: cully fung
  * @Description:
  */
@@ -13,12 +13,14 @@ export const PlayBarWrapper = styled.div`
   right: 0;
   height: 50px;
   bottom: 50px;
-  background-color: #000;
+  background-color: #434343;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
   padding: 0 20px;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 1px #cfdef3;
   .action {
   }
   .cover {

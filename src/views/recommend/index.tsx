@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 10:53:26
- * @LastEditTime: 2022-08-27 11:25:36
+ * @LastEditTime: 2022-08-28 10:01:32
  * @LastEditors: cully fung
  * @Description:
  */
@@ -23,6 +23,7 @@ function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
   const [playlists, setPlaylists] = useState<Array<PlayList>>([])
   const [loadingVisible, setLoadingVisible] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     getBannerList().then(res => {
@@ -56,13 +57,6 @@ function Recommend() {
   }, [playlists, bannerList])
 
   const goPlaylist = (playlistId: string) => {
-    console.log(111)
-
-    const navigate = useNavigate()
-    console.log(
-      '🚀 ~ file: index.tsx ~ line 50 ~ goPlaylist ~ navigate',
-      navigate
-    )
     navigate(`/playlist/${playlistId}`, { replace: false })
   }
 

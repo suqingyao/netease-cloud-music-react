@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-19 23:32:04
- * @LastEditTime: 2022-08-27 10:46:26
+ * @LastEditTime: 2022-08-28 10:44:10
  * @LastEditors: cully fung
  * @Description:
  */
@@ -9,27 +9,31 @@ import PlayBar from '@/components/play-bar'
 import React, { useEffect, useState } from 'react'
 import AppMain from './components/app-main'
 import SearchBar from './components/search-bar'
-import TabBar, { TabItemProps } from './components/tab-bar'
+import TabBar from './components/tab-bar'
+import { TabItemProps } from './components/tab-bar/types'
 import TopBar from './components/top-bar'
 import { LayoutContainer } from './style'
 
 function Layout() {
-  const [tabList, setTabList] = useState<TabItemProps[]>([])
+  const [tabList, setTabList] = useState<Array<TabItemProps>>([])
 
   useEffect(() => {
     setTabList([
       {
-        icon: 'ri-netease-cloud-music-fill',
+        default: 'ri-netease-cloud-music-line',
+        active: 'ri-netease-cloud-music-fill',
         label: '推荐',
         path: '/recommend'
       },
       {
-        icon: 'ri-bar-chart-fill',
+        default: 'ri-bar-chart-line',
+        active: 'ri-bar-chart-fill',
         label: '排行榜',
         path: '/rank'
       },
       {
-        icon: 'ri-user-3-line',
+        default: 'ri-user-3-line',
+        active: 'ri-user-3-fill',
         label: '歌手',
         path: '/singer'
       }

@@ -1,3 +1,10 @@
+/*
+ * @Author: cully fung
+ * @Date: 2022-08-21 10:44:24
+ * @LastEditTime: 2022-08-28 11:05:22
+ * @LastEditors: cully fung
+ * @Description:
+ */
 import styled from 'styled-components'
 
 export const TopBarContainer = styled.div`
@@ -7,8 +14,8 @@ export const TopBarContainer = styled.div`
   left: 0;
   right: 0;
   height: 50px;
-  background-color: #000;
-  color: #d10000;
+  background-color: #434343;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;

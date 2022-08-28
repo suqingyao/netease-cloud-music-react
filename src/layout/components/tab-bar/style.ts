@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 18:34:43
- * @LastEditTime: 2022-08-27 11:04:44
+ * @LastEditTime: 2022-08-28 11:01:56
  * @LastEditors: cully fung
  * @Description:
  */
@@ -16,9 +16,7 @@ export const TabBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px 5px 0 0;
-  background-color: #000;
-  padding: 5px;
+  background-color: #434343;
   .tab-item {
     flex: 1;
     color: #ddd;
@@ -26,8 +24,9 @@ export const TabBarContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 2px;
     transition: all 0.2s;
+    text-decoration: none;
     i {
       font-size: 25px;
     }
@@ -36,18 +35,6 @@ export const TabBarContainer = styled.div`
     }
     &-active {
       color: #f00;
-      .icon {
-        border-radius: 50%;
-        background-color: #f00;
-        padding: 3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        i {
-          color: #fff;
-          font-size: 20px;
-        }
-      }
     }
   }
 `
