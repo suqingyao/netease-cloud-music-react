@@ -1,7 +1,7 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-20 12:10:05
- * @LastEditTime: 2022-08-28 17:39:44
+ * @LastEditTime: 2022-08-29 23:51:01
  * @LastEditors: cully fung
  * @Description:
  */
@@ -15,9 +15,9 @@ function TopBar(props: Props) {
   const { title } = props
   return (
     <TopBarContainer>
-      <i className=""></i>
+      <i className="ri-menu-line"></i>
       <h1>{title}</h1>
-      <i className=""></i>
+      <i className="ri-search-line"></i>
     </TopBarContainer>
   )
 }

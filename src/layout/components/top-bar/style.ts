@@ -1,13 +1,14 @@
 /*
  * @Author: cully fung
  * @Date: 2022-08-21 10:44:24
- * @LastEditTime: 2022-08-28 17:41:32
+ * @LastEditTime: 2022-08-29 23:48:23
  * @LastEditors: cully fung
  * @Description:
  */
 import styled from 'styled-components'
 
 export const TopBarContainer = styled.div`
+  padding: 0 15px;
   position: fixed;
   z-index: 999;
   top: 0;
