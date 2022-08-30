@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 function Playlist() {
@@ -7,6 +7,8 @@ function Playlist() {
 
   const param = useParams()
   console.log('🚀 ~ file: index.tsx ~ line 16 ~ Playlist ~ param', param)
+
+  useEffect(() => {}, [])
 
   return <div>Playlist</div>
 }

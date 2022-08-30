@@ -26,3 +26,35 @@ export function getTopPlaylist(
 export function getToplist() {
   return get('/toplist')
 }
+
+/**
+ * 获取歌单详情
+ * @param id 歌单id
+ * @param s 歌单最近收藏者，默认为8
+ * @returns
+ */
+export function getPlaylistDetail(params: { id: string; s?: number }) {
+  return get('/playlist/detail', params)
+}
+
+/**
+ * 获取歌单所有歌曲
+ * @param params
+ * @returns
+ */
+export function getPlaylistTrackAll(params: {
+  id: string
+  limit?: number
+  offset?: number
+}) {
+  return get('/playlist/track/all', params)
+}
+
+/**
+ * 歌单详情动态
+ * @param params
+ * @returns
+ */
+export function getPlaylistDetailDynamic(params: { id: string }) {
+  return get('/playlist/detail/dynamic', params)
+}

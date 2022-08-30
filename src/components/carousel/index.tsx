@@ -1,4 +1,4 @@
-import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
+import { Autoplay, Pagination, Scrollbar } from 'swiper'
 import { Banner, BannerList } from './type'
 import { CarouselContainer } from './style'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
@@ -11,7 +11,7 @@ function Carousel(props: SwiperProps & BannerList) {
   return (
     <CarouselContainer>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Autoplay, Pagination, Scrollbar]}
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >

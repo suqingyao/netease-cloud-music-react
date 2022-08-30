@@ -19,20 +19,24 @@ function Recommend() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getBannerList().then(res => {
-      const data = res.parseBody as BannerList
-      if (!isSuccessResponse(data)) {
-        console.log('error')
-      }
-      setBannerList(data.banners)
-    })
+    getBannerList()
+      .then(res => {
+        if (!isSuccessResponse(res)) {
+          return
+        }
+        const data = res.parseBody as BannerList
+        setBannerList(data.banners)
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
     getTopPlaylist()
       .then(res => {
-        const data = res.parseBody as any
-        if (!isSuccessResponse(data)) {
-          console.log('error')
+        if (!isSuccessResponse(res)) {
+          return
         }
+        const data = res.parseBody as any
         setPlaylists(data.playlists)
       })
       .catch(err => {
@@ -47,7 +51,7 @@ function Recommend() {
     } else {
       setLoadingVisible(false)
     }
-  }, [playlists, bannerList])
+  }, [playlists])
 
   const goPlaylist = (playlistId: string) => {
     navigate(`/playlist/${playlistId}`, { replace: false })

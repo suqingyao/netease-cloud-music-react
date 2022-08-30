@@ -13,10 +13,10 @@ function Rank() {
   function getTopList() {
     getToplist()
       .then(res => {
-        const data = res.parseBody as any
-        if (!isSuccessResponse(data)) {
+        if (!isSuccessResponse(res)) {
           return
         }
+        const data = res.parseBody as any
         console.log('🚀 ~ file: index.tsx ~ line 14 ~ getToplist ~ data', data)
         setList(data.list)
       })
