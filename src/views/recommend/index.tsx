@@ -10,7 +10,7 @@ import { getTopPlaylist } from '@/service/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { PlayList } from './types'
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -63,12 +63,14 @@ function Recommend() {
       <Card title="推荐歌单">
         <CardItem>
           {playlists.map(item => (
+            // <Link to={`/playlist/${item.id}`}>
             <Album
               key={item.id}
               img={item.coverImgUrl}
               title={item.name}
               onClick={() => goPlaylist(item.id)}
             />
+            // </Link>
           ))}
         </CardItem>
       </Card>

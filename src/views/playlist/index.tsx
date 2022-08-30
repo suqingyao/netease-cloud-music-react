@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react'
+import { getPlaylistTrackAll } from '@/service/playlist'
+import { isSuccessResponse } from '@/utils/is'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 function Playlist() {
-  const location = useLocation()
-  console.log('🚀 ~ file: index.tsx ~ line 13 ~ Playlist ~ location', location)
-
+  const [playlistId, setPlaylistId] = useState('')
   const param = useParams()
-  console.log('🚀 ~ file: index.tsx ~ line 16 ~ Playlist ~ param', param)
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    setPlaylistId(param.id || '')
+    getPlaylistTrackAll({ id: playlistId }).then(res => {
+      if (!isSuccessResponse(res)) {
+        return
+      }
+      const data = res.parseBody
+      console.log(
+        '🚀 ~ file: index.tsx ~ line 17 ~ getPlaylistTrackAll ~ data',
+        data
+      )
+    })
+  }, [])
 
   return <div>Playlist</div>
 }

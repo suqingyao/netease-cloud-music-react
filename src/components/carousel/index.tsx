@@ -15,8 +15,8 @@ function Carousel(props: SwiperProps & BannerList) {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
       >
-        {banners?.map(banner => (
-          <SwiperSlide key={banner.targetId}>
+        {banners?.map((banner, index) => (
+          <SwiperSlide key={index}>
             <img
               src={banner.imageUrl}
               alt={banner.typeTitle}

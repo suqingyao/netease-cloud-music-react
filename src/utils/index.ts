@@ -1,8 +1,11 @@
 export function ObjectToURLParams(params: any) {
   let obj = cleanObject(params)
-  return Object.keys(obj).reduce((pre, current) => {
-    return pre + `${current}=${obj[current]}`
-  }, '')
+  return (
+    '?' +
+    Object.keys(obj).reduce((pre, current) => {
+      return pre + `${current}=${obj[current]}`
+    }, '')
+  )
 }
 
 export function cleanObject(obj: any) {

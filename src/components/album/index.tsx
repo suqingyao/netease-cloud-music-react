@@ -6,9 +6,9 @@ interface Prop extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-function Album({ img, title }: Prop) {
+function Album({ img, title, ...reset }: Prop) {
   return (
-    <AlbumContainer>
+    <AlbumContainer {...reset}>
       <img src={img} alt={title} className="cover" />
       <span className="title">{title}</span>
     </AlbumContainer>
