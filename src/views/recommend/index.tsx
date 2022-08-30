@@ -1,24 +1,16 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-21 10:53:26
- * @LastEditTime: 2022-08-28 20:26:39
- * @LastEditors: cully fung
- * @Description:
- */
-
 import Album from '@/components/album'
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
-import {Banner, BannerList} from '@/components/carousel/type'
-import {getBannerList} from '@/service'
-import {getTopPlaylist} from '@/service/playlist'
-import {isSuccessResponse} from '@/utils/is'
-import {PlayList} from './types'
-import {CardItem, RecommendContainer} from './style'
-import {useEffect, useMemo, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
 import Loading from '@/components/loading'
 import React from 'react'
+import { Banner, BannerList } from '@/components/carousel/type'
+import { CardItem, RecommendContainer } from './style'
+import { getBannerList } from '@/service'
+import { getTopPlaylist } from '@/service/playlist'
+import { isSuccessResponse } from '@/utils/is'
+import { PlayList } from './types'
+import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -58,7 +50,7 @@ function Recommend() {
   }, [playlists, bannerList])
 
   const goPlaylist = (playlistId: string) => {
-    navigate(`/playlist/${playlistId}`, {replace: false})
+    navigate(`/playlist/${playlistId}`, { replace: false })
   }
 
   return (

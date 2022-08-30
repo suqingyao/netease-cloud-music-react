@@ -1,10 +1,3 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-21 18:34:43
- * @LastEditTime: 2022-08-28 17:38:17
- * @LastEditors: cully fung
- * @Description:
- */
 import styled from 'styled-components'
 
 export const Tabs = styled.div`

@@ -1,10 +1,3 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-26 08:20:33
- * @LastEditTime: 2022-08-28 10:59:32
- * @LastEditors: cully fung
- * @Description:
- */
 import styled from 'styled-components'
 
 export const PlayBarWrapper = styled.div`

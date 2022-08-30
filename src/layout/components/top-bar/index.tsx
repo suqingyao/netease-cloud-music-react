@@ -1,17 +1,7 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-20 12:10:05
- * @LastEditTime: 2022-08-29 23:51:01
- * @LastEditors: cully fung
- * @Description:
- */
 import { TopBarContainer } from './style'
+import { TopBarProps } from './types'
 
-interface Props {
-  title: string
-}
-
-function TopBar(props: Props) {
+function TopBar(props: TopBarProps) {
   const { title } = props
   return (
     <TopBarContainer>

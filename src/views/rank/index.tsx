@@ -1,17 +1,10 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-21 10:54:11
- * @LastEditTime: 2022-08-28 17:54:29
- * @LastEditors: cully fung
- * @Description:
- */
 import Album from '@/components/album'
+import Loading from '@/components/loading'
 import { getToplist } from '@/service/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { ListItem } from './types'
 import { RankContainer } from './style'
 import { useEffect, useState } from 'react'
-import Loading from '@/components/loading'
 
 function Rank() {
   const [list, setList] = useState<Array<ListItem>>([])

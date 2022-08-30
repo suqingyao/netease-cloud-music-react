@@ -1,11 +1,6 @@
 import React, { ReactNode } from 'react'
 import { TabPaneWrapper } from './style'
-
-interface TabPaneProps {
-  key: string
-  tab: ReactNode
-  children?: any
-}
+import { TabPaneProps } from './types'
 
 function TabPane({ key, tab, children }: TabPaneProps) {
   return (

@@ -1,12 +1,7 @@
 import { TabsWrapper } from './style'
+import { TabsProps } from './types'
 
-interface Props {
-  defaultActiveKey?: string
-  activeKey?: string
-  children?: any
-}
-
-function Tabs(props: Props) {
+function Tabs(props: TabsProps) {
   return (
     <TabsWrapper>
       <nav></nav>

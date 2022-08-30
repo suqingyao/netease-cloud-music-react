@@ -1,18 +1,11 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-21 00:29:16
- * @LastEditTime: 2022-08-28 23:14:36
- * @LastEditors: cully fung
- * @Description:
- */
-import React from 'react'
 import Layout from '@/layout/index'
 import Page404 from '@/views/error/Page404'
+import Playlist from '@/views/playlist'
 import Rank from '@/views/rank'
+import React from 'react'
 import Recommend from '@/views/recommend'
 import Singer from '@/views/singer'
 import { RouteObject, useRoutes } from 'react-router-dom'
-import Playlist from '@/views/playlist'
 
 const routeList: Array<RouteObject> = [
   {

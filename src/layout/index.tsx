@@ -1,18 +1,11 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-19 23:32:04
- * @LastEditTime: 2022-08-28 17:40:24
- * @LastEditors: cully fung
- * @Description:
- */
+import AppMain from './components/app-main'
 import PlayBar from '@/components/play-bar'
 import React, { useEffect, useState } from 'react'
-import AppMain from './components/app-main'
 import SearchBar from './components/search-bar'
 import TabBar from './components/tab-bar'
-import { TabItemProps } from './components/tab-bar/types'
 import TopBar from './components/top-bar'
 import { LayoutContainer } from './style'
+import { TabItemProps } from './components/tab-bar/types'
 
 function Layout() {
   const [tabList, setTabList] = useState<Array<TabItemProps>>([])

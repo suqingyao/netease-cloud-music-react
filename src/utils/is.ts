@@ -1,3 +1,4 @@
 export function isSuccessResponse(response: any) {
-  return response.code === 200
+  const result = response.parseBody
+  return result!.data?.code === 200
 }

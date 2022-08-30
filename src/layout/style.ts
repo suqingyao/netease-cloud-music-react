@@ -1,10 +1,3 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-20 12:13:20
- * @LastEditTime: 2022-08-28 11:12:19
- * @LastEditors: cully fung
- * @Description:
- */
 import styled from 'styled-components'
 
 export const LayoutContainer = styled.div`

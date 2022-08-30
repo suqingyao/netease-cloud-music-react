@@ -1,7 +1,7 @@
 import { ObjectToURLParams } from '.'
 
 const baseURL = import.meta.env.VITE_BASE_URL
-interface HttpResponse<T> extends Response {
+export interface HttpResponse<T> extends Response {
   parseBody?: T
 }
 

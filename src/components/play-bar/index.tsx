@@ -1,19 +1,12 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-26 07:18:16
- * @LastEditTime: 2022-08-27 15:03:14
- * @LastEditors: cully fung
- * @Description: 播放栏
- */
-import { PlayBarWrapper } from './style'
 import Back from '@/assets/back.svg'
 import BlackLogo from '@/assets/netease-logo-back.svg'
-import WhiteLogo from '@/assets/netease-logo-white.svg'
-import Sina from '@/assets/sina.svg'
 import Logo from '@/assets/wangyiyun.svg'
+import Sina from '@/assets/sina.svg'
 import Wechat from '@/assets/wechat.svg'
-import { useState } from 'react'
+import WhiteLogo from '@/assets/netease-logo-white.svg'
+import { PlayBarWrapper } from './style'
 import { PlayStatus } from './types'
+import { useState } from 'react'
 
 function PlayBar() {
   const [playStatus, setPlayStatus] = useState(PlayStatus.PAUSE)

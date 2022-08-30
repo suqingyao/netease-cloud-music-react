@@ -1,10 +1,9 @@
-import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
+import { A11y, Navigation, Pagination, Scrollbar } from 'swiper'
 import { Banner, BannerList } from './type'
 import { CarouselContainer } from './style'
+import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 function Carousel(props: SwiperProps & BannerList) {
   const { banners } = props

@@ -1,10 +1,3 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-26 09:18:17
- * @LastEditTime: 2022-08-26 09:26:00
- * @LastEditors: cully fung
- * @Description:
- */
 import { PlayMode } from '@/components/play-bar/types'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 

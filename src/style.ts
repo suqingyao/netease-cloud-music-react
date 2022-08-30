@@ -1,10 +1,3 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-28 17:01:55
- * @LastEditTime: 2022-08-28 17:07:42
- * @LastEditors: cully fung
- * @Description:
- */
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`

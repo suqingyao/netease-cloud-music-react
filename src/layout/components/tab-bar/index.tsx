@@ -1,13 +1,6 @@
-/*
- * @Author: cully fung
- * @Date: 2022-08-20 12:09:39
- * @LastEditTime: 2022-08-28 17:38:48
- * @LastEditors: cully fung
- * @Description:
- */
 import { NavLink } from 'react-router-dom'
-import { TabItem, Tabs } from './style'
 import { TabBarProps } from './types'
+import { TabItem, Tabs } from './style'
 
 function TabBar({ tabList }: TabBarProps) {
   return (
