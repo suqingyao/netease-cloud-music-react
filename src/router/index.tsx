@@ -6,11 +6,16 @@ import React from 'react'
 import Recommend from '@/views/recommend'
 import Singer from '@/views/singer'
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
+import Login from '@/views/login'
 
 const routeList: Array<RouteObject> = [
   {
     path: '/',
     element: <Navigate to="/recommend" />
+  },
+  {
+    path: '/login',
+    element: <Login />
   },
   {
     path: '/',

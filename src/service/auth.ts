@@ -7,7 +7,7 @@ import { LoginParams } from './types/login-params'
  * @returns
  */
 export function login(params: LoginParams) {
-  return request.post('/login/cellphone', { params })
+  return request.get('/login/cellphone', { params, withCredentials: true })
 }
 
 /**
