@@ -9,15 +9,10 @@ function Playlist() {
 
   useEffect(() => {
     setPlaylistId(param.id || '')
-    getPlaylistTrackAll({ id: playlistId }).then(res => {
+    getPlaylistTrackAll({ id: playlistId }).then((res: any) => {
       if (!isSuccessResponse(res)) {
         return
       }
-      const data = res
-      console.log(
-        '🚀 ~ file: index.tsx ~ line 17 ~ getPlaylistTrackAll ~ data',
-        data
-      )
     })
   }, [])
 
