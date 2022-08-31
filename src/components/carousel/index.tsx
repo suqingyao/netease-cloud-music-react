@@ -14,6 +14,7 @@ function Carousel(props: SwiperProps & BannerList) {
         modules={[Autoplay, Pagination, Scrollbar]}
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
+        loop
       >
         {banners?.map((banner, index) => (
           <SwiperSlide key={index}>

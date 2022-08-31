@@ -17,9 +17,6 @@ export const PlayBarWrapper = styled.div`
   .action {
   }
   .cover {
-    i {
-      font-size: 30px;
-    }
   }
   .song-info {
     display: flex;
