@@ -1,6 +1,10 @@
+import counterSlice from './slice/counterSlice'
+import playbarSlice from './slice/playbarSlice'
 import { configureStore } from '@reduxjs/toolkit'
-import playbar from './modules/playbar'
 
 export const store = configureStore({
-  reducer: playbar
+  reducer: {
+    counter: counterSlice,
+    playbar: playbarSlice
+  }
 })

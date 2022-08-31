@@ -16,7 +16,6 @@ function Rank() {
         if (!isSuccessResponse(res)) {
           return
         }
-        console.log('🚀 ~ file: index.tsx ~ line 14 ~ getToplist ~ data', data)
         setList(res.list)
       })
       .catch(err => {

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
@@ -8,6 +9,7 @@ export const counterSlice = createSlice({
     increment(state, action) {
       state.count += action.payload
     },
+
     decrement(state, { payload }) {
       state.count -= payload
     },
@@ -15,4 +17,6 @@ export const counterSlice = createSlice({
   }
 })
 
-createAsyncThunk('', {})
+export const { increment, decrement } = counterSlice.actions
+
+export default counterSlice.reducer

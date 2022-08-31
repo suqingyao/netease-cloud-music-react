@@ -20,9 +20,9 @@ request.interceptors.response.use(
     if (response.data.code !== 200) {
       return Promise.reject(response.data)
     }
-    return Promise.resolve(response.data)
+    return response.data
   },
-  error => {
+  async error => {
     return Promise.reject(error)
   }
 )

@@ -1,9 +1,41 @@
 import request from '@/utils/request'
+import { LoginParams } from './types/login-params'
 
-export function login(params: any) {
-  return request.post('/login', params)
+/**
+ * 手机登录
+ * @param params
+ * @returns
+ */
+export function login(params: LoginParams) {
+  return request.post('/login/cellphone', { params })
 }
 
-export function logout(params: any) {
-  return request.post('/logout', params)
+/**
+ * 退出登录
+ * @returns
+ */
+export function logout() {
+  return request.get('/logout')
+}
+
+/**
+ * 发送验证码
+ * @param params
+ * @returns
+ */
+export function sendCaptcha(params: { phone: string; ctcode?: string }) {
+  return request.get('/captcha/sent', { params })
+}
+
+/**
+ * 验证验证码
+ * @param params
+ * @returns
+ */
+export function verifyCaptcha(params: {
+  phone: string
+  captcha: string
+  ctcode?: string
+}) {
+  return request.get('/captcha/verify', { params })
 }

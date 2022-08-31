@@ -5,9 +5,13 @@ import Rank from '@/views/rank'
 import React from 'react'
 import Recommend from '@/views/recommend'
 import Singer from '@/views/singer'
-import { RouteObject, useRoutes } from 'react-router-dom'
+import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
 
 const routeList: Array<RouteObject> = [
+  {
+    path: '/',
+    element: <Navigate to="/recommend" />
+  },
   {
     path: '/',
     element: <Layout />,
