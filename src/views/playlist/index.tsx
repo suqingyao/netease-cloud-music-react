@@ -13,7 +13,7 @@ function Playlist() {
       if (!isSuccessResponse(res)) {
         return
       }
-      const data = res.parseBody
+      const data = res
       console.log(
         '🚀 ~ file: index.tsx ~ line 17 ~ getPlaylistTrackAll ~ data',
         data

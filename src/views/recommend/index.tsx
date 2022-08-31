@@ -20,24 +20,22 @@ function Recommend() {
 
   useEffect(() => {
     getBannerList()
-      .then(res => {
+      .then((res: any) => {
         if (!isSuccessResponse(res)) {
           return
         }
-        const data = res.parseBody as BannerList
-        setBannerList(data.banners)
+        setBannerList(res.banners)
       })
       .catch(err => {
         console.log(err)
       })
 
     getTopPlaylist()
-      .then(res => {
+      .then((res: any) => {
         if (!isSuccessResponse(res)) {
           return
         }
-        const data = res.parseBody as any
-        setPlaylists(data.playlists)
+        setPlaylists(res.playlists)
       })
       .catch(err => {
         console.log(err)

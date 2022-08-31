@@ -1,4 +1,4 @@
-import { get } from '@/utils/http'
+import request from '@/utils/request'
 
 /**
  * 搜索
@@ -6,7 +6,7 @@ import { get } from '@/utils/http'
  * @returns
  */
 export function searchByKeywords(params: { keywords: string; limit?: number }) {
-  return get('/cloudsearch', params)
+  return request.get('/cloudsearch', { params })
 }
 
 /**
@@ -14,7 +14,7 @@ export function searchByKeywords(params: { keywords: string; limit?: number }) {
  * @returns
  */
 export function getSearchDefault() {
-  return get('/search/default')
+  return request.get('/search/default')
 }
 
 /**
@@ -22,7 +22,7 @@ export function getSearchDefault() {
  * @returns
  */
 export function getSearchHot() {
-  return get('/search/hot')
+  return request.get('/search/hot')
 }
 
 /**
@@ -30,7 +30,7 @@ export function getSearchHot() {
  * @returns
  */
 export function getSearchHotDetail() {
-  return get('/search/hot/detail')
+  return request.get('/search/hot/detail')
 }
 
 /**
@@ -42,5 +42,5 @@ export function getSearchSuggest(params: {
   keywords: string
   type?: 'mobile'
 }) {
-  return get('/search/suggest', params)
+  return request.get('/search/suggest', { params })
 }

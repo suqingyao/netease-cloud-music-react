@@ -12,13 +12,12 @@ function Rank() {
 
   function getTopList() {
     getToplist()
-      .then(res => {
+      .then((res: any) => {
         if (!isSuccessResponse(res)) {
           return
         }
-        const data = res.parseBody as any
         console.log('🚀 ~ file: index.tsx ~ line 14 ~ getToplist ~ data', data)
-        setList(data.list)
+        setList(res.list)
       })
       .catch(err => {
         console.error('🚀 ~ file: index.tsx ~ line 21 ~ useEffect ~ err', err)

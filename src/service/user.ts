@@ -1,5 +1,5 @@
-import { get } from '@/utils/http'
+import request from '@/utils/request'
 
 export function userinfo() {
-  return get('/userinfo')
+  return request.get('/userinfo')
 }

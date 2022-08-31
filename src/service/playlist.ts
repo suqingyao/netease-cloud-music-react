@@ -1,13 +1,12 @@
-import { get } from '@/utils/http'
-
+import request from '@/utils/request'
 // 歌单分类
 export function getPlaylistCatlist() {
-  return get('/playlist/catlist')
+  return request.get('/playlist/catlist')
 }
 
 // 热门歌单分类
 export function getHotPlaylist() {
-  return get('/playlist/hot')
+  return request.get('/playlist/hot')
 }
 
 // 歌单 ( 网友精选碟 )
@@ -19,12 +18,12 @@ export function getTopPlaylist(
     offset?: number
   } = {}
 ) {
-  return get('/top/playlist', params)
+  return request.get('/top/playlist', { params })
 }
 
 // 所有榜单
 export function getToplist() {
-  return get('/toplist')
+  return request.get('/toplist')
 }
 
 /**
@@ -34,7 +33,7 @@ export function getToplist() {
  * @returns
  */
 export function getPlaylistDetail(params: { id: string; s?: number }) {
-  return get('/playlist/detail', params)
+  return request.get('/playlist/detail', { params })
 }
 
 /**
@@ -47,7 +46,7 @@ export function getPlaylistTrackAll(params: {
   limit?: number
   offset?: number
 }) {
-  return get('/playlist/track/all', params)
+  return request.get('/playlist/track/all', { params })
 }
 
 /**
@@ -56,5 +55,5 @@ export function getPlaylistTrackAll(params: {
  * @returns
  */
 export function getPlaylistDetailDynamic(params: { id: string }) {
-  return get('/playlist/detail/dynamic', params)
+  return request.get('/playlist/detail/dynamic', { params })
 }

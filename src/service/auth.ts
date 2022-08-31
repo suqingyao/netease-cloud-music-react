@@ -1,9 +1,9 @@
-import { get, post } from '@/utils/http'
+import request from '@/utils/request'
 
 export function login(params: any) {
-  return post('', params)
+  return request.post('/login', params)
 }
 
 export function logout(params: any) {
-  return post('/logout', params)
+  return request.post('/logout', params)
 }

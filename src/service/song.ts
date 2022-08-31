@@ -1,4 +1,4 @@
-import { get } from '@/utils/http'
+import request from '@/utils/request'
 
 /**
  * 获取音乐 url - 新版
@@ -9,7 +9,7 @@ export function getSongUrl(params: {
   id: string
   level?: 'standard' | 'exhigh' | 'lossless' | 'hires'
 }) {
-  return get('/song/url/v1', params)
+  return request.get('/song/url/v1', { params })
 }
 
 /**
@@ -18,5 +18,5 @@ export function getSongUrl(params: {
  * @returns
  */
 export function getCheckMusic(params: { id: string }) {
-  return get('/check/music', params)
+  return request.get('/check/music', { params })
 }

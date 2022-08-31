@@ -1,5 +1,5 @@
-import { get } from '@/utils/http'
+import request from '@/utils/request'
 
-export function getBannerList(params?: any) {
-  return get('/banner', params)
+export function getBannerList() {
+  return request.get('/banner')
 }
