@@ -1,8 +1,8 @@
 import { PlayMode } from '@/components/play-bar/types'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export const playbarSlice = createSlice({
-  name: 'playbar',
+export const player = createSlice({
+  name: 'player',
   initialState: {
     playMode: PlayMode.SEQUENTIAL
   },
@@ -13,6 +13,6 @@ export const playbarSlice = createSlice({
   }
 })
 
-export const { switchMode } = playbarSlice.actions
+export const { switchMode } = player.actions
 
-export default playbarSlice.reducer
+export default player.reducer
