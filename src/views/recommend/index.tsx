@@ -59,7 +59,7 @@ function Recommend() {
 
   return (
     <RecommendContainer>
-      <Scroll>
+      <Scroll onScroll={forceCheck}>
         <Carousel banners={bannerList} />
         <Card title="推荐歌单">
           <CardItem>

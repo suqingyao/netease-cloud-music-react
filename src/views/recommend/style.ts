@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const RecommendContainer = styled.div`
+  width: 100%;
+  overflow: hidden;
   /* &::-webkit-scrollbar {
     display: none;
   } */

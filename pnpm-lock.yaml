@@ -1,11 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@better-scroll/core': ^2.4.2
-  '@better-scroll/indicators': ^2.4.2
-  '@better-scroll/observe-dom': ^2.4.2
-  '@better-scroll/pull-down': ^2.4.2
-  '@better-scroll/pull-up': ^2.4.2
   '@reduxjs/toolkit': ^1.8.5
   '@types/node': ^18.7.6
   '@types/react': ^18.0.17
@@ -17,6 +12,7 @@ specifiers:
   '@vitejs/plugin-react': ^2.0.1
   autoprefixer: ^10.4.8
   axios: ^0.27.2
+  better-scroll: ^2.4.2
   browserslist: ^4.21.3
   eslint: ^8.22.0
   eslint-config-prettier: ^8.5.0
@@ -40,13 +36,9 @@ specifiers:
   vite: ^3.0.7
 
 dependencies:
-  '@better-scroll/core': 2.4.2
-  '@better-scroll/indicators': 2.4.2
-  '@better-scroll/observe-dom': 2.4.2
-  '@better-scroll/pull-down': 2.4.2
-  '@better-scroll/pull-up': 2.4.2
   '@reduxjs/toolkit': 1.8.5_react-redux@8.0.2+react@18.2.0
   axios: 0.27.2
+  better-scroll: 2.4.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-is: 18.2.0
@@ -384,8 +376,38 @@ packages:
       '@better-scroll/core': 2.4.2
     dev: false
 
+  /@better-scroll/infinity/2.4.2:
+    resolution: {integrity: sha512-KGpCWLTyMzcGBT59c3N/JaVauLmi0jG2YZApdnqON+Oz4AJiHnzGkzWc4EJxcxR3Vy+m5Jp91y6xrpsvRmOdIg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/mouse-wheel/2.4.2:
+    resolution: {integrity: sha512-dLc8vlYkSYN9AQEo4NDPQloPhscCV17TY98JUBcio4I2STDlYYIQqofqm1GQPfByfK9f057DnrcgZ/bPVx7PTA==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/movable/2.4.2:
+    resolution: {integrity: sha512-y4FbKx9FTUfAfM6wW+PCKA3CONc4nfjaE4N1ImGsIorzkSWV2eGO+LTD6FVv5+gVINI/o9Xj/gHmEJUaupUeSg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/nested-scroll/2.4.2:
+    resolution: {integrity: sha512-JnC2sqtDqVkj9F5J39u52b6qDsMqXbnURG67dHf97tYoYP2dluwjkvhhxjSFrghREoQzT/KWcDbkfcGy47lQwQ==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
   /@better-scroll/observe-dom/2.4.2:
     resolution: {integrity: sha512-eeS77CZs+V72dkya10e5ptndBAbhQVcXoYGvfoIihOJgCPqO5MdYTpzRmlbshYCEE5juUMLe82Kx8FSbOejpAw==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/observe-image/2.4.2:
+    resolution: {integrity: sha512-ToYVf5vn0cio5B9uaL5NyvFX3JNU6L0Po20Lw7uxa0+FE+kMvSAMJN+9POg6G+cfIqI8GVHhyyR+4Ev8v2Nl5Q==}
     dependencies:
       '@better-scroll/core': 2.4.2
     dev: false
@@ -402,8 +424,32 @@ packages:
       '@better-scroll/core': 2.4.2
     dev: false
 
+  /@better-scroll/scroll-bar/2.4.2:
+    resolution: {integrity: sha512-zZd0+sWfzTCXJeuA001o5bea7AvLYz7BCE7dolxFbPTIPnV5V5UEH8LLdXQ/HIwgxI0Pj9PoY9njSuhooh6lfg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
   /@better-scroll/shared-utils/2.4.2:
     resolution: {integrity: sha512-Gy/Jfbpu+hq0u+PcjkTqyXGqAf+0dexTzEZ5IDXEVwJVLmd3cx8A73oTcAZ8QZgk4wSHvlMjXecSaptkhnNPEw==}
+    dev: false
+
+  /@better-scroll/slide/2.4.2:
+    resolution: {integrity: sha512-VfdFHm/meo4nEyfx0JLn8rUHfQdQCnoBHs/BsV+vmjVivKg+cVgfS+QaytrIulWKqNAWNlfXbAaNtZMv8gNKZg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/wheel/2.4.2:
+    resolution: {integrity: sha512-oJw68glWbrYBbRK8RJnKo3Fw9bU7Cd4zDbBHbKZ062/YJAJUZW9wF/3Lout4PnolkjuJIp2TZiEgJNtuRd+Njg==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+    dev: false
+
+  /@better-scroll/zoom/2.4.2:
+    resolution: {integrity: sha512-rN/BTE3lf2sNNvKowGL/tUKZ/BgdZcZa0pjE/rVW0tBL/7x68cBowWQD5HF2Z2Bge8OPXRjkwN/xN1aFYhEtWA==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
     dev: false
 
   /@csstools/normalize.css/12.0.0:
@@ -1022,6 +1068,25 @@ packages:
   /balanced-match/1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: true
+
+  /better-scroll/2.4.2:
+    resolution: {integrity: sha512-I/JzJNUay2vMAkczBa/4x52QBdUGA3Bs/QtrKrxVjSbBHUMG6yR14srQr4aCAWlIra1FBmuddwGRfI6zRagI9Q==}
+    dependencies:
+      '@better-scroll/core': 2.4.2
+      '@better-scroll/indicators': 2.4.2
+      '@better-scroll/infinity': 2.4.2
+      '@better-scroll/mouse-wheel': 2.4.2
+      '@better-scroll/movable': 2.4.2
+      '@better-scroll/nested-scroll': 2.4.2
+      '@better-scroll/observe-dom': 2.4.2
+      '@better-scroll/observe-image': 2.4.2
+      '@better-scroll/pull-down': 2.4.2
+      '@better-scroll/pull-up': 2.4.2
+      '@better-scroll/scroll-bar': 2.4.2
+      '@better-scroll/slide': 2.4.2
+      '@better-scroll/wheel': 2.4.2
+      '@better-scroll/zoom': 2.4.2
+    dev: false
 
   /brace-expansion/1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
