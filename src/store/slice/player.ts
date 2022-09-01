@@ -4,15 +4,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 export const player = createSlice({
   name: 'player',
   initialState: {
-    playMode: PlayMode.SEQUENTIAL
+    playMode: PlayMode.SEQUENTIAL,
+    playStatus: false
   },
   reducers: {
-    switchMode(state, action: PayloadAction<PlayMode>) {
-      state.playMode = action.payload
+    changePlayMode(state, { payload }) {
+      state.playMode = payload
+    },
+    changePlayStatus(state) {
+      state.playStatus = !state.playStatus
     }
   }
 })
 
-export const { switchMode } = player.actions
+export const { changePlayMode, changePlayStatus } = player.actions
 
 export default player.reducer

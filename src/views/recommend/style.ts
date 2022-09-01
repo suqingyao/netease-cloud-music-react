@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const RecommendContainer = styled.div``
+export const RecommendContainer = styled.div`
+  /* &::-webkit-scrollbar {
+    display: none;
+  } */
+`
 
 export const CardItem = styled.div`
   display: grid;

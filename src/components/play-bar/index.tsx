@@ -7,19 +7,17 @@ import WhiteLogo from '@/assets/netease-logo-white.svg'
 import { PlayBarWrapper } from './style'
 import { PlayStatus } from './types'
 import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { changePlayStatus } from '@/store/slice/player'
 
 function PlayBar() {
-  const [playStatus, setPlayStatus] = useState(PlayStatus.PAUSE)
+  const dispatch = useAppDispatch()
+  console.log('🚀 ~ file: index.tsx ~ line 15 ~ PlayBar ~ dispatch', dispatch)
+  const selector = useAppSelector(state => state.player)
+  console.log('🚀 ~ file: index.tsx ~ line 17 ~ PlayBar ~ selector', selector)
 
-  // 播放
-  function play() {
-    console.log('🚀 ~ file: index.tsx ~ line 18 ~ play ~ play', play)
-    setPlayStatus(PlayStatus.PAUSE)
-  }
-  // 暂停
-  function pause() {
-    console.log('🚀 ~ file: index.tsx ~ line 21 ~ pause ~ pause', pause)
-    setPlayStatus(PlayStatus.PLAY)
+  const changeStatus = () => {
+    dispatch(changePlayStatus())
   }
 
   return (
@@ -33,10 +31,10 @@ function PlayBar() {
         <span className="song-info__singer">TANK</span>
       </div>
       <div className="action">
-        {playStatus === PlayStatus.PAUSE ? (
-          <i className="ri-play-circle-line" onClick={play}></i>
+        {!selector.playStatus ? (
+          <i className="ri-play-circle-line" onClick={changeStatus}></i>
         ) : (
-          <i className="ri-pause-circle-line" onClick={pause}></i>
+          <i className="ri-pause-circle-line" onClick={changeStatus}></i>
         )}
       </div>
       <i className="ri-play-list-2-fill"></i>

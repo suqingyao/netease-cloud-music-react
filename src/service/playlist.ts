@@ -57,3 +57,11 @@ export function getPlaylistTrackAll(params: {
 export function getPlaylistDetailDynamic(params: { id: string }) {
   return request.get('/playlist/detail/dynamic', { params })
 }
+
+/**
+ * 推荐歌单
+ * @returns
+ */
+export function getPersonalized() {
+  return request.get('/personalized')
+}

@@ -1,6 +1,7 @@
 export interface PlayList {
   id: string
-  coverImgUrl: string
+  picUrl: string
   name: string
+  playCount: number
   children?: React.ReactNode
 }
