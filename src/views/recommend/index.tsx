@@ -3,14 +3,16 @@ import Card from '@/components/card'
 import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
 import React from 'react'
-import { Banner, BannerList } from '@/components/carousel/type'
+import { Banner } from '@/components/carousel/type'
 import { CardItem, RecommendContainer } from './style'
 import { getBannerList } from '@/service'
-import { getTopPlaylist } from '@/service/playlist'
+import { getPersonalized } from '@/service/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { PlayList } from './types'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Scroll from '@/components/scroll'
+import { forceCheck } from 'react-lazyload'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -30,12 +32,12 @@ function Recommend() {
         console.log(err)
       })
 
-    getTopPlaylist()
+    getPersonalized()
       .then((res: any) => {
         if (!isSuccessResponse(res)) {
           return
         }
-        setPlaylists(res.playlists)
+        setPlaylists(res.result)
       })
       .catch(err => {
         console.log(err)
@@ -57,20 +59,23 @@ function Recommend() {
 
   return (
     <RecommendContainer>
-      <Carousel banners={bannerList} />
-      <Card title="推荐歌单">
-        <CardItem>
-          {playlists.map(item => (
-            <Album
-              key={item.id}
-              img={item.coverImgUrl}
-              title={item.name}
-              onClick={() => goPlaylist(item.id)}
-            />
-          ))}
-        </CardItem>
-      </Card>
-      <Loading visible={loadingVisible} />
+      <Scroll>
+        <Carousel banners={bannerList} />
+        <Card title="推荐歌单">
+          <CardItem>
+            {playlists.map(item => (
+              <Album
+                key={item.id}
+                img={item.picUrl}
+                title={item.name}
+                count={item.playCount}
+                onClick={() => goPlaylist(item.id)}
+              />
+            ))}
+          </CardItem>
+        </Card>
+        <Loading visible={loadingVisible} />
+      </Scroll>
     </RecommendContainer>
   )
 }
