@@ -43,7 +43,13 @@ function Album({ img, title, count, ...reset }: AlbumProp) {
   return (
     <AlbumContainer {...reset}>
       <LazyLoad
-        placeholder={<img width="100%" height="100%" src="/img/music.png" />}
+        placeholder={
+          <img
+            width="100%"
+            height="100%"
+            src="https://s4.music.126.net/style/web2/img/default/default_album.jpg"
+          />
+        }
       >
         <img src={img + '?param=300*300'} alt={title} className="cover" />
       </LazyLoad>

@@ -1,15 +1,11 @@
 import styled from 'styled-components'
 
-export const RecommendContainer = styled.div`
-  width: 100%;
-  height: 100%;
+export const RecommendWrapper = styled.div`
+  /* height: min-content; */
   overflow: hidden;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
 
-export const CardItem = styled.div`
+export const List = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;

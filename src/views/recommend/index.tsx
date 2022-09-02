@@ -3,7 +3,7 @@ import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
 import React from 'react'
 import { Banner } from '@/components/carousel/type'
-import { CardItem, RecommendContainer } from './style'
+import { List, RecommendWrapper } from './style'
 import { getBannerList } from '@/api'
 import { getPersonalized } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
@@ -60,11 +60,11 @@ function Recommend() {
   }
 
   return (
-    <RecommendContainer>
+    <RecommendWrapper>
       <Scroll direction="vertical" onScroll={forceCheck}>
         <Carousel banners={bannerList} />
         <Card title="推荐歌单">
-          <CardItem>
+          <List>
             {playlists.map(item => (
               <Album
                 key={item.id}
@@ -74,11 +74,11 @@ function Recommend() {
                 onClick={() => goPlaylist(item.id)}
               />
             ))}
-          </CardItem>
+          </List>
         </Card>
         <Loading visible={loadingVisible} />
       </Scroll>
-    </RecommendContainer>
+    </RecommendWrapper>
   )
 }
 
