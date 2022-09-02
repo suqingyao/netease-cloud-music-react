@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
-export const RecommendWrapper = styled.div`
-  /* height: min-content; */
-  overflow: hidden;
-`
+export const RecommendWrapper = styled.div``
 
 export const List = styled.div`
   display: grid;

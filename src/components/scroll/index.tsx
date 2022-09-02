@@ -84,7 +84,7 @@ const Scroll = forwardRef((props: Partial<ScrollProps>, ref) => {
         bScroll.scrollTo(0, 0)
       }
     },
-    getBScroll() {
+    getInstance() {
       if (bScroll) {
         return bScroll
       }
