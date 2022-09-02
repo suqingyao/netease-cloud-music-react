@@ -1,6 +1,6 @@
 import { TypedUseSelectorHook, useDispatch } from 'react-redux'
-import { login } from '@/service/auth'
-import { LoginParams } from '@/service/types/login-params'
+import { login } from '@/api/auth'
+import { LoginParams } from '@/api/types/login-params'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const loginUser = createAsyncThunk(

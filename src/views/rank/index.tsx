@@ -1,6 +1,5 @@
-import Album from '@/components/album'
 import Loading from '@/components/loading'
-import { getToplist } from '@/service/playlist'
+import { getToplist } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { ListItem } from './types'
 import { RankContainer } from './style'
@@ -33,9 +32,9 @@ function Rank() {
 
   return (
     <RankContainer>
-      {list.map(item => (
+      {/* {list.map(item => (
         <Album key={item.id} title={item.name} img={item.coverImgUrl}></Album>
-      ))}
+      ))} */}
       <Loading visible={loadingVisible} />
     </RankContainer>
   )

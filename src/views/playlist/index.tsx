@@ -1,4 +1,4 @@
-import { getPlaylistTrackAll } from '@/service/playlist'
+import { getPlaylistTrackAll } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'

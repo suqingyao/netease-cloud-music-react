@@ -1,4 +1,4 @@
-import { LoginParams } from '@/service/types/login-params'
+import { LoginParams } from '@/api/types/login-params'
 import { useAppDispatch } from '@/store'
 import { loginUser } from '@/store/slice/auth'
 import React, { FormEvent, useState } from 'react'

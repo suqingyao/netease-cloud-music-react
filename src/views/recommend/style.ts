@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const RecommendContainer = styled.div`
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  /* &::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none;
-  } */
+  }
 `
 
 export const CardItem = styled.div`

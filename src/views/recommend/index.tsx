@@ -1,18 +1,18 @@
-import Album from '@/components/album'
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
 import React from 'react'
 import { Banner } from '@/components/carousel/type'
 import { CardItem, RecommendContainer } from './style'
-import { getBannerList } from '@/service'
-import { getPersonalized } from '@/service/playlist'
+import { getBannerList } from '@/api'
+import { getPersonalized } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
 import { PlayList } from './types'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Scroll from '@/components/scroll'
 import { forceCheck } from 'react-lazyload'
+import Album from './components/Album'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -21,7 +21,9 @@ function Recommend() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getBannerList()
+    getBannerList({
+      type: 2
+    })
       .then((res: any) => {
         if (!isSuccessResponse(res)) {
           return
@@ -59,7 +61,7 @@ function Recommend() {
 
   return (
     <RecommendContainer>
-      <Scroll onScroll={forceCheck}>
+      <Scroll direction="vertical" onScroll={forceCheck}>
         <Carousel banners={bannerList} />
         <Card title="推荐歌单">
           <CardItem>

@@ -1,5 +1,5 @@
 import { PlayMode } from '@/components/play-bar/types'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export const player = createSlice({
   name: 'player',
