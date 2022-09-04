@@ -36,14 +36,15 @@ export const getCount = (count: number) => {
 }
 
 export function debounce(func: Function, wait: number) {
-  let timer: any
+  let timer: any = null
 
-  return function (...args: any) {
+  return (...args: any) => {
     if (timer) {
       clearTimeout(timer)
+      timer = null
     }
     timer = setTimeout(() => {
-      func.apply(this, args)
+      func.apply(null, args)
     }, wait)
   }
 }
