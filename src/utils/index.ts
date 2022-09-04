@@ -1,3 +1,9 @@
+/**
+ * 将obj对象转换为URL参数
+ * {name:'a',age:18} => ?name=a&age=18
+ * @param params
+ * @returns
+ */
 export function ObjectToURLParams(params: any) {
   let obj = cleanObject(params)
   return (
@@ -26,5 +32,18 @@ export const getCount = (count: number) => {
     return Math.floor(count / 1000) / 10 + '万'
   } else {
     return Math.floor(count / 10000000) / 10 + '亿'
+  }
+}
+
+export function debounce(func: Function, wait: number) {
+  let timer: any
+
+  return function (...args: any) {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, wait)
   }
 }

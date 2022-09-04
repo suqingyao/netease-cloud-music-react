@@ -1,6 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@better-scroll/core': ^2.4.2
+  '@better-scroll/observe-dom': ^2.4.2
+  '@better-scroll/pull-down': ^2.4.2
+  '@better-scroll/pull-up': ^2.4.2
   '@reduxjs/toolkit': ^1.8.5
   '@types/node': ^18.7.6
   '@types/react': ^18.0.17
@@ -36,6 +40,10 @@ specifiers:
   vite: ^3.0.7
 
 dependencies:
+  '@better-scroll/core': 2.4.2
+  '@better-scroll/observe-dom': 2.4.2
+  '@better-scroll/pull-down': 2.4.2
+  '@better-scroll/pull-up': 2.4.2
   '@reduxjs/toolkit': 1.8.5_react-redux@8.0.2+react@18.2.0
   axios: 0.27.2
   better-scroll: 2.4.2

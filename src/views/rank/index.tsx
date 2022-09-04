@@ -1,20 +1,18 @@
 import Loading from '@/components/loading'
 import { getToplist } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
-import { ListItem } from './types'
-import { RankContainer } from './style'
+import { List, ListItem, RankWrapper } from './style'
 import { useEffect, useState } from 'react'
+import Album from '../recommend/components/Album'
+import BetterScroll from '@/components/better-scroll'
 
 function Rank() {
-  const [list, setList] = useState<Array<ListItem>>([])
+  const [list, setList] = useState<Array<any>>([])
   const [loadingVisible, setLoadingVisible] = useState(false)
 
   function getTopList() {
     getToplist()
       .then((res: any) => {
-        if (!isSuccessResponse(res)) {
-          return
-        }
         setList(res.list)
       })
       .catch(err => {
@@ -31,12 +29,21 @@ function Rank() {
   }, [])
 
   return (
-    <RankContainer>
-      {/* {list.map(item => (
-        <Album key={item.id} title={item.name} img={item.coverImgUrl}></Album>
-      ))} */}
+    <RankWrapper>
+      <BetterScroll wrapHeight="calc(100vh - 150px)" direction={'vertical'}>
+        <List>
+          {list.map(item => (
+            <ListItem key={item.id}>
+              <div className="img-wrapper">
+                <img src={item.coverImgUrl} alt="cover" />
+              </div>
+              <span>{item.name}</span>
+            </ListItem>
+          ))}
+        </List>
+      </BetterScroll>
       <Loading visible={loadingVisible} />
-    </RankContainer>
+    </RankWrapper>
   )
 }
 
