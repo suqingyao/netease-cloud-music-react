@@ -5,6 +5,7 @@ import PullUp from '@better-scroll/pull-up'
 import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
 import { BScrollInstance, createBScroll } from '@better-scroll/core'
 import { ScrollContent, ScrollWrapper } from './style'
+import { debounce } from '@/utils'
 
 BScroll.use(ObserveDOM)
 BScroll.use(PullUp)
@@ -15,6 +16,7 @@ export interface ScrollProps {
   wrapWidth?: string
   direction: 'vertical' | 'horizontal'
   prop?: any
+  onScroll?: Function
   onPullUp?: Function
   onPullDown?: Function
   children?: ReactNode
@@ -24,6 +26,7 @@ const Scroll: FC<ScrollProps> = ({
   wrapHeight,
   wrapWidth,
   prop,
+  onScroll,
   onPullUp,
   onPullDown,
   direction,
@@ -41,6 +44,11 @@ const Scroll: FC<ScrollProps> = ({
       bs?.destroy()
     }
   }, [])
+
+  const scroll = () => {
+    onScroll && debounce(onScroll, 500)
+    console.log('🚀 ~ file: index.tsx ~ line 51 ~ scroll ~ scroll', scroll)
+  }
 
   const pullDown = async () => {
     onPullDown && (await onPullDown())
@@ -67,6 +75,8 @@ const Scroll: FC<ScrollProps> = ({
 
       bs?.off('pullingUp')
       bs?.once('pullingUp', pullUp)
+
+      bs?.on('scroll', scroll)
     } else {
       initRef.current = true
     }

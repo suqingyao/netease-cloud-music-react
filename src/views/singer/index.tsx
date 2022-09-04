@@ -4,29 +4,26 @@ import { getArtistList, getTopArtists } from '@/api/artist'
 import { List, ListItem, SingerWrapper } from './style'
 import { useEffect, useState } from 'react'
 import Scroll from '@/components/scroll'
+import LoadingV2 from '@/components/loadingv2'
 function Singer() {
   let [category, setCategory] = useState('')
   let [alpha, setAlpha] = useState('')
+  const [topForm, setTopForm] = useState({})
+  const [artistForm, setArtistForm] = useState({})
 
   let handleUpdateAlpha = (val: string) => {
-    console.log('🚀 ~ file: index.tsx ~ line 12 ~ handleUpdateAlpha ~ val', val)
     setAlpha(val)
   }
 
   let handleUpdateCategory = (val: string) => {
-    console.log(
-      '🚀 ~ file: index.tsx ~ line 17 ~ handleUpdateCategory ~ val',
-      val
-    )
     setCategory(val)
   }
 
   const [singerList, setSingerList] = useState([])
 
   useEffect(() => {
-    getTopArtists()
+    getTopArtists(topForm)
       .then((res: any) => {
-        console.log('🚀 ~ file: index.tsx ~ line 30 ~ useEffect ~ res', res)
         const artists = res.artists
         setSingerList(artists)
       })
@@ -36,10 +33,10 @@ function Singer() {
   }, [])
 
   useEffect(() => {
-    getArtistList().then(res => {
+    getArtistList(artistForm).then(res => {
       console.log('🚀 ~ file: index.tsx ~ line 38 ~ getArtistList ~ res', res)
     })
-  }, [])
+  }, [artistForm])
 
   return (
     <SingerWrapper>
@@ -73,6 +70,7 @@ function Singer() {
               </ListItem>
             )
           })}
+          <LoadingV2 />
         </List>
       </Scroll>
     </SingerWrapper>

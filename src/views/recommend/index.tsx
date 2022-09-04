@@ -61,7 +61,11 @@ function Recommend() {
 
   return (
     <RecommendWrapper>
-      <Scroll direction="vertical" wrapHeight="calc(100vh - 150px)">
+      <Scroll
+        direction="vertical"
+        wrapHeight="calc(100vh - 150px)"
+        onScroll={forceCheck}
+      >
         <Carousel banners={bannerList} />
         <Card title="推荐歌单">
           <List>

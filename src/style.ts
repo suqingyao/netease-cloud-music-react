@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-px2rem'
 
 export const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		padding: 0;
 		border: 0;
-		/* font-size: 100%; */
+		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
 	}
