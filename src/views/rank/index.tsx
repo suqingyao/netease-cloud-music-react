@@ -4,7 +4,7 @@ import { isSuccessResponse } from '@/utils/is'
 import { List, ListItem, RankWrapper } from './style'
 import { useEffect, useState } from 'react'
 import Album from '../recommend/components/Album'
-import BetterScroll from '@/components/better-scroll'
+import Scroll from '@/components/scroll'
 
 function Rank() {
   const [list, setList] = useState<Array<any>>([])
@@ -30,7 +30,7 @@ function Rank() {
 
   return (
     <RankWrapper>
-      <BetterScroll wrapHeight="calc(100vh - 150px)" direction={'vertical'}>
+      <Scroll wrapHeight="calc(100vh - 180px)" direction={'vertical'}>
         <List>
           {list.map(item => (
             <ListItem key={item.id}>
@@ -41,7 +41,7 @@ function Rank() {
             </ListItem>
           ))}
         </List>
-      </BetterScroll>
+      </Scroll>
       <Loading visible={loadingVisible} />
     </RankWrapper>
   )

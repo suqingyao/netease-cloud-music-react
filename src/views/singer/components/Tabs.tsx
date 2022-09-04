@@ -1,7 +1,7 @@
-import Scroll from '@/components/scroll'
 import React, { memo, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import style from '@/assets/global-style'
+import Scroll from '@/components/scroll'
 
 interface TabsProps {
   list: Array<any>
@@ -54,23 +54,21 @@ function Tabs(props: TabsProps) {
     categoryDom.style.width = `${totalWidth}px`
   }, [])
   return (
-    <Scroll direction={'horizontal'}>
-      <div ref={categoryRef}>
-        <List>
-          <span>{title}</span>
-          {list.map(item => {
-            return (
-              <ListItem
-                key={item.key}
-                className={`${oldVal === item.key ? 'selected' : ''}`}
-                onClick={() => handleClick(item.key)}
-              >
-                {item.name}
-              </ListItem>
-            )
-          })}
-        </List>
-      </div>
+    <Scroll direction={'horizontal'} wrapWidth="calc(100vw - 20px)">
+      <List ref={categoryRef}>
+        <span>{title}</span>
+        {list.map(item => {
+          return (
+            <ListItem
+              key={item.key}
+              className={`${oldVal === item.key ? 'selected' : ''}`}
+              onClick={() => handleClick(item.key)}
+            >
+              {item.name}
+            </ListItem>
+          )
+        })}
+      </List>
     </Scroll>
   )
 }

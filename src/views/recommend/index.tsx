@@ -1,18 +1,18 @@
+import Album from './components/Album'
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
 import React from 'react'
+import Scroll from '@/components/scroll'
 import { Banner } from '@/components/carousel/type'
-import { List, RecommendWrapper } from './style'
+import { forceCheck } from 'react-lazyload'
 import { getBannerList } from '@/api'
 import { getPersonalized } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
+import { List, RecommendWrapper } from './style'
 import { PlayList } from './types'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Scroll from '@/components/scroll'
-import { forceCheck } from 'react-lazyload'
-import Album from './components/Album'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
@@ -61,7 +61,7 @@ function Recommend() {
 
   return (
     <RecommendWrapper>
-      <Scroll direction="vertical" onScroll={forceCheck}>
+      <Scroll direction="vertical" wrapHeight="calc(100vh - 150px)">
         <Carousel banners={bannerList} />
         <Card title="推荐歌单">
           <List>

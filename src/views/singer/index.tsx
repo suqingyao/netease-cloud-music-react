@@ -1,9 +1,9 @@
-import Scroll from '@/components/scroll'
 import Tabs from './components/Tabs'
 import { alphaTypes, categoryTypes } from './types'
 import { getArtistList, getTopArtists } from '@/api/artist'
 import { List, ListItem, SingerWrapper } from './style'
 import { useEffect, useState } from 'react'
+import Scroll from '@/components/scroll'
 function Singer() {
   let [category, setCategory] = useState('')
   let [alpha, setAlpha] = useState('')
@@ -56,25 +56,25 @@ function Singer() {
         oldVal={alpha}
       ></Tabs>
 
-      {/* <Scroll> */}
-      <List>
-        {singerList.map((item: any) => {
-          return (
-            <ListItem key={item.id}>
-              <div className="img_wrapper">
-                <img
-                  src={`${item.picUrl}?param=300x300`}
-                  width="100%"
-                  height="100%"
-                  alt="music"
-                />
-              </div>
-              <span className="name">{item.name}</span>
-            </ListItem>
-          )
-        })}
-      </List>
-      {/* </Scroll> */}
+      <Scroll wrapHeight="calc(100vh - 240px)" direction={'vertical'}>
+        <List>
+          {singerList.map((item: any) => {
+            return (
+              <ListItem key={item.id}>
+                <div className="img_wrapper">
+                  <img
+                    src={`${item.picUrl}?param=300x300`}
+                    width="100%"
+                    height="100%"
+                    alt="music"
+                  />
+                </div>
+                <span className="name">{item.name}</span>
+              </ListItem>
+            )
+          })}
+        </List>
+      </Scroll>
     </SingerWrapper>
   )
 }

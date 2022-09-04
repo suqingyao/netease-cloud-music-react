@@ -1,106 +1,114 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState
-} from 'react'
-import { ScrollProps } from './types'
+import BScroll from '@better-scroll/core'
+import ObserveDOM from '@better-scroll/observe-dom'
+import PullDown from '@better-scroll/pull-down'
+import PullUp from '@better-scroll/pull-up'
+import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
+import { BScrollInstance, createBScroll } from '@better-scroll/core'
 import { ScrollContent, ScrollWrapper } from './style'
-import BScroll from 'better-scroll'
 
-const Scroll = forwardRef((props: Partial<ScrollProps>, ref) => {
-  const { direction, click, refresh, pullUpLoading, pullDownLoading, bounce } =
-    props
-  const { pullUp, pullDown, onScroll } = props
-  const [bScroll, setBScroll] = useState<any>()
+BScroll.use(ObserveDOM)
+BScroll.use(PullUp)
+BScroll.use(PullDown)
 
-  const scrollRef = useRef(null)
+export interface ScrollProps {
+  wrapHeight?: string
+  wrapWidth?: string
+  direction: 'vertical' | 'horizontal'
+  prop?: any
+  onPullUp?: Function
+  onPullDown?: Function
+  children?: ReactNode
+}
+
+const Scroll: FC<ScrollProps> = ({
+  wrapHeight,
+  wrapWidth,
+  prop,
+  onPullUp,
+  onPullDown,
+  direction,
+  children
+}) => {
+  const wrapRef = useRef<HTMLDivElement>(null)
+
+  const initRef = useRef(false)
+
+  const [bs, setBs] = useState<any>()
 
   useEffect(() => {
-    const scroll = new BScroll(scrollRef.current, {
-      scrollX: direction === 'horizontal',
-      scrollY: direction === 'vertical',
-      probeType: 3,
-      click: click || true,
-      bounce: bounce || { top: true, bottom: true }
-    })
-    setBScroll(scroll)
+    initBetterScroll()
     return () => {
-      setBScroll(null)
+      bs?.destroy()
     }
   }, [])
 
-  useEffect(() => {
-    if (!bScroll || !onScroll) return
-    bScroll.on('scroll', (scroll: any) => {
-      onScroll(scroll)
-    })
-    return () => {
-      bScroll.off('scroll')
-    }
-  }, [onScroll, bScroll])
+  const pullDown = async () => {
+    onPullDown && (await onPullDown())
+
+    setTimeout(() => {
+      bs?.finishPullDown()
+      bs?.refresh()
+    }, 500)
+  }
+
+  //  上拉加载
+  const pullUp = async () => {
+    onPullUp && (await onPullUp())
+    setTimeout(() => {
+      bs?.finishPullUp()
+      bs?.refresh()
+    }, 500)
+  }
 
   useEffect(() => {
-    if (!bScroll || !pullUp) return
-    bScroll.on('scrollEnd', () => {
-      // 判断是否滑动到了底部
-      if (bScroll.y <= bScroll.maxScrollY + 100) {
-        pullUp()
-      }
-    })
-    return () => {
-      bScroll.off('scrollEnd')
-    }
-  }, [pullUp, bScroll])
+    if (initRef.current === true) {
+      bs?.off('pullingDown')
+      bs?.once('pullingDown', pullDown)
 
-  useEffect(() => {
-    if (!bScroll || !pullDown) return
-    bScroll.on('touchEnd', (pos: any) => {
-      // 判断用户的下拉动作
-      if (pos.y > 50) {
-        pullDown()
-      }
-    })
-    return () => {
-      bScroll.off('touchEnd')
+      bs?.off('pullingUp')
+      bs?.once('pullingUp', pullUp)
+    } else {
+      initRef.current = true
     }
-  }, [pullDown, bScroll])
+  }, [prop])
 
-  useEffect(() => {
-    if (refresh && bScroll) {
-      console.log(
-        '🚀 ~ file: index.tsx ~ line 72 ~ useEffect ~ refresh',
-        refresh
-      )
-      bScroll.refresh()
-    }
-  })
-
-  useImperativeHandle(ref, () => ({
-    refresh() {
-      if (bScroll) {
-        bScroll.refresh()
-        bScroll.scrollTo(0, 0)
-      }
-    },
-    getInstance() {
-      if (bScroll) {
-        return bScroll
-      }
-    }
-  }))
+  const initBetterScroll = () => {
+    setBs(
+      createBScroll(wrapRef.current as HTMLDivElement, {
+        probeType: 3,
+        click: true,
+        observeDOM: true,
+        scrollY: direction === 'vertical',
+        scrollX: direction === 'horizontal',
+        useTransition: true,
+        pullDownRefresh: {
+          threshold: 70,
+          stop: 0
+        },
+        pullUpLoad: {
+          threshold: 90,
+          stop: 0
+        }
+      })
+    )
+  }
 
   return (
     <ScrollWrapper
-      ref={scrollRef}
-      className={direction === 'horizontal' ? 'nowrap' : ''}
+      ref={wrapRef}
+      style={{
+        height: wrapHeight,
+        width: wrapWidth,
+        display: direction === 'horizontal' ? 'inline-block' : ''
+      }}
     >
-      <ScrollContent className={direction === 'horizontal' ? 'horizontal' : ''}>
-        {props.children}
+      <ScrollContent
+        style={direction === 'horizontal' ? { display: 'inline-block' } : {}}
+      >
+        {children}
       </ScrollContent>
     </ScrollWrapper>
   )
-})
+}
 
 export default Scroll
