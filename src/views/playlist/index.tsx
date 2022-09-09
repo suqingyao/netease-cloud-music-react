@@ -1,11 +1,14 @@
 import { getPlaylistTrackAll } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
-import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
 function Playlist() {
   const [playlistId, setPlaylistId] = useState('')
   const param = useParams()
+  const [showStatus, setShowStatus] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setPlaylistId(param.id || '')
@@ -16,7 +19,16 @@ function Playlist() {
     })
   }, [])
 
-  return <div>Playlist</div>
+  return (
+    <CSSTransition
+      in={showStatus}
+      timeout={300}
+      className="fly"
+      appear={true}
+      unmountOnExit
+      onExited={navigate}
+    ></CSSTransition>
+  )
 }
 
 export default Playlist
