@@ -1,8 +1,10 @@
 import { getPlaylistTrackAll } from '@/api/playlist'
 import { isSuccessResponse } from '@/utils/is'
+import React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
+import { Wrapper } from './style'
 
 function Playlist() {
   const [playlistId, setPlaylistId] = useState('')
@@ -26,9 +28,13 @@ function Playlist() {
       className="fly"
       appear={true}
       unmountOnExit
-      onExited={navigate}
-    ></CSSTransition>
+      onExited={() => {
+        navigate(-1)
+      }}
+    >
+      <Wrapper></Wrapper>
+    </CSSTransition>
   )
 }
 
-export default Playlist
+export default React.memo(Playlist)

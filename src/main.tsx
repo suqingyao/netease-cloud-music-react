@@ -8,9 +8,9 @@ import 'remixicon/fonts/remixicon.css'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>
+  // <StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  // </StrictMode>
 )
