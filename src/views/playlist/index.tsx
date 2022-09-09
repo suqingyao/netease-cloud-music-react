@@ -14,11 +14,11 @@ function Playlist() {
 
   useEffect(() => {
     setPlaylistId(param.id || '')
-    getPlaylistTrackAll({ id: playlistId }).then((res: any) => {
-      if (!isSuccessResponse(res)) {
-        return
-      }
-    })
+    // getPlaylistTrackAll({ id: playlistId }).then((res: any) => {
+    //   if (!isSuccessResponse(res)) {
+    //     return
+    //   }
+    // })
   }, [])
 
   return (
@@ -32,7 +32,7 @@ function Playlist() {
         navigate(-1)
       }}
     >
-      <Wrapper></Wrapper>
+      <Wrapper>hello</Wrapper>
     </CSSTransition>
   )
 }

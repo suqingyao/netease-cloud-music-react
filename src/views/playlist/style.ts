@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: ${style['background-color']};
+  /* background-color: ${style['background-color']}; */
+  background-image: radial-gradient(#bdc3c7, #2c3e50);
   transform-origin: right bottom;
   &.fly-enter,
   &.fly-appear {
