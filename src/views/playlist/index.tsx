@@ -15,14 +15,12 @@ function Playlist() {
   const [showStatus, setShowStatus] = useState(true)
   const [playList, setPlayList] = useState({})
   const [songList, setSongList] = useState([])
-  // const [trackIds, setTrackIds] = useState('')
 
   useEffect(() => {
     getPlaylistDetail({
       id: param.id ?? ''
     }).then((res: any) => {
       setPlayList(res.playlist)
-      // setTrackIds(playList.trackIds.map((item: any) => item.id).join(','))
     })
   }, [])
 
