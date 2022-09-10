@@ -1,5 +1,5 @@
 import PlayBar from '@/components/play-bar'
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import Scroll from '@/components/scroll'
 import TopBar from '@/layout/components/top-bar'
 import { CSSTransition } from 'react-transition-group'
@@ -13,7 +13,7 @@ function Playlist() {
   const navigate = useNavigate()
   const param = useParams()
   const [showStatus, setShowStatus] = useState(true)
-  const [playList, setPlayList] = useState({})
+  const [playList, setPlayList] = useState({ trackIds: [] })
   const [songList, setSongList] = useState([])
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function Playlist() {
   }
 
   const handleScroll = () => {
-    console.log('🚀 ~ file: index.tsx ~ line 49 ~ handleScroll ~ e')
+    console.log('🚀 ~ file: index.tsx ~ line 49 ~ handleScroll')
   }
 
   return (
