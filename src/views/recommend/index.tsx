@@ -21,39 +21,29 @@ function Recommend() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getBannerList({
-      type: 2
-    })
-      .then((res: any) => {
-        if (!isSuccessResponse(res)) {
-          return
-        }
-        setBannerList(res.banners)
+    Promise.all([getBannerList({ type: 2 }), getPersonalized()])
+      .then(resArr => {
+        getBannerListResHandler(resArr[0])
+        getPersonalizedResHandler(resArr[1])
       })
       .catch(err => {
         console.log(err)
       })
-
-    getPersonalized()
-      .then((res: any) => {
-        if (!isSuccessResponse(res)) {
-          return
-        }
-        setPlaylists(res.result)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+      .finally(() => {})
   }, [])
 
-  // 监听数据是否加载完成，显示loading
-  useEffect(() => {
-    if (!playlists.length) {
-      setLoadingVisible(true)
-    } else {
-      setLoadingVisible(false)
+  const getBannerListResHandler = (res: any) => {
+    if (!isSuccessResponse(res)) {
+      return
     }
-  }, [playlists])
+    setBannerList(res.banners)
+  }
+  const getPersonalizedResHandler = (res: any) => {
+    if (!isSuccessResponse(res)) {
+      return
+    }
+    setPlaylists(res.result)
+  }
 
   const goPlaylist = (playlistId: string) => {
     navigate(`/playlist/${playlistId}`, { replace: false })

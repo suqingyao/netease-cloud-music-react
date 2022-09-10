@@ -1,14 +1,15 @@
-import { TopBarContainer } from './style'
+import { Wrapper } from './style'
 import { TopBarProps } from './types'
 
 function TopBar(props: TopBarProps) {
-  const { title } = props
+  const { leftSlot, centerSlot, rightSlot } = props
   return (
-    <TopBarContainer>
-      <i className="ri-menu-line"></i>
-      <h1>{title}</h1>
-      <i className="ri-search-line"></i>
-    </TopBarContainer>
+    <Wrapper>
+      {/* <i className="ri-menu-line"></i> */}
+      <div className="topbar-left">{leftSlot}</div>
+      <div className="topbar-center">{centerSlot}</div>
+      <div className="topbar-right">{rightSlot}</div>
+    </Wrapper>
   )
 }
 

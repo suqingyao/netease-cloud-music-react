@@ -6,24 +6,24 @@ const extendClick = () => {
       position: absolute;
       top: -10px; bottom: -10px; left: -10px; right: -10px;
     };
-  `;
-};
+  `
+}
 
 const noWrap = () => {
   return `
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-  `;
-};
+  `
+}
 
 const bgFull = () => {
   return `
     background-position: 50%;
     background-size: contain;
     background-repeat: no-repeat;
-  `;
-};
+  `
+}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -42,9 +42,10 @@ export default {
   'border-color-v2': 'rgba(228, 228, 228, 0.1)',
   'background-color': '#f2f3f4',
   'background-color-shadow': 'rgba(0, 0, 0, 0.3)',
+  'background-image': 'radial-gradient(#bdc3c7, #2c3e50)',
   'highlight-background-color': '#fff',
   'official-red': '#E82001',
   extendClick,
   noWrap,
-  bgFull,
-};
+  bgFull
+}

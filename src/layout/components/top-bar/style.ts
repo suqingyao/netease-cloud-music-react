@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-export const TopBarContainer = styled.div`
+export const Wrapper = styled.div`
   padding: 0 15px;
   position: fixed;
-  z-index: 999;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -14,8 +14,12 @@ export const TopBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  h1 {
-    font-size: 25px;
-    color: #f00;
+  font-size: 20px;
+  .topbar-left {
+  }
+  .topbar-center {
+    font-size: 20px;
+  }
+  .topbar-right {
   }
 `

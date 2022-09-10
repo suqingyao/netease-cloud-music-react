@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import SearchBar from './components/search-bar'
 import TabBar from './components/tab-bar'
 import TopBar from './components/top-bar'
-import { LayoutContainer } from './style'
+import { Wrapper } from './style'
 import { TabItemProps } from './components/tab-bar/types'
 
 function Layout() {
@@ -34,13 +34,17 @@ function Layout() {
   }, [])
 
   return (
-    <LayoutContainer>
-      <TopBar title="WebApp" />
+    <Wrapper>
+      <TopBar
+        leftSlot={<i className="ri-menu-line" />}
+        centerSlot={<h1>WebApp</h1>}
+        rightSlot={<i className="ri-search-line" />}
+      />
       {/* <SearchBar /> */}
       <AppMain />
       <PlayBar />
       <TabBar tabList={tabList} />
-    </LayoutContainer>
+    </Wrapper>
   )
 }
 

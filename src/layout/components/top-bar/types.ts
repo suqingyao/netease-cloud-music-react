@@ -1,3 +1,7 @@
+import { ReactNode } from 'react'
+
 export interface TopBarProps {
-  title: string
+  leftSlot?: ReactNode
+  centerSlot?: ReactNode
+  rightSlot?: ReactNode
 }
