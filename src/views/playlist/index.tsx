@@ -43,6 +43,10 @@ function Playlist() {
     setShowStatus(false)
   }
 
+  const handleScroll = () => {
+    console.log('🚀 ~ file: index.tsx ~ line 49 ~ handleScroll ~ e')
+  }
+
   return (
     <CSSTransition
       in={showStatus}
@@ -60,7 +64,11 @@ function Playlist() {
           }
           centerSlot={<h1>歌单</h1>}
         />
-        <Scroll direction={'vertical'} wrapHeight="calc(100vh - 100px)">
+        <Scroll
+          direction={'vertical'}
+          wrapHeight="calc(100vh - 100px)"
+          onScroll={handleScroll}
+        >
           <Header img={playList.coverImgUrl}>
             <div className="filter"></div>
             <div className="cover">

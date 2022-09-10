@@ -121,8 +121,7 @@ export const Header = styled.div`
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
-    /* width: 200px; */
-    padding: 10px 15px;
+    width: 200px;
     height: 40px;
     border-radius: 40px;
     display: flex;

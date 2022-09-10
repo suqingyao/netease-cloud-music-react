@@ -47,7 +47,6 @@ const Scroll: FC<ScrollProps> = ({
 
   const scroll = () => {
     onScroll && debounce(onScroll, 500)
-    console.log('🚀 ~ file: index.tsx ~ line 51 ~ scroll ~ scroll', scroll)
   }
 
   const pullDown = async () => {
