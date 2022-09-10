@@ -2,11 +2,16 @@ import styled from 'styled-components'
 import style from '@/assets/global-style'
 
 export const Wrapper = styled.div`
-  padding-top: 50px;
-  height: 100vh;
   z-index: 1000;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 50px 0;
   /* background-color: ${style['background-color']}; */
   background-image: ${style['background-image']};
+  overflow: hidden;
   &.appear {
     transform-origin: right bottom;
     transform: rotateZ(30deg) translate3d(100%, 0, 0);
@@ -30,13 +35,20 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   padding: 10px 15px;
   padding-bottom: 40px;
-  /* background-color: ${props => props.style?.backgroundColor}; */
   display: flex;
   align-items: center;
   gap: 5px;
-  /* overflow: hidden; */
   position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
+  .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${props => props.img});
+    background-size: cover;
+    filter: blur(5px);
+  }
   .cover {
     flex-shrink: 0;
     overflow: hidden;
@@ -63,12 +75,11 @@ export const Header = styled.div`
     }
   }
   .info {
-    flex-shrink: 0;
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+    position: relative;
     .title {
       color: #fff;
       display: -webkit-box;
@@ -98,8 +109,6 @@ export const Header = styled.div`
     .desc {
       font-size: 12px;
       color: #ddd;
-      /* width: 200px; */
-      /* width: 100%; */
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -112,7 +121,8 @@ export const Header = styled.div`
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
-    width: 200px;
+    /* width: 200px; */
+    padding: 10px 15px;
     height: 40px;
     border-radius: 40px;
     display: flex;
@@ -124,6 +134,7 @@ export const Header = styled.div`
       color: #fff;
       display: flex;
       align-items: center;
+      white-space: nowrap;
       gap: 2px;
       i {
         font-size: 20px;
@@ -131,6 +142,41 @@ export const Header = styled.div`
     }
   }
 `
-export const List = styled.ol``
+export const List = styled.ol`
+  background-color: #000;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 10px 0;
+`
 
-export const ListItem = styled.li``
+export const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  overflow: hidden;
+  .no {
+    color: #777;
+    font-size: 14px;
+  }
+  .song-info {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3px;
+    .name {
+      font-size: 14px;
+    }
+    .creator {
+      color: #888;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+`

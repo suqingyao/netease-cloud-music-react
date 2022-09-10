@@ -5,7 +5,7 @@ export const PlayBarWrapper = styled.div`
   left: 0;
   right: 0;
   height: 50px;
-  bottom: 50px;
+  bottom: ${props => props!.bottom};
   background-color: #434343;
   display: flex;
   justify-content: space-between;
@@ -27,6 +27,7 @@ export const PlayBarWrapper = styled.div`
     white-space: nowrap;
     gap: 3px;
     flex: 1;
+    color: #fff;
     &__title {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -38,7 +39,7 @@ export const PlayBarWrapper = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      color: #ddd;
+      color: #fff;
       font-size: 12px;
     }
   }

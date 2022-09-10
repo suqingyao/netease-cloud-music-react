@@ -65,3 +65,7 @@ export function getPlaylistDetailDynamic(params: { id: string }) {
 export function getPersonalized() {
   return request.get('/personalized')
 }
+
+export function getSongDetail(params: { ids: string }) {
+  return request.get(`/song/detail`, { params })
+}

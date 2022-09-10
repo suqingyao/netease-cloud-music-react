@@ -3,7 +3,11 @@ import { PlayBarWrapper } from './style'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { changePlayStatus } from '@/store/slice/player'
 
-function PlayBar() {
+interface PlayBarProps {
+  bottom: string
+}
+
+function PlayBar(props: PlayBarProps) {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(state => state.player)
 
@@ -12,13 +16,14 @@ function PlayBar() {
   }
 
   return (
-    <PlayBarWrapper>
+    <PlayBarWrapper bottom={props.bottom}>
       <div className="cover">
         <i className="ri-album-fill"></i>
         <img src="" alt="" />
       </div>
       <div className="song-info">
-        <span className="song-info__title">千年泪</span>-
+        <span className="song-info__title">千年泪</span>
+        <span>-</span>
         <span className="song-info__singer">TANK</span>
       </div>
       <div className="action">

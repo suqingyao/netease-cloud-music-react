@@ -42,7 +42,7 @@ function Layout() {
       />
       {/* <SearchBar /> */}
       <AppMain />
-      <PlayBar />
+      <PlayBar bottom="50px" />
       <TabBar tabList={tabList} />
     </Wrapper>
   )
