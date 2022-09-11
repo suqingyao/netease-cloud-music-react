@@ -1,11 +1,11 @@
 import { TabsWrapper } from './style'
 import { TabsProps } from './types'
 
-function Tabs(props: TabsProps) {
+function Tabs({ children }: TabsProps) {
   return (
     <TabsWrapper>
       <nav></nav>
-      {props.children}
+      {children}
     </TabsWrapper>
   )
 }
