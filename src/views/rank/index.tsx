@@ -1,10 +1,10 @@
 import Loading from '@/components/loading'
 import { getToplist } from '@/api/playlist'
-import { isSuccessResponse } from '@/utils/is'
-import { List, ListItem, RankWrapper } from './style'
-import { useEffect, useState } from 'react'
-import Album from '../recommend/components/Album'
+import { RankWrapper } from './style'
+import { useEffect, useMemo, useState } from 'react'
 import Scroll from '@/components/scroll'
+import OfficialRank from './components/OfficialRank'
+import GlobalRank from './components/GlobalRank'
 
 function Rank() {
   const [list, setList] = useState<Array<any>>([])
@@ -28,19 +28,21 @@ function Rank() {
     getTopList()
   }, [])
 
+  const officialList = useMemo(
+    () => list.filter(item => item.ToplistType),
+    [list]
+  )
+
+  const globalList = useMemo(
+    () => list.filter(item => !item.ToplistType),
+    [list]
+  )
+
   return (
     <RankWrapper>
       <Scroll wrapHeight="calc(100vh - 180px)" direction={'vertical'}>
-        <List>
-          {list.map(item => (
-            <ListItem key={item.id}>
-              <div className="img-wrapper">
-                <img src={item.coverImgUrl} alt="cover" />
-              </div>
-              <span>{item.name}</span>
-            </ListItem>
-          ))}
-        </List>
+        <OfficialRank list={officialList} />
+        <GlobalRank list={globalList} />
       </Scroll>
       <Loading visible={loadingVisible} />
     </RankWrapper>
