@@ -1,19 +1,20 @@
 import PlayBar from '@/components/play-bar'
-import React, { useMemo, useRef } from 'react'
+import React from 'react'
 import Scroll from '@/components/scroll'
 import TopBar from '@/layout/components/top-bar'
 import { CSSTransition } from 'react-transition-group'
 import { getCount } from '@/utils'
-import { getPlaylistDetail, getSongDetail } from '@/api/playlist'
+import { getPlaylistDetail } from '@/api/playlist'
 import { Header, List, ListItem, Wrapper } from './style'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Result, Playlist } from './types'
 
-function Playlist() {
+function PlayList() {
   const navigate = useNavigate()
   const param = useParams()
   const [showStatus, setShowStatus] = useState(true)
-  const [playList, setPlayList] = useState({ trackIds: [] })
+  const [playList, setPlayList] = useState<Playlist>(Object)
 
   useEffect(() => {
     getPlaylistDetail({
@@ -53,7 +54,7 @@ function Playlist() {
           wrapHeight="calc(100vh - 100px)"
           onScroll={handleScroll}
         >
-          <Header img={playList.coverImgUrl}>
+          <Header backgroundImage={playList.coverImgUrl}>
             <div className="filter"></div>
             <div className="cover">
               <img src={playList?.coverImgUrl} alt="cover" />
@@ -110,4 +111,4 @@ function Playlist() {
   )
 }
 
-export default React.memo(Playlist)
+export default React.memo(PlayList)

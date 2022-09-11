@@ -1,8 +1,7 @@
 import Layout from '@/layout/index'
 import Page404 from '@/views/error/Page404'
-import Playlist from '@/views/playlist'
+import PlayList from '@/views/playlist'
 import Rank from '@/views/rank'
-import React from 'react'
 import Recommend from '@/views/recommend'
 import Singer from '@/views/singer'
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
@@ -38,7 +37,7 @@ const routeList: Array<RouteObject> = [
   },
   {
     path: '/playlist/:id',
-    element: <Playlist />
+    element: <PlayList />
   },
   {
     path: '*',

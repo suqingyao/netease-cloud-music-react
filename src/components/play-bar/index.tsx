@@ -7,7 +7,7 @@ interface PlayBarProps {
   bottom: string
 }
 
-function PlayBar(props: PlayBarProps) {
+function PlayBar({ bottom }: PlayBarProps) {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(state => state.player)
 
@@ -16,7 +16,7 @@ function PlayBar(props: PlayBarProps) {
   }
 
   return (
-    <PlayBarWrapper bottom={props.bottom}>
+    <PlayBarWrapper bottom={bottom}>
       <div className="cover">
         <i className="ri-album-fill"></i>
         <img src="" alt="" />

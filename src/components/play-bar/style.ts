@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
+interface Props {
+  bottom: string
+}
+
 export const PlayBarWrapper = styled.div`
   position: fixed;
   left: 0;
   right: 0;
   height: 50px;
-  bottom: ${props => props!.bottom};
+  bottom: ${({ bottom }: Props) => bottom};
   background-color: #434343;
   display: flex;
   justify-content: space-between;

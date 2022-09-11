@@ -32,6 +32,10 @@ export const Wrapper = styled.div`
   }
 `
 
+interface HeaderProps {
+  backgroundImage: string
+}
+
 export const Header = styled.div`
   padding: 10px 15px;
   padding-bottom: 40px;
@@ -45,7 +49,8 @@ export const Header = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(${props => props.img});
+    background-image: url(${({ backgroundImage }: HeaderProps) =>
+      backgroundImage});
     background-size: cover;
     filter: blur(5px);
   }
