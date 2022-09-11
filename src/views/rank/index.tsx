@@ -1,5 +1,5 @@
 import Loading from '@/components/loading'
-import { getToplist } from '@/api/playlist'
+import { getToplist, getToplistDetail } from '@/api/playlist'
 import { RankWrapper } from './style'
 import { useEffect, useMemo, useState } from 'react'
 import Scroll from '@/components/scroll'
@@ -11,7 +11,7 @@ function Rank() {
   const [loadingVisible, setLoadingVisible] = useState(false)
 
   function getTopList() {
-    getToplist()
+    getToplistDetail()
       .then((res: any) => {
         setList(res.list)
       })

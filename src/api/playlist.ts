@@ -66,6 +66,20 @@ export function getPersonalized() {
   return request.get('/personalized')
 }
 
+/**
+ * 获取歌单详情
+ * @param params
+ * @returns
+ */
 export function getSongDetail(params: { ids: string }) {
   return request.get(`/song/detail`, { params })
+}
+
+/**
+ * 获取榜单内容摘要
+ * @param params
+ * @returns
+ */
+export function getToplistDetail(params?: any) {
+  return request.get(`/toplist/detail`, { params })
 }

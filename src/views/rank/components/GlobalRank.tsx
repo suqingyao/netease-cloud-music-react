@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const GlobalRankWrapper = styled.div`
@@ -36,12 +37,17 @@ interface GlobalRankProps {
 }
 
 function GlobalRank({ list }: GlobalRankProps) {
+  const navigate = useNavigate()
+
+  const goDetail = (id: string) => {
+    navigate(`/playlist/${id}`, { replace: false })
+  }
   return (
     <GlobalRankWrapper>
       <h1>全球榜</h1>
       <List>
         {list.map(item => (
-          <ListItem>
+          <ListItem key={item.id} onClick={() => goDetail(item.id)}>
             <div className="img-wrapper">
               <img src={item.coverImgUrl} alt="cover" />
             </div>

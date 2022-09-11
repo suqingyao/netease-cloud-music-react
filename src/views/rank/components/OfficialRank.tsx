@@ -1,5 +1,4 @@
-import { getSongDetail } from '@/api/playlist'
-import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface OfficialRankProps {
@@ -21,7 +20,8 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 10px;
   .img-wrapper {
     position: relative;
     width: 120px;
@@ -37,42 +37,50 @@ const ListItem = styled.li`
       left: 0;
       padding: 5px;
       color: #fff;
-      font-size: 12px;
+      font-size: 14px;
     }
   }
   .list {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    font-size: 12px;
+    font-size: 14px;
     color: #555;
+    overflow: hidden;
+    .item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 `
 
 function OfficialRank({ list }: OfficialRankProps) {
-  const [songList, setSongList] = useState([])
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    getSongDetail({
-      ids: list.map(item => item.id).join(',')
-    }).then((res: any) => {
-      setSongList(res.songlists)
-    })
-  }, [list])
-
+  const goDetail = (id: string) => {
+    navigate(`/playlist/${id}`, { replace: false })
+  }
   return (
     <OfficialRankWrapper>
       <h1>官方榜</h1>
       <List>
         {list.map(item => {
           return (
-            <ListItem key={item.id}>
+            <ListItem key={item.id} onClick={() => goDetail(item.id)}>
               <div className="img-wrapper">
                 <img src={item.coverImgUrl} alt="rank" />
                 <span>{item.updateFrequency}</span>
               </div>
-              <div className="list"></div>
+              <div className="list">
+                {item.tracks.map((item: any) => (
+                  <div className="item">
+                    {item.first}-{item.second}
+                  </div>
+                ))}
+              </div>
             </ListItem>
           )
         })}

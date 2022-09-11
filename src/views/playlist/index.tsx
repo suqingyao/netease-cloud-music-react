@@ -14,7 +14,6 @@ function Playlist() {
   const param = useParams()
   const [showStatus, setShowStatus] = useState(true)
   const [playList, setPlayList] = useState({ trackIds: [] })
-  const [songList, setSongList] = useState([])
 
   useEffect(() => {
     getPlaylistDetail({
@@ -23,21 +22,6 @@ function Playlist() {
       setPlayList(res.playlist)
     })
   }, [])
-
-  let trackIds = useMemo(
-    () => playList?.trackIds?.map((item: any) => item.id)?.join(','),
-    [playList]
-  )
-
-  useEffect(() => {
-    if (trackIds) {
-      getSongDetail({
-        ids: trackIds
-      }).then((res: any) => {
-        setSongList(res.songs)
-      })
-    }
-  }, [trackIds])
 
   const handleClick = () => {
     setShowStatus(false)
@@ -104,19 +88,20 @@ function Playlist() {
             </div>
           </Header>
           <List>
-            {songList.map((item, index) => {
-              return (
-                <ListItem key={item.id}>
-                  <span className="no">{index + 1}</span>
-                  <div className="song-info">
-                    <span className="name">{item.name}</span>
-                    <span className="creator">
-                      {item?.al?.name}-{item?.ar?.map(v => v.name)?.join('/')}
-                    </span>
-                  </div>
-                </ListItem>
-              )
-            })}
+            {playList.tracks &&
+              playList.tracks.map((item, index) => {
+                return (
+                  <ListItem key={item.id}>
+                    <span className="no">{index + 1}</span>
+                    <div className="song-info">
+                      <span className="name">{item.name}</span>
+                      <span className="creator">
+                        {item?.al?.name}-{item?.ar?.map(v => v.name)?.join('/')}
+                      </span>
+                    </div>
+                  </ListItem>
+                )
+              })}
           </List>
         </Scroll>
         <PlayBar bottom="0" />
