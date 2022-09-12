@@ -21,6 +21,13 @@ export const PlayBarWrapper = styled.div`
   .action {
   }
   .cover {
+    position: relative;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   .song-info {
     display: flex;
