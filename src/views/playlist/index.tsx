@@ -8,7 +8,7 @@ import { getPlaylistDetail } from '@/api/playlist'
 import { Header, List, ListItem, Wrapper } from './style'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Result, Playlist } from './types'
+import { Playlist } from './types'
 
 function PlayList() {
   const navigate = useNavigate()

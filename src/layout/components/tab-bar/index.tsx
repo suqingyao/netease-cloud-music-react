@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { TabBarProps } from './types'
 import { TabItem, Tabs } from './style'
+import React from 'react'
 
 function TabBar({ tabList }: TabBarProps) {
   return (
@@ -19,4 +20,4 @@ function TabBar({ tabList }: TabBarProps) {
   )
 }
 
-export default TabBar
+export default React.memo(TabBar)

@@ -7,9 +7,7 @@ interface FormProps {
 function Form({ children }: FormProps) {
   const submit = () => {}
 
-  function validate() {}
-
   return <form onSubmit={submit}>{children}</form>
 }
 
-export default Form
+export default React.memo(Form)

@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react'
 import { TabPaneWrapper } from './style'
 import { TabPaneProps } from './types'
 
