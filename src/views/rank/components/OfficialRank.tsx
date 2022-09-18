@@ -75,8 +75,8 @@ function OfficialRank({ list }: OfficialRankProps) {
                 <span>{item.updateFrequency}</span>
               </div>
               <div className="list">
-                {item.tracks.map((item: any) => (
-                  <div className="item">
+                {item.tracks.map((item: any, index: number) => (
+                  <div key={index} className="item">
                     {item.first}-{item.second}
                   </div>
                 ))}
