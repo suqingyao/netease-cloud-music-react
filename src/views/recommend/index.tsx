@@ -4,55 +4,31 @@ import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
 import React from 'react'
 import Scroll from '@/components/scroll'
-import { Banner } from '@/components/carousel/type'
 import { forceCheck } from 'react-lazyload'
-import { getBannerList } from '@/api'
-import { getPersonalized } from '@/api/playlist'
-import { isSuccessResponse } from '@/utils/is'
 import { List, RecommendWrapper } from './style'
-import { PlayList } from './types'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   getBannerListData,
   getRecommendListData
 } from '@/store/slice/recommend'
-import { useAppDispatch } from '@/store'
+import { useAppDispatch, useAppSelector } from '@/store'
 
 function Recommend() {
-  const [bannerList, setBannerList] = useState<Array<Banner>>([])
-  const [playlists, setPlaylists] = useState<Array<PlayList>>([])
   const [loadingVisible, setLoadingVisible] = useState(false)
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  const selector = useAppSelector(state => state.recommend)
 
   useEffect(() => {
+    setLoadingVisible(() => true)
     Promise.all([
       dispatch(getBannerListData()),
       dispatch(getRecommendListData())
-    ])
-      .then(resArr => {
-        getBannerListResHandler(resArr[0])
-        getPersonalizedResHandler(resArr[1])
-      })
-      .catch(err => {
-        console.log(err)
-      })
-      .finally(() => {})
+    ]).finally(() => {
+      setLoadingVisible(false)
+    })
   }, [])
-
-  const getBannerListResHandler = (res: any) => {
-    if (!isSuccessResponse(res)) {
-      return
-    }
-    setBannerList(res.banners)
-  }
-  const getPersonalizedResHandler = (res: any) => {
-    if (!isSuccessResponse(res)) {
-      return
-    }
-    setPlaylists(res.result)
-  }
 
   const goPlaylist = (playlistId: string) => {
     navigate(`/playlist/${playlistId}`, { replace: false })
@@ -65,10 +41,10 @@ function Recommend() {
         wrapHeight="calc(100vh - 150px)"
         onScroll={forceCheck}
       >
-        <Carousel banners={bannerList} />
+        <Carousel banners={selector.banners} />
         <Card title="推荐歌单">
           <List>
-            {playlists.map(item => (
+            {selector.recommendList.map((item: any) => (
               <Album
                 key={item.id}
                 img={item.picUrl}

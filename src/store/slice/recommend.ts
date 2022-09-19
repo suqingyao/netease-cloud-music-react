@@ -1,4 +1,4 @@
-import { Banner } from '@/components/carousel/type'
+import { Banner } from '../types'
 import { getPersonalized } from '@/api/playlist'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { getBannerList } from '@/api'
