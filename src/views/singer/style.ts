@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import style from '@/assets/global-style'
 export const SingerWrapper = styled.div`
-  /* display: flex; */
-  /* flex-direction: column; */
   padding: 10px 15px;
   box-sizing: border-box;
   position: fixed;

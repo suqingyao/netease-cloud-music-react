@@ -13,15 +13,24 @@ import { List, RecommendWrapper } from './style'
 import { PlayList } from './types'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  getBannerListData,
+  getRecommendListData
+} from '@/store/slice/recommend'
+import { useAppDispatch } from '@/store'
 
 function Recommend() {
   const [bannerList, setBannerList] = useState<Array<Banner>>([])
   const [playlists, setPlaylists] = useState<Array<PlayList>>([])
   const [loadingVisible, setLoadingVisible] = useState(false)
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    Promise.all([getBannerList({ type: 2 }), getPersonalized()])
+    Promise.all([
+      dispatch(getBannerListData()),
+      dispatch(getRecommendListData())
+    ])
       .then(resArr => {
         getBannerListResHandler(resArr[0])
         getPersonalizedResHandler(resArr[1])
