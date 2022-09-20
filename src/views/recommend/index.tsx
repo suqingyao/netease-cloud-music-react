@@ -28,7 +28,7 @@ function Recommend() {
     ]).finally(() => {
       setLoadingVisible(false)
     })
-  }, [])
+  }, [selector.banners.length, selector.recommendList.length])
 
   const goPlaylist = (playlistId: string) => {
     navigate(`/playlist/${playlistId}`, { replace: false })
