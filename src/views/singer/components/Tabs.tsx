@@ -53,7 +53,7 @@ function Tabs(props: TabsProps) {
     categoryDom.style.width = `${totalWidth}px`
   }, [])
   return (
-    <Scroll direction={'horizontal'} wrapWidth="calc(100vw - 20px)">
+    <Scroll direction={'horizontal'} wrapWidth="100%">
       <List ref={categoryRef}>
         <span>{title}</span>
         {list.map(item => {

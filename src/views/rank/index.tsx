@@ -1,31 +1,31 @@
 import Loading from '@/components/loading'
-import { getToplist, getToplistDetail } from '@/api/playlist'
+import { getToplistDetail } from '@/api/playlist'
 import { RankWrapper } from './style'
 import { useEffect, useMemo, useState } from 'react'
 import Scroll from '@/components/scroll'
 import OfficialRank from './components/OfficialRank'
 import GlobalRank from './components/GlobalRank'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { getRankListData } from '@/store/slice/rank'
 
 function Rank() {
   const [list, setList] = useState<Array<any>>([])
   const [loadingVisible, setLoadingVisible] = useState(false)
 
-  function getTopList() {
-    getToplistDetail()
-      .then((res: any) => {
-        setList(res.list)
-      })
-      .catch(err => {
-        console.error('🚀 ~ file: index.tsx ~ line 21 ~ useEffect ~ err', err)
-      })
-      .finally(() => {
-        setLoadingVisible(false)
-      })
-  }
-
+  const dispatch = useAppDispatch()
+  const selector = useAppSelector(state => state.rank)
   useEffect(() => {
     setLoadingVisible(true)
-    getTopList()
+    !(async () => {
+      try {
+        await dispatch(getRankListData())
+        setList(selector.list)
+      } catch (err) {
+        console.log(err)
+      } finally {
+        setLoadingVisible(false)
+      }
+    })()
   }, [])
 
   const officialList = useMemo(
