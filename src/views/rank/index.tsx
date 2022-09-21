@@ -1,12 +1,11 @@
-import Loading from '@/components/loading'
-import { getToplistDetail } from '@/api/playlist'
-import { RankWrapper } from './style'
-import { useEffect, useMemo, useState } from 'react'
-import Scroll from '@/components/scroll'
-import OfficialRank from './components/OfficialRank'
 import GlobalRank from './components/GlobalRank'
-import { useAppDispatch, useAppSelector } from '@/store'
+import Loading from '@/components/loading'
+import OfficialRank from './components/OfficialRank'
+import Scroll from '@/components/scroll'
 import { getRankListData } from '@/store/slice/rank'
+import { RankWrapper } from './style'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { useEffect, useMemo, useState } from 'react'
 
 function Rank() {
   const [list, setList] = useState<Array<any>>([])
