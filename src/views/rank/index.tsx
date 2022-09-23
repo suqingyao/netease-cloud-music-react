@@ -25,7 +25,7 @@ function Rank() {
         setLoadingVisible(false)
       }
     })()
-  }, [])
+  }, [list.length])
 
   const officialList = useMemo(
     () => list.filter(item => item.ToplistType),

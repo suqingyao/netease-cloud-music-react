@@ -1,7 +1,5 @@
-import React from 'react'
-import style from './index.module.css'
-function LoadingV2() {
-  return <div className={style.wrapper}>LoadingV2</div>
-}
+import LoadingV2 from './LoadingV2'
 
-export default LoadingV2
+export default {
+  LoadingV2
+}
