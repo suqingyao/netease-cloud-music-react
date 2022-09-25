@@ -11,3 +11,6 @@ export function isEmpty<T>(obj: T) {
   }
   return true
 }
+
+export const isVoid = (value: unknown) =>
+  value === null || value === undefined || value === ''

@@ -5,3 +5,7 @@ export const useMount = (callback: () => void) => {
     callback()
   }, [])
 }
+
+export const useAsync = <P>(promise: Promise<P>) => {
+  return {}
+}

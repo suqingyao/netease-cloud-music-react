@@ -1,7 +1,7 @@
 import { LoginParams } from '@/api/types/login-params'
 import { useAppDispatch } from '@/store'
 import { loginUser } from '@/store/slice/auth'
-import React, { FormEvent, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Form, LoginBtn, LoginWrapper } from './style'
 
 function Login() {
@@ -14,7 +14,6 @@ function Login() {
 
   const login = (e: FormEvent) => {
     e.preventDefault()
-    console.log('🚀 ~ file: index.tsx ~ line 10 ~ Login ~ form', form)
     dispatch(loginUser(form))
   }
 
