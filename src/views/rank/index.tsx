@@ -1,11 +1,12 @@
-import GlobalRank from './components/GlobalRank'
 import Loading from '@/components/loading'
-import OfficialRank from './components/OfficialRank'
 import Scroll from '@/components/scroll'
-import { getRankListData } from '@/store/slice/rank'
-import { RankWrapper } from './style'
+import { useMount } from '@/hooks'
 import { useAppDispatch, useAppSelector } from '@/store'
-import { useEffect, useMemo, useState } from 'react'
+import { getRankListData } from '@/store/slice/rank'
+import { useMemo, useState } from 'react'
+import GlobalRank from './components/GlobalRank'
+import OfficialRank from './components/OfficialRank'
+import { RankWrapper } from './style'
 
 function Rank() {
   const [list, setList] = useState<Array<any>>([])
@@ -13,7 +14,8 @@ function Rank() {
 
   const dispatch = useAppDispatch()
   const selector = useAppSelector(state => state.rank)
-  useEffect(() => {
+
+  useMount(() => {
     setLoadingVisible(true)
     !(async () => {
       try {
@@ -25,7 +27,7 @@ function Rank() {
         setLoadingVisible(false)
       }
     })()
-  }, [list.length])
+  })
 
   const officialList = useMemo(
     () => list.filter(item => item.ToplistType),
