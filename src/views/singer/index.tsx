@@ -1,12 +1,12 @@
 import LoadingV2 from '@/components/loadingv2/LoadingV2'
 import Scroll from '@/components/scroll'
-import Tabs from './components/Tabs'
-import { alphaTypes, categoryTypes } from './types'
-import { getArtistList } from '@/api/artist'
-import { getTopArtistsData } from '@/store/slice/singer'
-import { List, ListItem, SingerWrapper } from './style'
+import { useMount } from '@/hooks'
 import { useAppDispatch, useAppSelector } from '@/store'
-import { useEffect, useState } from 'react'
+import { getTopArtistsData } from '@/store/slice/singer'
+import { useMemo, useState } from 'react'
+import Tabs from './components/Tabs'
+import { List, ListItem, SingerWrapper } from './style'
+import { alphaTypes, categoryTypes } from './types'
 function Singer() {
   let [category, setCategory] = useState('')
   let [alpha, setAlpha] = useState('')
@@ -24,18 +24,11 @@ function Singer() {
     setCategory(val)
   }
 
-  const [singerList, setSingerList] = useState([])
+  const singerList = useMemo(() => selector.artists, [])
 
-  useEffect(() => {
-    !(async () => {
-      await dispatch(getTopArtistsData(topForm))
-      setSingerList(selector.artists)
-    })()
-  }, [singerList.length])
-
-  useEffect(() => {
-    getArtistList(artistForm).then(res => {})
-  }, [artistForm])
+  useMount(() => {
+    dispatch(getTopArtistsData(topForm))
+  })
 
   return (
     <SingerWrapper>

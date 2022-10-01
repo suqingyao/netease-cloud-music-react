@@ -1,18 +1,18 @@
-import Album from './components/Album'
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
 import Loading from '@/components/loading'
-import React from 'react'
 import Scroll from '@/components/scroll'
-import { forceCheck } from 'react-lazyload'
-import { List, RecommendWrapper } from './style'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useMount } from '@/hooks'
+import { useAppDispatch, useAppSelector } from '@/store'
 import {
   getBannerListData,
   getRecommendListData
 } from '@/store/slice/recommend'
-import { useAppDispatch, useAppSelector } from '@/store'
+import React, { useState } from 'react'
+import { forceCheck } from 'react-lazyload'
+import { useNavigate } from 'react-router-dom'
+import Album from './components/Album'
+import { List, RecommendWrapper } from './style'
 
 function Recommend() {
   const [loadingVisible, setLoadingVisible] = useState(false)
@@ -20,15 +20,10 @@ function Recommend() {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(state => state.recommend)
 
-  useEffect(() => {
-    setLoadingVisible(() => true)
-    Promise.all([
-      dispatch(getBannerListData()),
-      dispatch(getRecommendListData())
-    ]).finally(() => {
-      setLoadingVisible(false)
-    })
-  }, [selector.banners.length, selector.recommendList.length])
+  useMount(() => {
+    dispatch(getBannerListData())
+    dispatch(getRecommendListData())
+  })
 
   const goPlaylist = (playlistId: string) => {
     navigate(`/playlist/${playlistId}`, { replace: false })
