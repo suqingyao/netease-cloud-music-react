@@ -1,9 +1,8 @@
-import LoadingV2 from '@/components/loadingv2/LoadingV2'
 import Scroll from '@/components/scroll'
 import { useMount } from '@/hooks'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { getTopArtistsData } from '@/store/slice/singer'
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import Tabs from './components/Tabs'
 import { List, ListItem, SingerWrapper } from './style'
 import { alphaTypes, categoryTypes } from './types'
@@ -23,8 +22,6 @@ function Singer() {
   let handleUpdateCategory = (val: string) => {
     setCategory(val)
   }
-
-  const singerList = useMemo(() => selector.artists, [])
 
   useMount(() => {
     dispatch(getTopArtistsData(topForm))
@@ -47,7 +44,7 @@ function Singer() {
 
       <Scroll wrapHeight="calc(100vh - 240px)" direction={'vertical'}>
         <List>
-          {singerList.map((item: any) => {
+          {selector.artists.map((item: any) => {
             return (
               <ListItem key={item.id}>
                 <div className="img_wrapper">
@@ -62,7 +59,6 @@ function Singer() {
               </ListItem>
             )
           })}
-          <LoadingV2 visible={false} />
         </List>
       </Scroll>
     </SingerWrapper>
