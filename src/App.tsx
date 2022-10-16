@@ -1,11 +1,9 @@
-import { BrowserRouter } from 'react-router-dom'
-import { GlobalStyle } from './style'
 import Views from '@/router'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
     <BrowserRouter>
-      <GlobalStyle />
       <Views />
     </BrowserRouter>
   )

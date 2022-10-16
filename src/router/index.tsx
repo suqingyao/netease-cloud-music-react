@@ -1,11 +1,11 @@
 import Layout from '@/layout/index'
-import Page404 from '@/views/error/Page404'
-import PlayList from '@/views/playlist'
-import Rank from '@/views/rank'
-import Recommend from '@/views/recommend'
-import Singer from '@/views/singer'
+import Page404 from '@/pages/error/Page404'
+import Login from '@/pages/login'
+import PlayList from '@/pages/playlist'
+import Rank from '@/pages/rank'
+import Recommend from '@/pages/recommend'
+import Singer from '@/pages/singer'
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
-import Login from '@/views/login'
 
 const routeList: Array<RouteObject> = [
   {
@@ -45,6 +45,4 @@ const routeList: Array<RouteObject> = [
   }
 ]
 
-const Views = () => useRoutes(routeList)
-
-export default Views
+export default () => useRoutes(routeList)
