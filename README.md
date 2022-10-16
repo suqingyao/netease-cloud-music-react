@@ -1,10 +1,7 @@
-# 本项目使用公开的网易云音乐接口，部署在 vercel
+# Usage
 
-# 技术栈
+```bash
+pnpm i
 
-- vite
-- react
-- ts
-- swiper
-- better-scroll
-- style-components
+pnpm dev
+```
