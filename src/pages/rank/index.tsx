@@ -16,12 +16,12 @@ function Rank() {
   })
 
   const officialList = useMemo(
-    () => selector.list.filter(item => item.ToplistType),
+    () => selector.list.filter((item: any) => item.ToplistType),
     [selector.list]
   )
 
   const globalList = useMemo(
-    () => selector.list.filter(item => !item.ToplistType),
+    () => selector.list.filter((item: any) => !item.ToplistType),
     [selector.list]
   )
 

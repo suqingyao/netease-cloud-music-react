@@ -14,6 +14,7 @@ export const rank = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(getRankListData.fulfilled, (state, { payload }) => {
+      // @ts-ignore
       state.list = payload.list
     })
   }

@@ -1,4 +1,4 @@
-import { getArtistList, getTopArtists } from '@/api/artist'
+import { getTopArtists } from '@/api/artist'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 interface ApiTopArtists {
@@ -31,6 +31,7 @@ export const singer = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(getTopArtistsData.fulfilled, (state, { payload }) => {
+      // @ts-ignore
       state.artists = payload.artists
     })
   }

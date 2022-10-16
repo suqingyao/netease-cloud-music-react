@@ -34,10 +34,12 @@ export const recommend = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getBannerListData.fulfilled, (state, { payload }) => {
-        state.banners = payload.banners ?? []
+        // @ts-ignore
+        state.banners = payload.banners || []
       })
       .addCase(getRecommendListData.fulfilled, (state, { payload }) => {
-        state.recommendList = payload.result ?? []
+        // @ts-ignore
+        state.recommendList = payload.result || []
       })
   }
 })
