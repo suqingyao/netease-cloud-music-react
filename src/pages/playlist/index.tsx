@@ -5,7 +5,6 @@ import TopBar from '@/layout/components/top-bar'
 import { CSSTransition } from 'react-transition-group'
 import { getCount } from '@/utils'
 import { getPlaylistDetail } from '@/api/playlist'
-import { Header, List, ListItem, Wrapper } from './style'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Playlist } from './types'
@@ -42,10 +41,10 @@ function PlayList() {
         navigate(-1)
       }}
     >
-      <Wrapper>
+      <div>
         <TopBar
           leftSlot={
-            <i className="ri-arrow-left-s-line" onClick={handleClick}></i>
+            <i className="i-ri-arrow-left-s-line" onClick={handleClick}></i>
           }
           centerSlot={<h1>歌单</h1>}
         />
@@ -54,7 +53,7 @@ function PlayList() {
           wrapHeight="calc(100vh - 100px)"
           onScroll={handleScroll}
         >
-          <Header backgroundImage={playList.coverImgUrl}>
+          <div backgroundImage={playList.coverImgUrl}>
             <div className="filter"></div>
             <div className="cover">
               <img src={playList?.coverImgUrl} alt="cover" />
@@ -87,8 +86,8 @@ function PlayList() {
                 {getCount(playList?.shareCount)}
               </span>
             </div>
-          </Header>
-          <List>
+          </div>
+          <div>
             {playList.tracks &&
               playList.tracks.map((item, index) => {
                 return (
@@ -103,10 +102,10 @@ function PlayList() {
                   </ListItem>
                 )
               })}
-          </List>
+          </div>
         </Scroll>
         <PlayBar bottom="0" />
-      </Wrapper>
+      </div>
     </CSSTransition>
   )
 }

@@ -5,7 +5,6 @@ import { getRankListData } from '@/store/slice/rank'
 import { useMemo } from 'react'
 import GlobalRank from './components/GlobalRank'
 import OfficialRank from './components/OfficialRank'
-import { RankWrapper } from './style'
 
 function Rank() {
   const dispatch = useAppDispatch()
@@ -26,12 +25,12 @@ function Rank() {
   )
 
   return (
-    <RankWrapper>
+    <div overflow-hidden>
       <Scroll wrapHeight="calc(100vh - 180px)" direction={'vertical'}>
         <OfficialRank list={officialList} />
         <GlobalRank list={globalList} />
       </Scroll>
-    </RankWrapper>
+    </div>
   )
 }
 

@@ -1,15 +1,32 @@
-import React from 'react'
-import { Wrapper } from './style'
-import { TopBarProps } from './types'
+import React, { ReactNode, FC } from 'react'
 
-function TopBar(props: TopBarProps) {
-  const { leftSlot, centerSlot, rightSlot } = props
+export interface TopBarProps {
+  leftSlot?: ReactNode
+  centerSlot?: ReactNode
+  rightSlot?: ReactNode
+}
+
+const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
   return (
-    <Wrapper>
-      <div className="topbar-left">{leftSlot}</div>
-      <div className="topbar-center">{centerSlot}</div>
-      <div className="topbar-right">{rightSlot}</div>
-    </Wrapper>
+    <div
+      flex
+      justify-between
+      text-center
+      text-xl
+      px-2
+      fixed
+      z-1
+      top-0
+      left-0
+      right-0
+      h-48
+      text-white
+      bg-gray-5
+    >
+      <div>{leftSlot}</div>
+      <div text-lg>{centerSlot}</div>
+      <div>{rightSlot}</div>
+    </div>
   )
 }
 

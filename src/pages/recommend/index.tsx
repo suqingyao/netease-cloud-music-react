@@ -1,16 +1,13 @@
 import Card from '@/components/card'
 import Carousel from '@/components/carousel'
-import Loading from '@/components/loading'
 import Scroll from '@/components/scroll'
 import { useRecommend } from '@/hooks'
-import React, { useState } from 'react'
+import React from 'react'
 import { forceCheck } from 'react-lazyload'
 import { useNavigate } from 'react-router-dom'
 import Album from './components/Album'
-import { List, RecommendWrapper } from './style'
 
-function Recommend() {
-  const [loadingVisible, setLoadingVisible] = useState(false)
+const Recommend = () => {
   const navigate = useNavigate()
   const { banners, recommendList } = useRecommend()
 
@@ -19,7 +16,7 @@ function Recommend() {
   }
 
   return (
-    <RecommendWrapper>
+    <div>
       <Scroll
         direction="vertical"
         wrapHeight="calc(100vh - 150px)"
@@ -27,7 +24,7 @@ function Recommend() {
       >
         <Carousel banners={banners} />
         <Card title="推荐歌单">
-          <List>
+          <div grid grid-cols-3 gap-10px>
             {recommendList.map((item: any) => (
               <Album
                 key={item.id}
@@ -37,11 +34,10 @@ function Recommend() {
                 onClick={() => goPlaylist(item.id)}
               />
             ))}
-          </List>
+          </div>
         </Card>
-        <Loading visible={loadingVisible} />
       </Scroll>
-    </RecommendWrapper>
+    </div>
   )
 }
 

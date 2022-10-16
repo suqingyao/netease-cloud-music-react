@@ -1,6 +1,4 @@
 import { memo, useEffect, useRef } from 'react'
-import styled from 'styled-components'
-import style from '@/assets/global-style'
 import Scroll from '@/components/scroll'
 
 interface TabsProps {
@@ -9,32 +7,6 @@ interface TabsProps {
   title?: string
   handleClick: Function
 }
-
-const List = styled.div`
-  display: flex;
-  align-items: center;
-  height: 30px;
-  overflow: hidden;
-  > span:first-of-type {
-    display: block;
-    flex: 0 0 auto;
-    padding: 5px 0;
-    margin-right: 5px;
-    color: grey;
-    font-size: ${style['font-size-m']};
-  }
-`
-const ListItem = styled.span`
-  flex: 0 0 auto;
-  font-size: ${style['font-size-m']};
-  padding: 5px 8px;
-  border-radius: 10px;
-  &.selected {
-    color: ${style['theme-color']};
-    border: 1px solid ${style['theme-color']};
-    opacity: 0.8;
-  }
-`
 
 function Tabs(props: TabsProps) {
   const { list, oldVal, title } = props
@@ -54,20 +26,29 @@ function Tabs(props: TabsProps) {
   }, [])
   return (
     <Scroll direction={'horizontal'} wrapWidth="100%">
-      <List ref={categoryRef}>
-        <span>{title}</span>
+      <div ref={categoryRef} flex items-center h30px overflow-hidden>
+        <span className="first-of-type:block flex-initial px-5px text-gray-4 text-lg">
+          {title}
+        </span>
         {list.map(item => {
           return (
-            <ListItem
+            <div
               key={item.key}
-              className={`${oldVal === item.key ? 'selected' : ''}`}
+              className={`${
+                oldVal === item.key ? 'text-red-4 opacity-80 border-1' : ''
+              }`}
               onClick={() => handleClick(item.key)}
+              flex-initial
+              text-lg
+              px-5px
+              py-8px
+              rounded-10px
             >
               {item.name}
-            </ListItem>
+            </div>
           )
         })}
-      </List>
+      </div>
     </Scroll>
   )
 }

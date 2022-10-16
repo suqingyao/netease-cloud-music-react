@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '@/store'
 import { getTopArtistsData } from '@/store/slice/singer'
 import { useState } from 'react'
 import Tabs from './components/Tabs'
-import { List, ListItem, SingerWrapper } from './style'
 import { alphaTypes, categoryTypes } from './types'
 function Singer() {
   let [category, setCategory] = useState('')
@@ -28,7 +27,7 @@ function Singer() {
   })
 
   return (
-    <SingerWrapper>
+    <div px-10px py-15px fixed top-50px bottom-100px w-full overflow-hidden>
       <Tabs
         list={categoryTypes}
         title="分类 (默认热门):"
@@ -43,25 +42,31 @@ function Singer() {
       ></Tabs>
 
       <Scroll wrapHeight="calc(100vh - 240px)" direction={'vertical'}>
-        <List>
+        <div flex flex-col m-auto overflow-hidden>
           {selector.artists.map((item: any) => {
             return (
-              <ListItem key={item.id}>
-                <div className="img_wrapper">
+              <div key={item.id} flex flex-row my-5px px-5px items-center>
+                <div mr-20px>
                   <img
+                    w-full
+                    h-full
+                    object-cover
+                    rounded-1
+                    w50px
+                    h50px
                     src={`${item.picUrl}?param=300x300`}
-                    width="100%"
-                    height="100%"
                     alt="music"
                   />
                 </div>
-                <span className="name">{item.name}</span>
-              </ListItem>
+                <span text-sm text-gray-4 font-medium>
+                  {item.name}
+                </span>
+              </div>
             )
           })}
-        </List>
+        </div>
       </Scroll>
-    </SingerWrapper>
+    </div>
   )
 }
 

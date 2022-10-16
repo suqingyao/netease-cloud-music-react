@@ -2,7 +2,6 @@ import { LoginParams } from '@/api/types/login-params'
 import { useAppDispatch } from '@/store'
 import { loginUser } from '@/store/slice/auth'
 import { FormEvent, useState } from 'react'
-import { Form, LoginBtn, LoginWrapper } from './style'
 
 function Login() {
   const [form, setForm] = useState<LoginParams>({
@@ -18,8 +17,8 @@ function Login() {
   }
 
   return (
-    <LoginWrapper>
-      <Form className="form" onSubmit={login}>
+    <div>
+      <div className="form" onSubmit={login}>
         <input
           type="text"
           value={form?.phone}
@@ -30,11 +29,9 @@ function Login() {
           value={form?.password}
           onChange={e => setForm({ ...form, password: e.target.value })}
         />
-        <LoginBtn type="submit" className="login-btn">
-          Login
-        </LoginBtn>
-      </Form>
-    </LoginWrapper>
+        <button type="submit">Login</button>
+      </div>
+    </div>
   )
 }
 

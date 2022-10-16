@@ -1,50 +1,31 @@
-import AppMain from './components/app-main'
 import PlayBar from '@/components/play-bar'
-import React, { useEffect, useState } from 'react'
-import SearchBar from './components/search-bar'
+import AppMain from './components/app-main'
 import TabBar from './components/tab-bar'
 import TopBar from './components/top-bar'
-import { Wrapper } from './style'
-import { TabItemProps } from './components/tab-bar/types'
 
-function Layout() {
-  const [tabList, setTabList] = useState<Array<TabItemProps>>([])
-
-  useEffect(() => {
-    setTabList([
-      {
-        default: 'ri-netease-cloud-music-line',
-        active: 'ri-netease-cloud-music-fill',
-        label: '推荐',
-        path: '/recommend'
-      },
-      {
-        default: 'ri-bar-chart-line',
-        active: 'ri-bar-chart-fill',
-        label: '排行榜',
-        path: '/rank'
-      },
-      {
-        default: 'ri-user-3-line',
-        active: 'ri-user-3-fill',
-        label: '歌手',
-        path: '/singer'
-      }
-    ])
-  }, [])
-
+const Layout = () => {
   return (
-    <Wrapper>
+    <div
+      w-screen
+      h-screen
+      flex
+      flex-col
+      relative
+      bg-gradient-to-r
+      from-violet-500
+      to-fuchsia-500
+      text-white
+    >
       <TopBar
-        leftSlot={<i className="ri-menu-line" />}
+        leftSlot={<i className="i-ri-menu-line" />}
         centerSlot={<h1>WebApp</h1>}
-        rightSlot={<i className="ri-search-line" />}
+        rightSlot={<i className="i-ri-search-line" />}
       />
       {/* <SearchBar /> */}
       <AppMain />
       <PlayBar bottom="50px" />
-      <TabBar tabList={tabList} />
-    </Wrapper>
+      <TabBar />
+    </div>
   )
 }
 

@@ -11,7 +11,6 @@ import React, {
   useState
 } from 'react'
 import { createBScroll } from '@better-scroll/core'
-import { ScrollContent, ScrollWrapper } from './style'
 import { debounce } from '@/utils'
 
 BScroll.use(ObserveDOM)
@@ -114,7 +113,9 @@ const Scroll: FC<ScrollProps> = forwardRef(
     }
 
     return (
-      <ScrollWrapper
+      <div
+        block
+        overflow-hidden
         ref={wrapRef}
         style={{
           height: wrapHeight,
@@ -122,12 +123,12 @@ const Scroll: FC<ScrollProps> = forwardRef(
           display: direction === 'horizontal' ? 'inline-block' : ''
         }}
       >
-        <ScrollContent
+        <div
           style={direction === 'horizontal' ? { display: 'inline-block' } : {}}
         >
           {children}
-        </ScrollContent>
-      </ScrollWrapper>
+        </div>
+      </div>
     )
   }
 )

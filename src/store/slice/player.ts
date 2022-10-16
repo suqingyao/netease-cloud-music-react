@@ -1,5 +1,16 @@
-import { PlayMode } from '@/components/play-bar/types'
 import { createSlice } from '@reduxjs/toolkit'
+
+export enum PlayMode {
+  RANDOM,
+  LOOP,
+  SEQUENTIAL,
+  BECKONING
+}
+
+export enum PlayStatus {
+  PLAY,
+  PAUSE
+}
 
 export const player = createSlice({
   name: 'player',
