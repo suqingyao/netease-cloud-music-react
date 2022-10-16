@@ -1,6 +1,6 @@
+import { getBannerList } from '@/api'
 import { getPersonalized } from '@/api/playlist'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getBannerList } from '@/api'
 
 export const getBannerListData = createAsyncThunk(
   'recommend/banner',
@@ -17,12 +17,19 @@ export const getRecommendListData = createAsyncThunk(
   }
 )
 
+export interface RecommendState {
+  banners: Array<any>
+  recommendList: Array<any>
+}
+
+const initialState: RecommendState = {
+  banners: [],
+  recommendList: []
+}
+
 export const recommend = createSlice({
   name: 'recommend',
-  initialState: {
-    banners: [],
-    recommendList: []
-  },
+  initialState,
   reducers: {},
   extraReducers(builder) {
     builder
