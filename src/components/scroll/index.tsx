@@ -114,14 +114,15 @@ const Scroll: FC<ScrollProps> = forwardRef(
 
     return (
       <div
-        block
-        overflow-hidden
         ref={wrapRef}
         style={{
           height: wrapHeight,
           width: wrapWidth,
           display: direction === 'horizontal' ? 'inline-block' : ''
         }}
+        className="
+        block
+        overflow-hidden"
       >
         <div
           style={direction === 'horizontal' ? { display: 'inline-block' } : {}}

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/store'
 import { changePlayStatus } from '@/store/slice/player'
-import React, { FC } from 'react'
+import React from 'react'
 
 interface PlayBarProps {
   bottom: string
@@ -28,6 +28,7 @@ const PlayBar = ({ bottom }: PlayBarProps) => {
 
   return (
     <div
+      className="
       flex
       justify-between
       items-center
@@ -38,30 +39,32 @@ const PlayBar = ({ bottom }: PlayBarProps) => {
       left-0
       right-0
       h-50px
-      bg-gray-6
+      bg-gray-6"
       style={{ bottom }}
     >
-      <div relative>
-        <i i-ri-album-fill></i>
-        <img absolute w-full h-full object-cover src="" alt="" />
+      <div className="relative">
+        <i className="i-ri-album-fill"></i>
+        <img src="" alt="" className="absolute w-full h-full object-cover" />
       </div>
-      <div flex items-center gap-1 w-full text-ellipsis text-white>
+      <div className="flex items-center gap-1 w-full text-ellipsis text-white">
         <span
+          className="
           overflow-hidden
           text-ellipsis
           whitespace-nowrap
           text-white
-          text-sm
+          text-sm"
         >
           千年泪
         </span>
         <span>-</span>
         <span
+          className="
           overflow-hidden
           text-ellipsis
           whitespace-nowrap
           text-white
-          text-sm
+          text-sm"
         >
           TANK
         </span>
