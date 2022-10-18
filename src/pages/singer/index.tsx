@@ -27,7 +27,7 @@ function Singer() {
   })
 
   return (
-    <div px-10px py-15px fixed top-50px bottom-100px w-full overflow-hidden>
+    <div className="px-10px py-15px fixed top-50px bottom-100px w-full overflow-hidden">
       <Tabs
         list={categoryTypes}
         title="分类 (默认热门):"
@@ -42,23 +42,27 @@ function Singer() {
       ></Tabs>
 
       <Scroll wrapHeight="calc(100vh - 240px)" direction={'vertical'}>
-        <div flex flex-col m-auto overflow-hidden>
+        <div className="flex flex-col m-auto overflow-hidden">
           {selector.artists.map((item: any) => {
             return (
-              <div key={item.id} flex flex-row my-5px px-5px items-center>
+              <div
+                key={item.id}
+                className="flex flex-row my-5px px-5px items-center"
+              >
                 <div mr-20px>
                   <img
+                    src={`${item.picUrl}?param=300x300`}
+                    alt="music"
+                    className="
                     w-full
                     h-full
                     object-cover
                     rounded-1
                     w50px
-                    h50px
-                    src={`${item.picUrl}?param=300x300`}
-                    alt="music"
+                    h50px"
                   />
                 </div>
-                <span text-sm text-gray-4 font-medium>
+                <span className="text-sm text-gray-4 font-medium">
                   {item.name}
                 </span>
               </div>

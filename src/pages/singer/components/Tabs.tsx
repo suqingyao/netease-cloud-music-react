@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef } from 'react'
 import Scroll from '@/components/scroll'
+import classNames from 'classnames'
 
 interface TabsProps {
   list: Array<any>
@@ -24,9 +25,15 @@ function Tabs(props: TabsProps) {
     })
     categoryDom.style.width = `${totalWidth}px`
   }, [])
+
+  const classes = classNames('text-lg', 'px-5px', 'py-8px', 'rounded-10px')
+
   return (
     <Scroll direction={'horizontal'} wrapWidth="100%">
-      <div ref={categoryRef} flex items-center h30px overflow-hidden>
+      <div
+        ref={categoryRef}
+        className="flex items-center h30px overflow-hidden"
+      >
         <span className="first-of-type:block flex-initial px-5px text-gray-4 text-lg">
           {title}
         </span>
@@ -34,15 +41,12 @@ function Tabs(props: TabsProps) {
           return (
             <div
               key={item.key}
-              className={`${
-                oldVal === item.key ? 'text-red-4 opacity-80 border-1' : ''
-              }`}
               onClick={() => handleClick(item.key)}
-              flex-initial
-              text-lg
-              px-5px
-              py-8px
-              rounded-10px
+              className={`${
+                oldVal === item.key
+                  ? `${classes} text-red-4 opacity-80 border-1`
+                  : classes
+              }`}
             >
               {item.name}
             </div>
