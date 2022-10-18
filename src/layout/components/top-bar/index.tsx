@@ -9,6 +9,7 @@ export interface TopBarProps {
 const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
   return (
     <div
+      className="
       flex
       justify-between
       text-center
@@ -21,10 +22,10 @@ const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
       right-0
       h-48
       text-white
-      bg-gray-5
+      bg-gray-5"
     >
       <div>{leftSlot}</div>
-      <div text-lg>{centerSlot}</div>
+      <div>{centerSlot}</div>
       <div>{rightSlot}</div>
     </div>
   )

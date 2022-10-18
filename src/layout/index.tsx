@@ -6,6 +6,7 @@ import TopBar from './components/top-bar'
 const Layout = () => {
   return (
     <div
+      className="
       w-screen
       h-screen
       flex
@@ -14,7 +15,7 @@ const Layout = () => {
       bg-gradient-to-r
       from-violet-500
       to-fuchsia-500
-      text-white
+      text-white"
     >
       <TopBar
         leftSlot={<i className="i-ri-menu-line" />}

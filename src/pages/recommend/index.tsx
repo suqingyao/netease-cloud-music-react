@@ -16,28 +16,26 @@ const Recommend = () => {
   }
 
   return (
-    <div>
-      <Scroll
-        direction="vertical"
-        wrapHeight="calc(100vh - 150px)"
-        onScroll={forceCheck}
-      >
-        <Carousel banners={banners} />
-        <Card title="推荐歌单">
-          <div grid grid-cols-3 gap-10px>
-            {recommendList.map((item: any) => (
-              <Album
-                key={item.id}
-                img={item.picUrl}
-                title={item.name}
-                count={item.playCount}
-                onClick={() => goPlaylist(item.id)}
-              />
-            ))}
-          </div>
-        </Card>
-      </Scroll>
-    </div>
+    <Scroll
+      direction="vertical"
+      wrapHeight="calc(100vh - 150px)"
+      onScroll={forceCheck}
+    >
+      <Carousel banners={banners} />
+      <Card title="推荐歌单">
+        <div className="grid grid-cols-3 gap-10px">
+          {recommendList.map((item: any) => (
+            <Album
+              key={item.id}
+              img={item.picUrl}
+              title={item.name}
+              count={item.playCount}
+              onClick={() => goPlaylist(item.id)}
+            />
+          ))}
+        </div>
+      </Card>
+    </Scroll>
   )
 }
 

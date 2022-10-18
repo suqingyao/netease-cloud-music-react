@@ -35,6 +35,7 @@ const TabBar: FC = () => {
   ]
   return (
     <div
+      className="
       fixed
       flex
       right-0
@@ -42,11 +43,11 @@ const TabBar: FC = () => {
       justify-around
       items-center
       text-gray-2
-      className="active:text-red-6"
+      active:text-red-6"
     >
       {tabList.map(tab => (
         <NavLink key={tab.path} to={tab.path}>
-          <div flex-1 flex flex-col justify-center items-center>
+          <div className="flex-1 flex flex-col justify-center items-center">
             <i className={tab.default}></i>
             <span>{tab.label}</span>
           </div>

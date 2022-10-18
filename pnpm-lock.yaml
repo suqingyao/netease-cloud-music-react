@@ -14,7 +14,6 @@ specifiers:
   '@types/react-transition-group': ^4.4.5
   '@typescript-eslint/eslint-plugin': ^5.33.1
   '@typescript-eslint/parser': ^5.33.1
-  '@unocss/preset-attributify': ^0.45.29
   '@unocss/preset-icons': ^0.45.29
   '@unocss/preset-uno': ^0.45.29
   '@unocss/reset': ^0.45.29
@@ -28,9 +27,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.30.1
   postcss: ^8.4.16
-  postcss-normalize: ^10.0.1
   postcss-preset-env: ^7.8.0
-  postcss-pxtorem: ^6.0.0
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -71,7 +68,6 @@ devDependencies:
   '@types/react-transition-group': 4.4.5
   '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
   '@typescript-eslint/parser': 5.33.1_4rv7y5c6xz3vfxwhbrcxxi73bq
-  '@unocss/preset-attributify': 0.45.29
   '@unocss/preset-icons': 0.45.29
   '@unocss/preset-uno': 0.45.29
   '@vitejs/plugin-react': 2.0.1_vite@3.0.8
@@ -82,9 +78,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_i2cojdczqdiurzgttlwdgf764e
   eslint-plugin-react: 7.30.1_eslint@8.22.0
   postcss: 8.4.16
-  postcss-normalize: 10.0.1_mu2kzpkteq3ketk6piffleamkq
   postcss-preset-env: 7.8.0_postcss@8.4.16
-  postcss-pxtorem: 6.0.0_postcss@8.4.16
   prettier: 2.7.1
   typescript: 4.7.4
   unocss: 0.45.29_vite@3.0.8
@@ -404,10 +398,6 @@ packages:
   /@better-scroll/shared-utils/2.4.2:
     resolution: {integrity: sha512-Gy/Jfbpu+hq0u+PcjkTqyXGqAf+0dexTzEZ5IDXEVwJVLmd3cx8A73oTcAZ8QZgk4wSHvlMjXecSaptkhnNPEw==}
     dev: false
-
-  /@csstools/normalize.css/12.0.0:
-    resolution: {integrity: sha512-M0qqxAcwCsIVfpFQSlGN5XjXWu8l5JDZN+fPt1LeW5SZexQTgnaEvgXAY+CeygRw0EeppWHi12JxESWiWrB0Sg==}
-    dev: true
 
   /@csstools/postcss-cascade-layers/1.0.5_postcss@8.4.16:
     resolution: {integrity: sha512-Id/9wBT7FkgFzdEpiEWrsVd4ltDxN0rI0QS0SChbeQiSuux3z21SJCRLu6h2cvCEUmaRi+VD0mHFj+GJD4GFnw==}
@@ -2699,17 +2689,6 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
-  /postcss-browser-comments/4.0.0_mu2kzpkteq3ketk6piffleamkq:
-    resolution: {integrity: sha512-X9X9/WN3KIvY9+hNERUqX9gncsgBA25XaeR+jshHz2j8+sYyHktHw1JdKuMjeLpGktXidqDhA7b/qm1mrBDmgg==}
-    engines: {node: '>=8'}
-    peerDependencies:
-      browserslist: '>=4'
-      postcss: '>=8'
-    dependencies:
-      browserslist: 4.21.3
-      postcss: 8.4.16
-    dev: true
-
   /postcss-clamp/4.1.0_postcss@8.4.16:
     resolution: {integrity: sha512-ry4b1Llo/9zz+PKC+030KUnPITTJAHeOwjfAyyB60eT0AorGLdzp52s31OsPRHRf8NchkgFoG2y6fCfn1IV1Ow==}
     engines: {node: '>=7.6.0'}
@@ -2906,20 +2885,6 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
-  /postcss-normalize/10.0.1_mu2kzpkteq3ketk6piffleamkq:
-    resolution: {integrity: sha512-+5w18/rDev5mqERcG3W5GZNMJa1eoYYNGo8gB7tEwaos0ajk3ZXAI4mHGcNT47NE+ZnZD1pEpUOFLvltIwmeJA==}
-    engines: {node: '>= 12'}
-    peerDependencies:
-      browserslist: '>= 4'
-      postcss: '>= 8'
-    dependencies:
-      '@csstools/normalize.css': 12.0.0
-      browserslist: 4.21.3
-      postcss: 8.4.16
-      postcss-browser-comments: 4.0.0_mu2kzpkteq3ketk6piffleamkq
-      sanitize.css: 13.0.0
-    dev: true
-
   /postcss-opacity-percentage/1.1.2:
     resolution: {integrity: sha512-lyUfF7miG+yewZ8EAk9XUBIlrHyUE6fijnesuz+Mj5zrIHIEw6KcIZSOk/elVMqzLvREmXB83Zi/5QpNRYd47w==}
     engines: {node: ^12 || ^14 || >=16}
@@ -3019,14 +2984,6 @@ packages:
     dependencies:
       postcss: 8.4.16
       postcss-selector-parser: 6.0.10
-    dev: true
-
-  /postcss-pxtorem/6.0.0_postcss@8.4.16:
-    resolution: {integrity: sha512-ZRXrD7MLLjLk2RNGV6UA4f5Y7gy+a/j1EqjAfp9NdcNYVjUMvg5HTYduTjSkKBkRkfqbg/iKrjMO70V4g1LZeg==}
-    peerDependencies:
-      postcss: ^8.0.0
-    dependencies:
-      postcss: 8.4.16
     dev: true
 
   /postcss-replace-overflow-wrap/4.0.0_postcss@8.4.16:
@@ -3303,10 +3260,6 @@ packages:
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
-    dev: true
-
-  /sanitize.css/13.0.0:
-    resolution: {integrity: sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==}
     dev: true
 
   /scheduler/0.23.0:
