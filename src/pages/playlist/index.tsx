@@ -91,7 +91,7 @@ function PlayList() {
             {playList.tracks &&
               playList.tracks.map((item, index) => {
                 return (
-                  <ListItem key={item.id}>
+                  <div key={item.id}>
                     <span className="no">{index + 1}</span>
                     <div className="song-info">
                       <span className="name">{item.name}</span>
@@ -99,7 +99,7 @@ function PlayList() {
                         {item?.al?.name}-{item?.ar?.map(v => v.name)?.join('/')}
                       </span>
                     </div>
-                  </ListItem>
+                  </div>
                 )
               })}
           </div>
