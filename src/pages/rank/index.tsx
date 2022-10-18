@@ -25,8 +25,8 @@ function Rank() {
   )
 
   return (
-    <div overflow-hidden>
-      <Scroll wrapHeight="calc(100vh - 180px)" direction={'vertical'}>
+    <div>
+      <Scroll wrapHeight="calc(100vh - 7.5rem)" direction={'vertical'}>
         <OfficialRank list={officialList} />
         <GlobalRank list={globalList} />
       </Scroll>

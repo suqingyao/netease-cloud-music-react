@@ -120,9 +120,6 @@ const Scroll: FC<ScrollProps> = forwardRef(
           width: wrapWidth,
           display: direction === 'horizontal' ? 'inline-block' : ''
         }}
-        className="
-        block
-        overflow-hidden"
       >
         <div
           style={direction === 'horizontal' ? { display: 'inline-block' } : {}}

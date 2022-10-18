@@ -24,7 +24,7 @@ const Layout = () => {
       />
       {/* <SearchBar /> */}
       <AppMain />
-      <PlayBar bottom="50px" />
+      <PlayBar />
       <TabBar />
     </div>
   )

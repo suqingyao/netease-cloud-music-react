@@ -4,12 +4,10 @@ function AppMain() {
   return (
     <div
       className="
-      fixed
+      flex-1
       w-full
-      top-50px
-      bottom-100px
-      overflow-hidden"
-      style={{ height: 'calc(100vh - 150px)' }}
+      overflow-hidden
+      "
     >
       <Outlet />
     </div>

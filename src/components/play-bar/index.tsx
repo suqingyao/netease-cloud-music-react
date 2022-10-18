@@ -2,10 +2,6 @@ import { useAppDispatch, useAppSelector } from '@/store'
 import { changePlayStatus } from '@/store/slice/player'
 import React from 'react'
 
-interface PlayBarProps {
-  bottom: string
-}
-
 export enum PlayMode {
   RANDOM,
   LOOP,
@@ -18,7 +14,7 @@ export enum PlayStatus {
   PAUSE
 }
 
-const PlayBar = ({ bottom }: PlayBarProps) => {
+const PlayBar = () => {
   const dispatch = useAppDispatch()
   const selector = useAppSelector(state => state.player)
 
@@ -32,15 +28,16 @@ const PlayBar = ({ bottom }: PlayBarProps) => {
       flex
       justify-between
       items-center
+      w-full
+      px-2
       gap-1
-      p-5
-      rounded-1
+      rounded-tl-1
+      rounded-tr-1
       fixed
-      left-0
-      right-0
-      h-50px
-      bg-gray-6"
-      style={{ bottom }}
+      bottom-10
+      h-10
+      bg-red
+      "
     >
       <div className="relative">
         <i className="i-ri-album-fill"></i>

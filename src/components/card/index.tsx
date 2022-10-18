@@ -6,7 +6,7 @@ export interface CardProps {
 
 function Card({ title, children }: CardProps) {
   return (
-    <div className="px-10px py-15px">
+    <div className="px-2">
       <h2 className="text-20px">{title}</h2>
       <div className="pt-10px">{children}</div>
     </div>

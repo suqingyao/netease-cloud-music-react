@@ -12,17 +12,12 @@ const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
       className="
       flex
       justify-between
-      text-center
-      text-xl
+      items-center
+      text-2xl
+      h10
       px-2
-      fixed
-      z-1
-      top-0
-      left-0
-      right-0
-      h-48
       text-white
-      bg-gray-5"
+      "
     >
       <div>{leftSlot}</div>
       <div>{centerSlot}</div>

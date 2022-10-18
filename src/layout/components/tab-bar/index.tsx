@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useMount } from '@/hooks'
+import React from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 export interface TabBarProps {
   tabList: TabItemProps[]
@@ -12,7 +13,7 @@ export interface TabItemProps {
   path: string
 }
 
-const TabBar: FC = () => {
+const TabBar = () => {
   const tabList: TabItemProps[] = [
     {
       default: 'i-ri-netease-cloud-music-line',
@@ -33,23 +34,31 @@ const TabBar: FC = () => {
       path: '/singer'
     }
   ]
+  const location = useLocation()
   return (
     <div
       className="
-      fixed
       flex
+      h10
+      fixed
       right-0
       left-0
+      bottom-0
       justify-around
       items-center
       text-gray-2
-      active:text-red-6"
+      bg-red
+      "
     >
       {tabList.map(tab => (
-        <NavLink key={tab.path} to={tab.path}>
+        <NavLink
+          key={tab.path}
+          to={tab.path}
+          className={tab.path === location.pathname ? 'text-red-6' : ''}
+        >
           <div className="flex-1 flex flex-col justify-center items-center">
-            <i className={tab.default}></i>
-            <span>{tab.label}</span>
+            <i className={`${tab.default}`}></i>
+            <span className="text-sm">{tab.label}</span>
           </div>
         </NavLink>
       ))}

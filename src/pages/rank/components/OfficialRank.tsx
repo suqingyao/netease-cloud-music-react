@@ -11,19 +11,29 @@ function OfficialRank({ list }: OfficialRankProps) {
     navigate(`/playlist/${id}`, { replace: false })
   }
   return (
-    <div>
-      <h1>官方榜</h1>
-      <div>
+    <div className="px-2">
+      <span className="text-lg">官方榜</span>
+      <div className="flex flex-col gap-2">
         {list.map(item => {
           return (
-            <div key={item.id} onClick={() => goDetail(item.id)}>
-              <div className="img-wrapper">
-                <img src={item.coverImgUrl} alt="rank" />
-                <span>{item.updateFrequency}</span>
+            <div
+              key={item.id}
+              onClick={() => goDetail(item.id)}
+              className="flex gap-1"
+            >
+              <div className="w-30 h30 relative">
+                <img
+                  src={item.coverImgUrl}
+                  alt="rank"
+                  className="w-full h-full rounded-2"
+                />
+                <span className="absolute left-1 top-1 text-sm">
+                  {item.updateFrequency}
+                </span>
               </div>
-              <div className="list">
+              <div className="flex flex-col">
                 {item.tracks.map((item: any, index: number) => (
-                  <div key={index} className="item">
+                  <div key={index} className="text-sm">
                     {item.first}-{item.second}
                   </div>
                 ))}

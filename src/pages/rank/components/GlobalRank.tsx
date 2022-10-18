@@ -11,15 +11,23 @@ function GlobalRank({ list }: GlobalRankProps) {
     navigate(`/playlist/${id}`, { replace: false })
   }
   return (
-    <div>
-      <h1>全球榜</h1>
-      <div>
+    <div className="px-2">
+      <span className="text-lg">全球榜</span>
+      <div className="grid grid-cols-4 gap-2">
         {list.map(item => (
-          <div key={item.id} onClick={() => goDetail(item.id)}>
-            <div className="img-wrapper">
-              <img src={item.coverImgUrl} alt="cover" />
+          <div
+            key={item.id}
+            onClick={() => goDetail(item.id)}
+            className="flex flex-col gap-1"
+          >
+            <div>
+              <img
+                src={item.coverImgUrl}
+                alt="cover"
+                className="w-full h-full block object-cover rounded-2"
+              />
             </div>
-            <span>{item.name}</span>
+            <span className="text-xs line-clamp-1">{item.name}</span>
           </div>
         ))}
       </div>

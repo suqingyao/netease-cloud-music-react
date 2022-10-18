@@ -49,7 +49,7 @@ function Singer() {
                 key={item.id}
                 className="flex flex-row my-5px px-5px items-center"
               >
-                <div mr-20px>
+                <div className="mr-20px">
                   <img
                     src={`${item.picUrl}?param=300x300`}
                     alt="music"
