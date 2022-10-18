@@ -1,6 +1,3 @@
-import presetAttributify from '@unocss/preset-attributify'
-import presetIcons from '@unocss/preset-icons'
-import presetUno from '@unocss/preset-uno'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import Unocss from 'unocss/vite'
@@ -13,10 +10,5 @@ export default defineConfig({
       '@': resolve(__dirname, './src')
     }
   },
-  plugins: [
-    react(),
-    Unocss({
-      presets: [presetUno(), presetAttributify({}), presetIcons({})]
-    })
-  ]
+  plugins: [react(), Unocss()]
 })
