@@ -53,7 +53,7 @@ function PlayList() {
           wrapHeight="calc(100vh - 100px)"
           onScroll={handleScroll}
         >
-          <div backgroundImage={playList.coverImgUrl}>
+          <div style={{ backgroundImage: playList.coverImgUrl }}>
             <div className="filter"></div>
             <div className="cover">
               <img src={playList?.coverImgUrl} alt="cover" />
