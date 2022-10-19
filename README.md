@@ -1,4 +1,4 @@
-## Usage
+## Run
 
 ```bash
 pnpm i
