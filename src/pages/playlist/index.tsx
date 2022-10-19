@@ -104,7 +104,7 @@ function PlayList() {
               })}
           </div>
         </Scroll>
-        <PlayBar bottom="0" />
+        <PlayBar />
       </div>
     </CSSTransition>
   )
