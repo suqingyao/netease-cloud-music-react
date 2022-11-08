@@ -5,6 +5,6 @@ import request from '@/utils/request'
  * @param params
  * @returns
  */
-export function getBannerList(params: { type?: number }) {
+export function getBannerList(params?: { type?: number }) {
   return request.get('/banner', { params })
 }

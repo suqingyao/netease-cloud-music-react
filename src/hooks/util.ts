@@ -1,20 +1,17 @@
-import { useAppDispatch, useAppSelector } from '@/store'
-import {
-  getBannerListData,
-  getRecommendListData
-} from '@/store/slice/recommend'
-import { useMount } from '.'
+import { getBannerList } from '@/api'
+import { getPersonalized } from '@/api/playlist'
+import { Recommend } from '@/api/types/login-params'
+import { useQuery } from 'react-query'
+
+export const useRecommendQueryKey = () => 'recommend'
+export const useBannersQueryKey = () => 'banners'
 
 export const useRecommend = () => {
-  const dispatch = useAppDispatch()
-  const selector = useAppSelector(state => state.recommend)
-  useMount(() => {
-    dispatch(getBannerListData())
-    dispatch(getRecommendListData())
-  })
+  return useQuery('recommend', getPersonalized)
+}
 
-  return {
-    banners: selector.banners,
-    recommendList: selector.recommendList
-  }
+export const useBanners = () => {
+  return useQuery('banners', () => {
+    getBannerList()
+  })
 }

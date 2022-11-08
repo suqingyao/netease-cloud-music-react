@@ -1,7 +1,7 @@
 import Scroll from '@/components/scroll'
-import { useMount } from '@/hooks'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { getRankListData } from '@/store/slice/rank'
+import { useMount } from 'ahooks'
 import { useMemo } from 'react'
 import GlobalRank from './components/GlobalRank'
 import OfficialRank from './components/OfficialRank'

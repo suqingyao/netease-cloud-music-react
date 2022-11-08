@@ -1,7 +1,7 @@
 import Scroll from '@/components/scroll'
-import { useMount } from '@/hooks'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { getTopArtistsData } from '@/store/slice/singer'
+import { useMount } from 'ahooks'
 import { useState } from 'react'
 import Tabs from './components/Tabs'
 import { alphaTypes, categoryTypes } from './types'
