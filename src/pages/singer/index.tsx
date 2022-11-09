@@ -1,7 +1,6 @@
+import { Loading } from '@/components/loading'
 import Scroll from '@/components/scroll'
-import { useAppDispatch, useAppSelector } from '@/store'
-import { getTopArtistsData } from '@/store/slice/singer'
-import { useMount } from 'ahooks'
+import { useArtist } from '@/hooks'
 import { useState } from 'react'
 import Tabs from './components/Tabs'
 import { alphaTypes, categoryTypes } from './types'
@@ -11,8 +10,7 @@ function Singer() {
   const [topForm, setTopForm] = useState({})
   const [artistForm, setArtistForm] = useState({})
 
-  const dispatch = useAppDispatch()
-  const selector = useAppSelector(state => state.singer)
+  const { data, isLoading } = useArtist()
 
   let handleUpdateAlpha = (val: string) => {
     setAlpha(val)
@@ -22,47 +20,25 @@ function Singer() {
     setCategory(val)
   }
 
-  useMount(() => {
-    dispatch(getTopArtistsData(topForm))
-  })
+  let content
 
-  return (
-    <div className="px-10px py-15px fixed top-50px bottom-100px w-full overflow-hidden">
-      <Tabs
-        list={categoryTypes}
-        title="分类 (默认热门):"
-        handleClick={handleUpdateCategory}
-        oldVal={category}
-      ></Tabs>
-      <Tabs
-        list={alphaTypes}
-        title="首字母:"
-        handleClick={(val: string) => handleUpdateAlpha(val)}
-        oldVal={alpha}
-      ></Tabs>
-
-      <Scroll wrapHeight="calc(100vh - 240px)" direction={'vertical'}>
-        <div className="flex flex-col m-auto overflow-hidden">
-          {selector.artists.map((item: any) => {
+  if (isLoading) {
+    content = <Loading />
+  } else {
+    content = (
+      <Scroll wrapHeight="calc(100vh - 7.5rem)" direction={'vertical'}>
+        <div className="flex flex-col gap-2 overflow-hidden">
+          {data?.artists.map((item: any) => {
             return (
-              <div
-                key={item.id}
-                className="flex flex-row my-5px px-5px items-center"
-              >
-                <div className="mr-20px">
+              <div key={item.id} className="flex items-center gap-2">
+                <div className="w-15 h-15">
                   <img
                     src={`${item.picUrl}?param=300x300`}
                     alt="music"
-                    className="
-                    w-full
-                    h-full
-                    object-cover
-                    rounded-1
-                    w50px
-                    h50px"
+                    className="w-full h-full object-cover rounded-2"
                   />
                 </div>
-                <span className="text-sm text-gray-4 font-medium">
+                <span className="text-sm text-gray-2 font-medium">
                   {item.name}
                 </span>
               </div>
@@ -70,6 +46,24 @@ function Singer() {
           })}
         </div>
       </Scroll>
+    )
+  }
+
+  return (
+    <div className="px-2 fixed top-10 bottom-20 overflow-hidden">
+      <Tabs
+        list={categoryTypes}
+        title="分类 (默认热门):"
+        handleClick={handleUpdateCategory}
+        oldVal={category}
+      />
+      <Tabs
+        list={alphaTypes}
+        title="首字母:"
+        handleClick={(val: string) => handleUpdateAlpha(val)}
+        oldVal={alpha}
+      />
+      {content}
     </div>
   )
 }

@@ -1,17 +1,19 @@
-import { getBannerList } from '@/api'
-import { getPersonalized } from '@/api/playlist'
-import { Recommend } from '@/api/types/login-params'
-import { useQuery } from 'react-query'
+import { getBannerList } from '@/api/modules/base'
+import { getPersonalized, getToplistDetail } from '@/api/modules/playlist'
+import { getTopArtists } from '@/api/modules/artist'
 
-export const useRecommendQueryKey = () => 'recommend'
-export const useBannersQueryKey = () => 'banners'
+import { useQuery } from '@tanstack/react-query'
 
 export const useRecommend = () => {
-  return useQuery('recommend', getPersonalized)
+  return useQuery(['recommend'], () =>
+    Promise.all([getPersonalized(), getBannerList({ type: 2 })])
+  )
 }
 
-export const useBanners = () => {
-  return useQuery('banners', () => {
-    getBannerList()
-  })
+export const useRank = () => {
+  return useQuery(['rank'], () => getToplistDetail())
+}
+
+export const useArtist = (params?: { limit?: number; offset?: number }) => {
+  return useQuery(['artists', params], () => getTopArtists(params))
 }

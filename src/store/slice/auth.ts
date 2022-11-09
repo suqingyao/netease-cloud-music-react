@@ -1,5 +1,4 @@
-import { TypedUseSelectorHook, useDispatch } from 'react-redux'
-import { login } from '@/api/auth'
+import { login } from '@/api/modules/auth'
 import { LoginParams } from '@/api/types/login-params'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 

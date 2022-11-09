@@ -1,6 +1,7 @@
-import { memo, useEffect, useRef } from 'react'
+import { memo, useRef } from 'react'
 import Scroll from '@/components/scroll'
 import classNames from 'classnames'
+import { useMount } from 'ahooks'
 
 interface TabsProps {
   list: Array<any>
@@ -15,28 +16,23 @@ function Tabs(props: TabsProps) {
 
   const categoryRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    let categoryDom = categoryRef.current as HTMLDivElement
-    let tagElements = categoryDom.querySelectorAll('span')
-    let totalWidth = 0
+  // useMount(() => {
+  //   let categoryDom = categoryRef.current as HTMLDivElement
+  //   let tagElements = categoryDom.querySelectorAll('span')
+  //   let totalWidth = 0
 
-    Array.from(tagElements).forEach(item => {
-      totalWidth += item.offsetWidth
-    })
-    categoryDom.style.width = `${totalWidth}px`
-  }, [])
+  //   Array.from(tagElements).forEach(item => {
+  //     totalWidth += item.offsetWidth
+  //   })
+  //   categoryDom.style.width = `${totalWidth}px`
+  // })
 
-  const classes = classNames('text-lg', 'px-5px', 'py-8px', 'rounded-10px')
+  const classes = classNames('text-xs', 'px-2', 'py-1', 'rounded-2')
 
   return (
     <Scroll direction={'horizontal'} wrapWidth="100%">
-      <div
-        ref={categoryRef}
-        className="flex items-center h30px overflow-hidden"
-      >
-        <span className="first-of-type:block flex-initial px-5px text-gray-4 text-lg">
-          {title}
-        </span>
+      <div ref={categoryRef} className="flex z-10 overflow-hidden">
+        <span className="px-1 text-gray-2 text-sm">{title}</span>
         {list.map(item => {
           return (
             <div

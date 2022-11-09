@@ -117,8 +117,8 @@ const Scroll: FC<ScrollProps> = forwardRef(
         ref={wrapRef}
         style={{
           height: wrapHeight,
-          width: wrapWidth,
-          display: direction === 'horizontal' ? 'inline-block' : ''
+          width: wrapWidth
+          // display: direction === 'horizontal' ? 'inline-block' : ''
         }}
       >
         <div

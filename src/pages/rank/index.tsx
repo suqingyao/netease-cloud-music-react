@@ -1,28 +1,19 @@
+import { Loading } from '@/components/loading'
 import Scroll from '@/components/scroll'
-import { useAppDispatch, useAppSelector } from '@/store'
-import { getRankListData } from '@/store/slice/rank'
-import { useMount } from 'ahooks'
-import { useMemo } from 'react'
+import { useRank } from '@/hooks'
 import GlobalRank from './components/GlobalRank'
 import OfficialRank from './components/OfficialRank'
 
 function Rank() {
-  const dispatch = useAppDispatch()
-  const selector = useAppSelector(state => state.rank)
+  const { data, isLoading } = useRank()
 
-  useMount(() => {
-    dispatch(getRankListData())
-  })
+  if (isLoading) {
+    return <Loading />
+  }
 
-  const officialList = useMemo(
-    () => selector.list.filter((item: any) => item.ToplistType),
-    [selector.list]
-  )
+  const officialList = data?.list?.filter((item: any) => item.ToplistType)
 
-  const globalList = useMemo(
-    () => selector.list.filter((item: any) => !item.ToplistType),
-    [selector.list]
-  )
+  const globalList = data?.list?.filter((item: any) => !item.ToplistType)
 
   return (
     <div>

@@ -1,10 +1,7 @@
-import request from '@/utils/request'
+const apis = import.meta.glob('@/api/modules/*.ts', {
+  eager: true
+})
 
-/**
- * 获取轮播图
- * @param params
- * @returns
- */
-export function getBannerList(params?: { type?: number }) {
-  return request.get('/banner', { params })
-}
+console.log(apis)
+
+// export

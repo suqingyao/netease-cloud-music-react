@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { LoginParams } from './types/login-params'
+import { LoginParams } from '@/api/types/login-params'
 
 /**
  * 手机登录
