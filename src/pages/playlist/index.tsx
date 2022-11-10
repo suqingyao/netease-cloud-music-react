@@ -57,7 +57,12 @@ function PlayList() {
             wrapHeight="calc(100vh - 5rem)"
             onScroll={handleScroll}
           >
-            <div className="" style={{ backgroundImage: playList.coverImgUrl }}>
+            <div className="relative">
+              <img
+                src={playList.coverImgUrl}
+                alt="bg"
+                className="absolute w-full h-full object-cover blur-xl rounded-xl"
+              />
               <div className="flex gap-2 py-2">
                 <div className="relative w-30 h-30">
                   <img
@@ -65,7 +70,7 @@ function PlayList() {
                     alt="cover"
                     className="w-full h-full object-cover rounded-2"
                   />
-                  <div className="flex items-center text-gray-9 text-xs absolute right-1 top-1">
+                  <div className="flex items-center text-gray-9 text-xs absolute right-1 top-1 text-white">
                     <div className="i-ri-play-fill" />
                     {getCount(playList?.playCount)}
                   </div>
