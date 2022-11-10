@@ -7,6 +7,7 @@ function AppMain() {
       flex-1
       w-full
       overflow-hidden
+      py-10
       "
     >
       <Outlet />

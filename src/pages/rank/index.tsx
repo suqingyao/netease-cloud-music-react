@@ -1,4 +1,4 @@
-import { Loading } from '@/components/loading'
+import Loading from '@/components/loading'
 import Scroll from '@/components/scroll'
 import { useRank } from '@/hooks'
 import GlobalRank from './components/GlobalRank'

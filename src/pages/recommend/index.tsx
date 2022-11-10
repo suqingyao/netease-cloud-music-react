@@ -6,7 +6,7 @@ import LazyLoad, { forceCheck } from 'react-lazyload'
 import { useNavigate } from 'react-router-dom'
 import Logo from '@/assets/default_album.jpg'
 import { getCount } from '@/utils'
-import { Loading } from '@/components/loading'
+import Loading from '@/components/loading'
 
 const Recommend = () => {
   const navigate = useNavigate()

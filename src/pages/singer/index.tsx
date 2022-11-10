@@ -1,4 +1,4 @@
-import { Loading } from '@/components/loading'
+import Loading from '@/components/loading'
 import Scroll from '@/components/scroll'
 import { useArtist } from '@/hooks'
 import { useState } from 'react'

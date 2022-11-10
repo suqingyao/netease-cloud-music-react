@@ -24,7 +24,9 @@ const Layout = () => {
       />
       {/* <SearchBar /> */}
       <AppMain />
-      <PlayBar />
+      <div className="w-full fixed bottom-10">
+        <PlayBar />
+      </div>
       <TabBar />
     </div>
   )
