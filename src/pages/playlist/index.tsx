@@ -44,61 +44,78 @@ function PlayList() {
       <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 py-10 h-screen">
         <TopBar
           leftSlot={
-            <i className="i-ri-arrow-left-s-line" onClick={handleClick} />
+            <div
+              className="i-ri-arrow-left-s-line text-2xl"
+              onClick={handleClick}
+            />
           }
           centerSlot={<span className="text-lg">歌单</span>}
         />
-        <div className="w-full h-full">
+        <div className="w-full h-full px-2">
           <Scroll
             direction={'vertical'}
-            wrapHeight="calc(100vh - 100px)"
+            wrapHeight="calc(100vh - 5rem)"
             onScroll={handleScroll}
           >
-            <div style={{ backgroundImage: playList.coverImgUrl }}>
-              <div className="filter"></div>
-              <div className="cover">
-                <img src={playList?.coverImgUrl} alt="cover" />
-                <span>
-                  <i className="ri-play-fill"></i>
-                  {getCount(playList?.playCount)}
-                </span>
-              </div>
-              <div className="info">
-                <h2 className="title">{playList?.name}</h2>
-                <div className="user">
-                  <div className="avatar">
-                    <img src={playList?.creator?.avatarUrl} alt="avatar" />
+            <div className="" style={{ backgroundImage: playList.coverImgUrl }}>
+              <div className="flex gap-2 py-2">
+                <div className="relative w-30 h-30">
+                  <img
+                    src={playList?.coverImgUrl}
+                    alt="cover"
+                    className="w-full h-full object-cover rounded-2"
+                  />
+                  <div className="flex items-center text-gray-9 text-xs absolute right-1 top-1">
+                    <div className="i-ri-play-fill" />
+                    {getCount(playList?.playCount)}
                   </div>
-                  <span className="nickname">
-                    {playList?.creator?.nickname}
-                  </span>
                 </div>
-                <p className="desc">{playList?.description}</p>
+                <div className="flex flex-col gap-2 flex-1">
+                  <span className="text-gray-1">{playList?.name}</span>
+                  <div className="flex items-center gap-1 text-gray-1 text-sm">
+                    <div className="w-10 h-10">
+                      <img
+                        src={playList?.creator?.avatarUrl}
+                        alt="avatar"
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                    <span className="">{playList?.creator?.nickname}</span>
+                  </div>
+                  <p
+                    className="line-clamp-2 text-xs text-gray-2"
+                    title={playList.description}
+                  >
+                    {playList?.description}
+                  </p>
+                </div>
               </div>
-              <div className="comment">
-                <span>
-                  <i className="ri-heart-add-fill"></i>
+              <div className="flex items-center justify-center bg-neutral-8 w-50 rounded-full text-xs text-white px-2 py-2 gap-2 mx-auto my-1">
+                <div className="flex items-center">
+                  <div className="i-ri-heart-add-fill text-xl" />
                   {getCount(playList?.subscribedCount)}
-                </span>
-                <span>
-                  <i className="ri-message-3-line"></i>
+                </div>
+                <div className="flex items-center">
+                  <div className="i-ri-message-3-line text-xl" />
                   {getCount(playList?.commentCount)}
-                </span>
-                <span>
-                  <i className="ri-share-circle-line"></i>
+                </div>
+                <div className="flex items-center">
+                  <div className="i-ri-share-circle-line text-xl" />
                   {getCount(playList?.shareCount)}
-                </span>
+                </div>
               </div>
             </div>
             <div>
               {playList.tracks &&
                 playList.tracks.map((item, index) => {
                   return (
-                    <div key={item.id}>
-                      <span className="no">{index + 1}</span>
-                      <div className="song-info">
-                        <span className="name">{item.name}</span>
-                        <span className="creator">
+                    <div key={item.id} className="flex items-center">
+                      <span className="px-3 text-gray-3 w-8 h-8 flex justify-center items-center">
+                        {index + 1}
+                      </span>
+                      <div className="flex flex-col">
+                        <span className="text-white text-sm">{item.name}</span>
+                        <span className="text-gray-2 text-xs line-clamp-1">
                           {item?.al?.name}-
                           {item?.ar?.map(v => v.name)?.join('/')}
                         </span>
