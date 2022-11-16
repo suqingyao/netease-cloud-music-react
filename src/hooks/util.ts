@@ -1,10 +1,10 @@
-import { getBannerList } from '@/api/modules/base'
 import {
   getPersonalized,
   getToplistDetail,
-  getPlaylistDetail
-} from '@/api/modules/playlist'
-import { getTopArtists } from '@/api/modules/artist'
+  getPlaylistDetail,
+  getBannerList,
+  getTopArtists
+} from '@/api'
 import { useQuery } from '@tanstack/react-query'
 
 export const useRecommend = () => {

@@ -1,7 +1,8 @@
-const apis = import.meta.glob('@/api/modules/*.ts', {
-  eager: true
-})
-
-console.log(apis)
-
-// export
+export * from './modules/base'
+export * from './modules/artist'
+export * from './modules/auth'
+export * from './modules/playlist'
+export * from './modules/qrcode'
+export * from './modules/search'
+export * from './modules/song'
+export * from './modules/user'

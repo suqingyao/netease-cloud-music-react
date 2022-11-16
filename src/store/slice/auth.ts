@@ -1,5 +1,5 @@
-import { login } from '@/api/modules/auth'
-import { LoginParams } from '@/api/types/login-params'
+import { login } from '@/api'
+import { LoginParams } from '@/api/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const loginUser = createAsyncThunk(
