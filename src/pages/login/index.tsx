@@ -1,6 +1,4 @@
 import { LoginParams } from '@/api/types/login-params'
-import { useAppDispatch } from '@/store'
-import { loginUser } from '@/store/slice/auth'
 import { FormEvent, useState } from 'react'
 
 function Login() {
@@ -9,11 +7,8 @@ function Login() {
     password: ''
   })
 
-  const dispatch = useAppDispatch()
-
   const login = (e: FormEvent) => {
     e.preventDefault()
-    dispatch(loginUser(form))
   }
 
   return (

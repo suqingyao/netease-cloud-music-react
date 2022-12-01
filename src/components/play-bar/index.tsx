@@ -1,5 +1,3 @@
-import { useAppDispatch, useAppSelector } from '@/store'
-import { changePlayStatus } from '@/store/slice/player'
 import classNames from 'classnames'
 import React from 'react'
 
@@ -16,52 +14,20 @@ export enum PlayStatus {
 }
 
 const PlayBar = () => {
-  const dispatch = useAppDispatch()
-  const selector = useAppSelector(state => state.player)
-
-  const changeStatus = () => {
-    dispatch(changePlayStatus())
-  }
-
-  const classes = classNames(
-    'flex',
-    'justify-between',
-    'items-center',
-    'w-full',
-    'px-2',
-    'gap-1',
-    'rounded-tl-1',
-    'rounded-tr-1',
-    'h-10',
-    'bg-red-5'
-  )
+  function handleClick() {}
 
   return (
-    <div className={classes}>
+    <div className="flex justify-between items-center w-full px-2 gap-1 rounded-tl-1 rounded-tr-1 h-10 bg-red-5">
       <div className="relative">
         <i className="i-ri-album-fill"></i>
         <img src="" alt="" className="absolute w-full h-full object-cover" />
       </div>
       <div className="flex items-center gap-1 w-full text-ellipsis text-white">
-        <span
-          className="
-          overflow-hidden
-          text-ellipsis
-          whitespace-nowrap
-          text-white
-          text-sm"
-        >
+        <span className="overflow-hidden text-ellipsis whitespace-nowrap text-white text-sm">
           千年泪
         </span>
         <span>-</span>
-        <span
-          className="
-          overflow-hidden
-          text-ellipsis
-          whitespace-nowrap
-          text-white
-          text-sm"
-        >
+        <span className="overflow-hidden text-ellipsis whitespace-nowrap text-white text-sm">
           TANK
         </span>
       </div>
