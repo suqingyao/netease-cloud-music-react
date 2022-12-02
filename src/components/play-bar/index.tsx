@@ -1,5 +1,5 @@
-import classNames from 'classnames'
-import React from 'react'
+import { useToggle } from 'ahooks'
+import React, { useState } from 'react'
 
 export enum PlayMode {
   RANDOM,
@@ -8,12 +8,14 @@ export enum PlayMode {
   BECKONING
 }
 
-export enum PlayStatus {
+export enum PLAY_MODE {
   PLAY,
   PAUSE
 }
 
 const PlayBar = () => {
+  const [state, setState] = useState(PLAY_MODE.PAUSE)
+
   function handleClick() {}
 
   return (
@@ -34,9 +36,9 @@ const PlayBar = () => {
       <div className="action">
         <i
           className={`i-ri-${
-            selector.playStatus ? 'pause' : 'play'
+            state === PLAY_MODE.PAUSE ? 'pause' : 'play'
           }-circle-line`}
-          onClick={changeStatus}
+          onClick={handleClick}
         ></i>
       </div>
       <i className="i-ri-play-list-2-fill"></i>
