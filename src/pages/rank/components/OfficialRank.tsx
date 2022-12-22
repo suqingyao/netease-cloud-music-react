@@ -27,7 +27,7 @@ function OfficialRank({ list }: OfficialRankProps) {
                   alt="rank"
                   className="w-full h-full rounded-2 object-cover"
                 />
-                <span className="absolute left-1 top-1 text-sm">
+                <span className="absolute left-1 top-1 text-sm text-white">
                   {item.updateFrequency}
                 </span>
               </div>

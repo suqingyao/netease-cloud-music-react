@@ -60,7 +60,7 @@ function PlayList() {
               <img
                 src={playList.coverImgUrl}
                 alt="bg"
-                className="absolute w-full h-full object-cover blur-xl rounded-xl"
+                className="object-cover w-full h-full blur-2xl absolute w-full h-full -z-1"
               />
               <div className="flex gap-2 py-2 z-1">
                 <div className="relative w-30 h-30">
@@ -75,8 +75,8 @@ function PlayList() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 flex-1">
-                  <span className="text-gray-5">{playList?.name}</span>
-                  <div className="flex items-center gap-1 text-gray-4 text-sm">
+                  <span className="text-gray-2">{playList?.name}</span>
+                  <div className="flex items-center gap-1 text-gray-2 text-sm">
                     <div className="w-10 h-10">
                       <img
                         src={playList?.creator?.avatarUrl}
@@ -87,7 +87,7 @@ function PlayList() {
                     <span className="">{playList?.creator?.nickname}</span>
                   </div>
                   <p
-                    className="line-clamp-2 text-xs text-gray-4"
+                    className="line-clamp-2 text-xs text-gray-3"
                     title={playList.description}
                   >
                     {playList?.description}

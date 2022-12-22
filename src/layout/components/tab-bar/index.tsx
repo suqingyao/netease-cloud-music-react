@@ -35,25 +35,12 @@ const TabBar = () => {
   ]
   const location = useLocation()
   return (
-    <div
-      className="
-      flex
-      h10
-      fixed
-      right-0
-      left-0
-      bottom-0
-      justify-around
-      items-center
-      text-gray-2
-      bg-red
-      "
-    >
+    <div className="flex h10 fixed right-0 left-0 bottom-0 justify-around items-center text-black bg-red-5">
       {tabList.map(tab => (
         <NavLink
           key={tab.path}
           to={tab.path}
-          className={tab.path === location.pathname ? 'text-red-6' : ''}
+          className={tab.path === location.pathname ? 'text-white' : ''}
         >
           <div className="flex-1 flex flex-col justify-center items-center">
             <i className={`${tab.default}`}></i>
