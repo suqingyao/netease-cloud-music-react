@@ -5,18 +5,7 @@ import TopBar from './components/top-bar'
 
 const Layout = () => {
   return (
-    <div
-      className="
-      w-screen
-      h-screen
-      flex
-      flex-col
-      relative
-      bg-gradient-to-r
-      from-violet-500
-      to-fuchsia-500
-      text-white"
-    >
+    <div className="w-screen h-screen flex flex-col relative">
       <TopBar
         leftSlot={<i className="i-ri-menu-line" />}
         centerSlot={<h1>WebApp</h1>}

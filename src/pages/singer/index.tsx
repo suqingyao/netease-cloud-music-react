@@ -38,9 +38,7 @@ function Singer() {
                     className="w-full h-full object-cover rounded-2"
                   />
                 </div>
-                <span className="text-sm text-gray-2 font-medium">
-                  {item.name}
-                </span>
+                <span className="text-sm font-medium">{item.name}</span>
               </div>
             )
           })}

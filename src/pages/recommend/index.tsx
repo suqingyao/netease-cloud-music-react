@@ -20,7 +20,7 @@ const Recommend = () => {
     return <Loading />
   }
 
-  const [recommendData, bannersData] = data
+  const [recommendData, bannersData] = data as any[]
 
   return (
     <Scroll
@@ -49,10 +49,8 @@ const Recommend = () => {
                   className="w-full h-full object-cover rounded-2"
                 />
               </LazyLoad>
-              <span className="text-white text-xs line-clamp-2">
-                {item.name}
-              </span>
-              <span className="flex items-center absolute top-1 right-1 text-xs gap-1">
+              <span className="text-xs line-clamp-2">{item.name}</span>
+              <span className="text-white flex items-center absolute top-1 right-1 text-xs gap-1">
                 <div className="i-ri-headphone-fill"></div>
                 {getCount(item.playCount)}
               </span>

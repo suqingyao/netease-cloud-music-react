@@ -27,29 +27,38 @@ function Tabs(props: TabsProps) {
   //   categoryDom.style.width = `${totalWidth}px`
   // })
 
-  const classes = classNames('text-xs', 'px-2', 'py-1', 'rounded-2')
+  const classes = classNames(
+    'text-xs',
+    'px-2',
+    'py-1',
+    'rounded-2',
+    'border-1',
+    'whitespace-nowrap'
+  )
 
   return (
-    <Scroll direction={'horizontal'} wrapWidth="100%">
-      <div ref={categoryRef} className="flex z-10 overflow-hidden">
-        <span className="px-1 text-gray-2 text-sm">{title}</span>
-        {list.map(item => {
-          return (
-            <div
-              key={item.key}
-              onClick={() => handleClick(item.key)}
-              className={`${
-                oldVal === item.key
-                  ? `${classes} text-red-4 opacity-80 border-1`
-                  : classes
-              }`}
-            >
-              {item.name}
-            </div>
-          )
-        })}
-      </div>
-    </Scroll>
+    <div className="flex items-center">
+      <div className="px-1 text-sm whitespace-nowrap">{title}</div>
+      <Scroll direction={'horizontal'} wrapWidth="100%">
+        <div ref={categoryRef} className="flex z-10">
+          {list.map(item => {
+            return (
+              <div
+                key={item.key}
+                onClick={() => handleClick(item.key)}
+                className={`${
+                  oldVal === item.key
+                    ? `${classes} text-red-5 opacity-80`
+                    : `${classes} border-transparent`
+                }`}
+              >
+                {item.name}
+              </div>
+            )
+          })}
+        </div>
+      </Scroll>
+    </div>
   )
 }
 

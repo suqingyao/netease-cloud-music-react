@@ -40,7 +40,7 @@ function PlayList() {
         navigate(-1)
       }}
     >
-      <div className="bg-gradient-to-r from-violet-500 to-fuchsia-500 py-10 h-screen">
+      <div className="py-10 h-screen">
         <TopBar
           leftSlot={
             <div
@@ -62,7 +62,7 @@ function PlayList() {
                 alt="bg"
                 className="absolute w-full h-full object-cover blur-xl rounded-xl"
               />
-              <div className="flex gap-2 py-2">
+              <div className="flex gap-2 py-2 z-1">
                 <div className="relative w-30 h-30">
                   <img
                     src={playList?.coverImgUrl}
@@ -75,8 +75,8 @@ function PlayList() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 flex-1">
-                  <span className="text-gray-1">{playList?.name}</span>
-                  <div className="flex items-center gap-1 text-gray-1 text-sm">
+                  <span className="text-gray-5">{playList?.name}</span>
+                  <div className="flex items-center gap-1 text-gray-4 text-sm">
                     <div className="w-10 h-10">
                       <img
                         src={playList?.creator?.avatarUrl}
@@ -87,7 +87,7 @@ function PlayList() {
                     <span className="">{playList?.creator?.nickname}</span>
                   </div>
                   <p
-                    className="line-clamp-2 text-xs text-gray-2"
+                    className="line-clamp-2 text-xs text-gray-4"
                     title={playList.description}
                   >
                     {playList?.description}
@@ -109,17 +109,17 @@ function PlayList() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="flex flex-col gap-1">
               {playList.tracks &&
                 playList.tracks.map((item, index) => {
                   return (
-                    <div key={item.id} className="flex items-center">
-                      <span className="px-3 text-gray-3 w-8 h-8 flex justify-center items-center">
+                    <div key={item.id} className="flex items-center border-b-1">
+                      <span className="px-3 text-gray-5 w-8 h-8 flex justify-center items-center">
                         {index + 1}
                       </span>
                       <div className="flex flex-col">
-                        <span className="text-white text-sm">{item.name}</span>
-                        <span className="text-gray-2 text-xs line-clamp-1">
+                        <span className="text-gray-8 text-sm">{item.name}</span>
+                        <span className="text-gray-6 text-xs line-clamp-1">
                           {item?.al?.name}-
                           {item?.ar?.map(v => v.name)?.join('/')}
                         </span>
