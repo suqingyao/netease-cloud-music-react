@@ -22,14 +22,6 @@ function PlayList() {
     setShowStatus(false)
   }
 
-  const handleScroll = () => {
-    console.log('🚀 ~ file: index.tsx ~ line 49 ~ handleScroll')
-  }
-
-  if (isLoading) {
-    return <Loading />
-  }
-
   return (
     <CSSTransition
       in={showStatus}
@@ -51,14 +43,10 @@ function PlayList() {
           centerSlot={<span className="text-lg">歌单</span>}
         />
         <div className="w-full h-full px-2">
-          <Scroll
-            direction={'vertical'}
-            wrapHeight="calc(100vh - 5rem)"
-            onScroll={handleScroll}
-          >
+          <Scroll direction={'vertical'} wrapHeight="calc(100vh - 5rem)">
             <div className="relative">
               <img
-                src={playList.coverImgUrl}
+                src={playList?.coverImgUrl}
                 alt="bg"
                 className="object-cover w-full h-full blur-2xl absolute w-full h-full -z-1"
               />
@@ -88,7 +76,7 @@ function PlayList() {
                   </div>
                   <p
                     className="line-clamp-2 text-xs text-gray-3"
-                    title={playList.description}
+                    title={playList?.description}
                   >
                     {playList?.description}
                   </p>
@@ -109,25 +97,34 @@ function PlayList() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-1">
-              {playList.tracks &&
-                playList.tracks.map((item, index) => {
-                  return (
-                    <div key={item.id} className="flex items-center border-b-1">
-                      <span className="px-3 text-gray-5 w-8 h-8 flex justify-center items-center">
-                        {index + 1}
-                      </span>
-                      <div className="flex flex-col">
-                        <span className="text-gray-8 text-sm">{item.name}</span>
-                        <span className="text-gray-6 text-xs line-clamp-1">
-                          {item?.al?.name}-
-                          {item?.ar?.map(v => v.name)?.join('/')}
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <div className="flex flex-col gap-1">
+                {playList.tracks &&
+                  playList.tracks.map((item, index) => {
+                    return (
+                      <div
+                        key={item.id}
+                        className="flex items-center border-b-1"
+                      >
+                        <span className="px-3 text-gray-5 w-8 h-8 flex justify-center items-center">
+                          {index + 1}
                         </span>
+                        <div className="flex flex-col">
+                          <span className="text-gray-8 text-sm">
+                            {item.name}
+                          </span>
+                          <span className="text-gray-6 text-xs line-clamp-1">
+                            {item?.al?.name}-
+                            {item?.ar?.map(v => v.name)?.join('/')}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
-            </div>
+                    )
+                  })}
+              </div>
+            )}
           </Scroll>
         </div>
         <div className="fixed bottom-0 w-full">
