@@ -1,0 +1,52 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  .two-balls {
+    position: relative;
+    width: 44px;
+    .pink {
+      background-color: #ff4a69;
+      left: -2px;
+    }
+    .blue {
+      animation-name: twoBallsBlue;
+      background-color: #1342ed;
+      right: -2px;
+    }
+  }
+
+  .two-balls div {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: twoBallsPink 1.05s ease-in-out infinite;
+  }
+}
+
+@keyframes rotation {
+  50% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes twoBallsPink {
+  from {
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(calc(20px + 3 * 2px));
+  }
+}
+
+@keyframes twoBallsBlue {
+  from {
+    z-index: 1;
+  }
+  50% {
+    transform: translateX(calc(-20px - 3 * 2px));
+  }
+}

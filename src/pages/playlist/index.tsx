@@ -8,6 +8,8 @@ import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePlayListDetail } from '@/hooks'
 import Loading from '@/components/loading'
+import Image from '@/components/image'
+import defaultImage from '@/assets/default_album.jpg'
 
 function PlayList() {
   const navigate = useNavigate()
@@ -45,15 +47,17 @@ function PlayList() {
         <div className="w-full h-full px-2">
           <Scroll direction={'vertical'} wrapHeight="calc(100vh - 5rem)">
             <div className="relative">
-              <img
+              <Image
                 src={playList?.coverImgUrl}
+                defaultSrc={defaultImage}
                 alt="bg"
                 className="object-cover w-full h-full blur-2xl absolute w-full h-full -z-1"
               />
               <div className="flex gap-2 py-2 z-1">
                 <div className="relative w-30 h-30">
-                  <img
+                  <Image
                     src={playList?.coverImgUrl}
+                    defaultSrc={defaultImage}
                     alt="cover"
                     className="w-full h-full object-cover rounded-2"
                   />
@@ -66,8 +70,9 @@ function PlayList() {
                   <span className="text-gray-2">{playList?.name}</span>
                   <div className="flex items-center gap-1 text-gray-2 text-sm">
                     <div className="w-10 h-10">
-                      <img
+                      <Image
                         src={playList?.creator?.avatarUrl}
+                        defaultSrc={defaultImage}
                         alt="avatar"
                         className="w-full h-full object-cover rounded-full"
                       />
@@ -85,15 +90,15 @@ function PlayList() {
               <div className="flex items-center justify-center bg-neutral-8 w-50 rounded-full text-xs text-white px-2 py-2 gap-2 mx-auto my-1">
                 <div className="flex items-center">
                   <div className="i-ri-heart-add-fill text-xl" />
-                  {getCount(playList?.subscribedCount)}
+                  {getCount(playList?.subscribedCount || 0)}
                 </div>
                 <div className="flex items-center">
                   <div className="i-ri-message-3-line text-xl" />
-                  {getCount(playList?.commentCount)}
+                  {getCount(playList?.commentCount || 0)}
                 </div>
                 <div className="flex items-center">
                   <div className="i-ri-share-circle-line text-xl" />
-                  {getCount(playList?.shareCount)}
+                  {getCount(playList?.shareCount || 0)}
                 </div>
               </div>
             </div>
