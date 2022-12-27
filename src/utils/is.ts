@@ -2,7 +2,7 @@ export function isSuccessResponse(response: any) {
   return response?.code === 200
 }
 
-export function isEmpty<T>(obj: T) {
+export function isEmpty(obj: any) {
   if (typeof obj === 'object' && Object.keys(obj).length === 0) {
     return false
   }

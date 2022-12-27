@@ -10,6 +10,8 @@ import { usePlayListDetail } from '@/hooks'
 import Loading from '@/components/loading'
 import Image from '@/components/image'
 import defaultImage from '@/assets/default_album.jpg'
+import usePlayerStore from '@/store'
+import { getSongUrl } from '@/api'
 
 function PlayList() {
   const navigate = useNavigate()
@@ -22,6 +24,22 @@ function PlayList() {
 
   const handleClick = () => {
     setShowStatus(false)
+  }
+
+  const play = usePlayerStore(state => state.play)
+
+  const handlePlay = async (song: any) => {
+    const res = await getSongUrl({
+      id: song?.id,
+      level: 'standard'
+    })
+    const author = song?.ar.map((item: { name: string }) => item.name).join('/')
+    play({
+      src: res?.data[0]?.url,
+      cover: song?.al?.picUrl,
+      name: song?.name,
+      author
+    })
   }
 
   return (
@@ -112,6 +130,7 @@ function PlayList() {
                       <div
                         key={item.id}
                         className="flex items-center border-b-1"
+                        onClick={() => handlePlay(item)}
                       >
                         <span className="px-3 text-gray-5 w-8 h-8 flex justify-center items-center">
                           {index + 1}

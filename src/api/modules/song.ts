@@ -7,7 +7,7 @@ import request from '@/utils/request'
  */
 export function getSongUrl(params: {
   id: string
-  level?: 'standard' | 'exhigh' | 'lossless' | 'hires'
+  level: 'standard' | 'exhigh' | 'lossless' | 'hires'
 }) {
   return request.get('/song/url/v1', { params })
 }

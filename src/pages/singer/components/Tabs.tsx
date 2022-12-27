@@ -1,7 +1,6 @@
 import { memo, useRef } from 'react'
 import Scroll from '@/components/scroll'
 import classNames from 'classnames'
-import { useMount } from 'ahooks'
 
 interface TabsProps {
   list: Array<any>
