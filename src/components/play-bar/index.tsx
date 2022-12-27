@@ -2,7 +2,7 @@ import usePlayerStore from '@/store'
 import { isEmpty } from '@/utils/is'
 import classNames from 'classnames'
 import React, { useState } from 'react'
-import { useAudio, useUpdateEffect } from 'react-use'
+import { useAudio, useUpdate, useUpdateEffect } from 'react-use'
 
 export enum PlayMode {
   RANDOM,
@@ -13,7 +13,7 @@ export enum PlayMode {
 
 const PlayBar = () => {
   const playing = usePlayerStore(state => state.playing)
-  const toggle = usePlayerStore(state => state.toggle)
+  const setPlaying = usePlayerStore(state => state.setPlaying)
   const currentPlay = usePlayerStore(state => state.currentPlay)
   const [audio, state, controls, ref] = useAudio({
     src: currentPlay.src,
@@ -21,12 +21,8 @@ const PlayBar = () => {
   })
 
   useUpdateEffect(() => {
-    if (playing) {
-      controls.play()
-    } else {
-      controls.pause()
-    }
-  }, [playing])
+    setPlaying(state.playing)
+  }, [state.playing])
 
   return (
     <div className="flex justify-between items-center w-full px-2 gap-1 rounded-tl-1 rounded-tr-1 h-10 bg-red-5 text-3xl">
@@ -56,11 +52,11 @@ const PlayBar = () => {
         </div>
       )}
 
-      <div onClick={toggle}>
+      <div>
         {playing ? (
-          <div className="i-ri:pause-circle-line" />
+          <div className="i-ri:pause-circle-line" onClick={controls.pause} />
         ) : (
-          <div className="i-ri:play-circle-line" />
+          <div className="i-ri:play-circle-line" onClick={controls.play} />
         )}
       </div>
       <div className="i-ri-play-list-2-fill" />

@@ -5,7 +5,7 @@ interface PlayerState {
   playlist: Song[]
   currentPlay: Song
   currentPlayIndex: number
-  toggle: () => void
+  setPlaying: (playing: boolean) => void
   next: () => void
   prev: () => void
   play: (song: Song) => void
@@ -24,7 +24,7 @@ const usePlayerStore = create<PlayerState>(set => ({
   playlist: [],
   currentPlay: {} as Song,
   currentPlayIndex: -1,
-  toggle: () => set(state => ({ playing: !state.playing })),
+  setPlaying: playing => set({ playing }),
   next: () =>
     set(state => {
       if (state.currentPlayIndex <= state.playlist.length) {
