@@ -2,7 +2,6 @@ import PlayBar from '@/components/play-bar'
 import React from 'react'
 import Scroll from '@/components/scroll'
 import TopBar from '@/layout/components/top-bar'
-import { CSSTransition } from 'react-transition-group'
 import { getCount } from '@/utils'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -14,7 +13,7 @@ import usePlayerStore from '@/store'
 import { getSongUrl } from '@/api'
 import Rotate from '@/components/transition/rotate'
 
-function PlayList() {
+function Playlist() {
   const navigate = useNavigate()
   const param = useParams()
   const [showStatus, setShowStatus] = useState(true)
@@ -152,4 +151,4 @@ function PlayList() {
   )
 }
 
-export default React.memo(PlayList)
+export default React.memo(Playlist)

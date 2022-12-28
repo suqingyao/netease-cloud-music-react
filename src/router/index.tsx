@@ -1,11 +1,12 @@
-import Layout from '@/layout/index'
-import Page404 from '@/pages/error/Page404'
-import Login from '@/pages/login'
-import PlayList from '@/pages/playlist'
-import Rank from '@/pages/rank'
-import Recommend from '@/pages/recommend'
-import Singer from '@/pages/singer'
+import { lazy } from 'react'
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
+const Layout = lazy(() => import('@/layout'))
+const Login = lazy(() => import('@/pages/login'))
+const Recommend = lazy(() => import('@/pages/recommend'))
+const Rank = lazy(() => import('@/pages/rank'))
+const Singer = lazy(() => import('@/pages/singer'))
+const Playlist = lazy(() => import('@/pages/playlist'))
+const Page404 = lazy(() => import('@/pages/error/Page404'))
 
 const routeList: Array<RouteObject> = [
   {
@@ -37,7 +38,7 @@ const routeList: Array<RouteObject> = [
   },
   {
     path: '/playlist/:id',
-    element: <PlayList />
+    element: <Playlist />
   },
   {
     path: '*',

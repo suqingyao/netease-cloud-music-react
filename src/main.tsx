@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import 'uno.css'
 import App from './App'
 import { ThemeProvider } from './context'
-import '@/api'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLDivElement

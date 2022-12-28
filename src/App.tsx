@@ -1,10 +1,14 @@
 import Views from '@/router'
+import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import Loading from './components/loading'
 
 function App() {
   return (
     <BrowserRouter>
-      <Views />
+      <Suspense fallback={<Loading />}>
+        <Views />
+      </Suspense>
     </BrowserRouter>
   )
 }
