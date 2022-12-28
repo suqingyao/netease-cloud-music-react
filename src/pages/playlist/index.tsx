@@ -46,7 +46,6 @@ function PlayList() {
     <CSSTransition
       in={showStatus}
       timeout={300}
-      appear={true}
       unmountOnExit
       onExited={() => {
         navigate(-1)
