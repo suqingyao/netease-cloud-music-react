@@ -12,6 +12,7 @@ import Image from '@/components/image'
 import defaultImage from '@/assets/default_album.jpg'
 import usePlayerStore from '@/store'
 import { getSongUrl } from '@/api'
+import Rotate from '@/components/transition/rotate'
 
 function PlayList() {
   const navigate = useNavigate()
@@ -43,14 +44,7 @@ function PlayList() {
   }
 
   return (
-    <CSSTransition
-      in={showStatus}
-      timeout={300}
-      unmountOnExit
-      onExited={() => {
-        navigate(-1)
-      }}
-    >
+    <Rotate visible={showStatus} onExited={() => navigate(-1)}>
       <div className="py-10 h-screen">
         <TopBar
           leftSlot={
@@ -154,7 +148,7 @@ function PlayList() {
           <PlayBar />
         </div>
       </div>
-    </CSSTransition>
+    </Rotate>
   )
 }
 

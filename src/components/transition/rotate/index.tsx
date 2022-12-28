@@ -1,43 +1,38 @@
-import { cloneElement, CSSProperties, FC, ReactNode } from 'react'
+import { CSSProperties, FC, ReactNode } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import './index.scss'
 
-interface FadeProps {
+interface RotateProps {
   visible: boolean
   timeout?: number
-  style?: CSSProperties
   onEntered?: () => void
   onExited?: () => void
+  style?: CSSProperties
   children?: ReactNode
 }
 
-const Fade: FC<FadeProps> = ({
+const Rotate: FC<RotateProps> = ({
   visible,
   timeout = 300,
-  style,
   onEntered,
   onExited,
   children
 }) => {
   return (
-    <div className="component-transition-fade">
+    <div className="component-transition-rotate">
       <CSSTransition
         in={visible}
         timeout={timeout}
-        classNames="fade"
-        mountOnEnter
-        unmountOnExit
         onEntered={onEntered}
         onExited={onExited}
+        mountOnEnter
+        unmountOnExit
+        classNames="rotate"
       >
-        {cloneElement(children, {
-          style: {
-            ...style
-          }
-        })}
+        {children}
       </CSSTransition>
     </div>
   )
 }
 
-export default Fade
+export default Rotate
