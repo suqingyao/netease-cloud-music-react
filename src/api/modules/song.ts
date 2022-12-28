@@ -8,7 +8,7 @@ import request from '@/utils/request'
 export function getSongUrl(params: {
   id: string
   level: 'standard' | 'exhigh' | 'lossless' | 'hires'
-}) {
+}): Promise<any> {
   return request.get('/song/url/v1', { params })
 }
 
@@ -17,6 +17,6 @@ export function getSongUrl(params: {
  * @param params
  * @returns
  */
-export function getCheckMusic(params: { id: string }) {
+export function getCheckMusic(params: { id: string }): Promise<any> {
   return request.get('/check/music', { params })
 }

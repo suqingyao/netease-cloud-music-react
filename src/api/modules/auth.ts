@@ -6,7 +6,7 @@ import { LoginParams } from '@/api/types'
  * @param params
  * @returns
  */
-export function login(params: LoginParams) {
+export function login(params: LoginParams): Promise<any> {
   return request.get('/login/cellphone', { params, withCredentials: true })
 }
 
@@ -14,7 +14,7 @@ export function login(params: LoginParams) {
  * 退出登录
  * @returns
  */
-export function logout() {
+export function logout(): Promise<any> {
   return request.get('/logout')
 }
 
@@ -23,7 +23,10 @@ export function logout() {
  * @param params
  * @returns
  */
-export function sendCaptcha(params: { phone: string; ctcode?: string }) {
+export function sendCaptcha(params: {
+  phone: string
+  ctcode?: string
+}): Promise<any> {
   return request.get('/captcha/sent', { params })
 }
 
@@ -36,6 +39,6 @@ export function verifyCaptcha(params: {
   phone: string
   captcha: string
   ctcode?: string
-}) {
+}): Promise<any> {
   return request.get('/captcha/verify', { params })
 }

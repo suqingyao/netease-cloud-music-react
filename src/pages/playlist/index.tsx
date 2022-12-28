@@ -117,7 +117,7 @@ function Playlist() {
             ) : (
               <div className="flex flex-col gap-1">
                 {playList.tracks &&
-                  playList.tracks.map((item, index) => {
+                  playList.tracks.map((item: any, index: number) => {
                     return (
                       <div
                         key={item.id}
@@ -133,7 +133,7 @@ function Playlist() {
                           </span>
                           <span className="text-gray-6 text-xs line-clamp-1">
                             {item?.al?.name}-
-                            {item?.ar?.map(v => v.name)?.join('/')}
+                            {item?.ar?.map((v: any) => v.name)?.join('/')}
                           </span>
                         </div>
                       </div>
