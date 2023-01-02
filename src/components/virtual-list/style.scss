@@ -1,0 +1,18 @@
+.list_box {
+  @apply h-full;
+  overflow: hidden;
+  .scroll_box {
+    overflow: auto;
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+    .scroll_hold {
+      float: left;
+    }
+    .context {
+      .list {
+        @apply bg-blue text-center text-white text-xl;
+      }
+    }
+  }
+}

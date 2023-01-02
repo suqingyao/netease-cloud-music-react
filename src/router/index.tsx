@@ -7,6 +7,7 @@ const Rank = lazy(() => import('@/pages/rank'))
 const Singer = lazy(() => import('@/pages/singer'))
 const Playlist = lazy(() => import('@/pages/playlist'))
 const Page404 = lazy(() => import('@/pages/error/Page404'))
+const Test = lazy(() => import('@/pages/test'))
 
 const routeList: Array<RouteObject> = [
   {
@@ -39,6 +40,10 @@ const routeList: Array<RouteObject> = [
   {
     path: '/playlist/:id',
     element: <Playlist />
+  },
+  {
+    path: '/test',
+    element: <Test />
   },
   {
     path: '*',
