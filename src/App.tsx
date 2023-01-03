@@ -1,7 +1,5 @@
 import Router from '@/router'
-import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Loading from './components/loading'
 
 function App() {
   return (
