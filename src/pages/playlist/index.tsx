@@ -1,6 +1,5 @@
 import Loading from '@/components/loading'
 import PlayBar from '@/components/play-bar'
-import React from 'react'
 import Rotate from '@/components/transition/rotate'
 import Scroll from '@/components/scroll'
 import TopBar from '@/layout/components/top-bar'
@@ -9,7 +8,7 @@ import { getCount } from '@/utils'
 import { getSongUrl } from '@/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePlayListDetail } from '@/hooks'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 function Playlist() {
   const navigate = useNavigate()
@@ -146,4 +145,4 @@ function Playlist() {
   )
 }
 
-export default React.memo(Playlist)
+export default memo(Playlist)

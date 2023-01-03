@@ -1,4 +1,5 @@
-import { lazy } from 'react'
+import Loading from '@/components/loading'
+import { lazy, Suspense } from 'react'
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom'
 const Layout = lazy(() => import('@/layout'))
 const Login = lazy(() => import('@/pages/login'))
@@ -51,4 +52,8 @@ const routeList: Array<RouteObject> = [
   }
 ]
 
-export default () => useRoutes(routeList)
+const Router = () => {
+  return <Suspense fallback={<Loading />}>{useRoutes(routeList)}</Suspense>
+}
+
+export default Router
