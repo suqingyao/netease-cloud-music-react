@@ -1,41 +1,42 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import {
+  MusicalNoteIcon,
+  Bars3CenterLeftIcon,
+  UserIcon
+} from '@heroicons/react/24/outline'
 
 export interface TabBarProps {
   tabList: TabItemProps[]
 }
 
 export interface TabItemProps {
-  default: string
-  active: string
-  label: string
+  icon: JSX.Element
+  title: string
   path: string
 }
 
 const TabBar = () => {
   const tabList: TabItemProps[] = [
     {
-      default: 'i-ri-netease-cloud-music-line',
-      active: 'i-ri-netease-cloud-music-fill',
-      label: '推荐',
+      icon: <MusicalNoteIcon className="w-5 h-5" />,
+      title: '推荐',
       path: '/recommend'
     },
     {
-      default: 'i-ri-bar-chart-line',
-      active: 'i-ri-bar-chart-fill',
-      label: '排行榜',
+      icon: <Bars3CenterLeftIcon className="w-5 h-5" />,
+      title: '排行榜',
       path: '/rank'
     },
     {
-      default: 'i-ri-user-3-line',
-      active: 'i-ri-user-3-fill',
-      label: '歌手',
+      icon: <UserIcon className="w-5 h-5" />,
+      title: '歌手',
       path: '/singer'
     }
   ]
   const location = useLocation()
   return (
-    <div className="flex h10 fixed right-0 left-0 bottom-0 justify-around items-center text-black bg-red-5">
+    <div className="flex h-10 fixed right-0 left-0 bottom-0 justify-around items-center text-black bg-red-500">
       {tabList.map(tab => (
         <NavLink
           key={tab.path}
@@ -43,8 +44,8 @@ const TabBar = () => {
           className={tab.path === location.pathname ? 'text-white' : ''}
         >
           <div className="flex-1 flex flex-col justify-center items-center">
-            <i className={`${tab.default}`}></i>
-            <span className="text-sm">{tab.label}</span>
+            {tab.icon}
+            <span className="text-xs">{tab.title}</span>
           </div>
         </NavLink>
       ))}

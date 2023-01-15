@@ -21,11 +21,11 @@ function OfficialRank({ list }: OfficialRankProps) {
               onClick={() => goDetail(item.id)}
               className="flex gap-1"
             >
-              <div className="w-30 h-30 relative">
+              <div className="w-28 h-28 relative">
                 <img
                   src={item.coverImgUrl}
                   alt="rank"
-                  className="w-full h-full rounded-2 object-cover"
+                  className="w-full h-full rounded-xl"
                 />
                 <span className="absolute left-1 top-1 text-sm text-white">
                   {item.updateFrequency}

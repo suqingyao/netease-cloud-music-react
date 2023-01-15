@@ -1,5 +1,6 @@
 import React, { ReactNode, FC } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 
 export interface TopBarProps {
   leftSlot?: ReactNode
@@ -7,7 +8,7 @@ export interface TopBarProps {
   rightSlot?: ReactNode
 }
 
-const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
+const TopBar: FC<TopBarProps> = ({ leftSlot, centerSlot, rightSlot }) => {
   const navigate = useNavigate()
 
   function handleClick() {
@@ -15,10 +16,13 @@ const TopBar = ({ leftSlot, centerSlot, rightSlot }: TopBarProps) => {
   }
 
   return (
-    <div className="flex justify-between items-center h10 px-2 text-white fixed top-0 lef-0 right-0 bg-red-5 w-full z-10">
+    <div className="flex justify-between items-center h-10 px-2 text-white fixed top-0 left-0 right-0 bg-red-500 w-full z-10">
       <div>
         {leftSlot ?? (
-          <div className="i-ri-arrow-left-s-line" onClick={handleClick} />
+          <ChevronLeftIcon
+            className="w-6 h-6 text-white"
+            onClick={handleClick}
+          />
         )}
       </div>
       <div>{centerSlot}</div>

@@ -24,7 +24,7 @@ function GlobalRank({ list }: GlobalRankProps) {
               <img
                 src={item.coverImgUrl}
                 alt="cover"
-                className="w-full h-full block object-cover rounded-2"
+                className="w-full h-full block object-cover rounded-xl"
               />
             </div>
             <span className="text-xs line-clamp-1">{item.name}</span>

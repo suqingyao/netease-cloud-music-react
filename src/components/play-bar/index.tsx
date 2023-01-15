@@ -1,8 +1,14 @@
-import usePlayerStore from '@/store'
+import { useCurrentPlay, usePlayerActions, usePlaying } from '@/store'
 import { isEmpty } from '@/utils/is'
 import classNames from 'classnames'
-import React, { useState } from 'react'
-import { useAudio, useUpdate, useUpdateEffect } from 'react-use'
+import { memo, useRef } from 'react'
+import { useAudio, useMount, useUpdateEffect } from 'react-use'
+import {
+  PauseCircleIcon,
+  PlayCircleIcon,
+  Bars4Icon
+} from '@heroicons/react/24/outline'
+import AlbumSVG from '@/assets/album.svg'
 
 export enum PlayMode {
   RANDOM,
@@ -12,9 +18,9 @@ export enum PlayMode {
 }
 
 const PlayBar = () => {
-  const playing = usePlayerStore(state => state.playing)
-  const setPlaying = usePlayerStore(state => state.setPlaying)
-  const currentPlay = usePlayerStore(state => state.currentPlay)
+  const playing = usePlaying()
+  const { setPlaying } = usePlayerActions()
+  const currentPlay = useCurrentPlay()
   const [audio, state, controls, ref] = useAudio({
     src: currentPlay.src,
     autoPlay: true
@@ -25,44 +31,47 @@ const PlayBar = () => {
   }, [state.playing])
 
   return (
-    <div className="flex justify-between items-center w-full px-2 gap-1 rounded-tl-1 rounded-tr-1 h-10 bg-red-5 text-3xl">
-      <div className="w-10">
+    <div className="flex justify-between items-center px-1 gap-1 rounded-tl-sm rounded-tr-sm h-10 bg-red-500 text-3xl">
+      <div className="w-8 h-8 flex justify-center items-center">
         {currentPlay?.cover ? (
           <img
             src={currentPlay.cover}
             alt="cover"
             className={classNames(
-              'w-full h-full object-cover rounded-full',
-              playing ? 'animate-spin' : ''
+              'object-cover rounded-full',
+              playing ? 'animate-spin-slow' : ''
             )}
           />
         ) : (
-          <div className="i-ri-album-fill" />
+          <img
+            src={AlbumSVG}
+            alt="album"
+            className="w-full h-full rounded-full"
+          />
         )}
       </div>
       {!isEmpty(currentPlay) ? null : (
-        <div className="flex items-center gap-1 w-full text-ellipsis text-white">
-          <span className="overflow-hidden text-ellipsis whitespace-nowrap text-white text-sm">
-            {currentPlay.name || null}
-          </span>
+        <div className="flex-1 flex items-center gap-1 text-white line-clamp-1 text-sm">
+          <span>{currentPlay.name || null}</span>
           {currentPlay.name ? <span className="text-sm">-</span> : null}
-          <span className="overflow-hidden text-ellipsis whitespace-nowrap text-white text-sm">
-            {currentPlay.author || null}
-          </span>
+          <span>{currentPlay.author || null}</span>
         </div>
       )}
 
-      <div>
-        {playing ? (
-          <div className="i-ri:pause-circle-line" onClick={controls.pause} />
-        ) : (
-          <div className="i-ri:play-circle-line" onClick={controls.play} />
-        )}
+      <div className="justify-end flex items-center text-white w-1/4">
+        <div className="w-6 h-6">
+          {playing ? (
+            <PauseCircleIcon onClick={controls.pause} />
+          ) : (
+            <PlayCircleIcon onClick={controls.play} />
+          )}
+        </div>
+        <Bars4Icon className="w-6 h-6" />
       </div>
-      <div className="i-ri-play-list-2-fill" />
+      <audio ref={ref} className="hidden" />
       {audio}
     </div>
   )
 }
 
-export default React.memo(PlayBar)
+export default memo(PlayBar)

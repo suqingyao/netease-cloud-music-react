@@ -16,12 +16,12 @@ function Rank() {
   const globalList = data?.list?.filter((item: any) => !item.ToplistType)
 
   return (
-    <div>
+    <>
       <Scroll wrapHeight="calc(100vh - 7.5rem)" direction={'vertical'}>
         <OfficialRank list={officialList} />
         <GlobalRank list={globalList} />
       </Scroll>
-    </div>
+    </>
   )
 }
 

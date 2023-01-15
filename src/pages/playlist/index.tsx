@@ -3,12 +3,18 @@ import PlayBar from '@/components/play-bar'
 import Rotate from '@/components/transition/rotate'
 import Scroll from '@/components/scroll'
 import TopBar from '@/layout/components/top-bar'
-import usePlayerStore from '@/store'
+import { usePlayerActions } from '@/store'
 import { getCount } from '@/utils'
 import { getSongUrl } from '@/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { usePlayListDetail } from '@/hooks'
 import { memo, useState } from 'react'
+import {
+  PlayIcon,
+  HeartIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  ShareIcon
+} from '@heroicons/react/24/solid'
 
 function Playlist() {
   const navigate = useNavigate()
@@ -23,7 +29,7 @@ function Playlist() {
     setShowStatus(false)
   }
 
-  const play = usePlayerStore(state => state.play)
+  const { play } = usePlayerActions()
 
   const handlePlay = async (song: any) => {
     const res = await getSongUrl({
@@ -45,38 +51,30 @@ function Playlist() {
         <Loading />
       ) : (
         <div className="py-10 h-screen">
-          <TopBar
-            leftSlot={
-              <div
-                className="i-ri-arrow-left-s-line text-2xl"
-                onClick={handleClick}
-              />
-            }
-            centerSlot={<span className="text-lg">歌单</span>}
-          />
+          <TopBar centerSlot={<span className="text-lg">歌单</span>} />
           <div className="w-full h-full px-2">
             <Scroll direction={'vertical'} wrapHeight="calc(100vh - 5rem)">
               <div className="relative">
                 <img
                   src={playList?.coverImgUrl}
                   alt="bg"
-                  className="object-cover w-full h-full blur-2xl absolute w-full h-full -z-1"
+                  className="object-cover blur-2xl absolute w-full h-full -z-10"
                 />
                 <div className="flex gap-2 py-2 z-1">
-                  <div className="relative w-30 h-30">
+                  <div className="relative w-32 h-32">
                     <img
                       src={playList?.coverImgUrl}
                       alt="cover"
-                      className="w-full h-full object-cover rounded-2"
+                      className="w-full h-full object-cover rounded-xl"
                     />
-                    <div className="flex items-center text-gray-9 text-xs absolute right-1 top-1 text-white">
-                      <div className="i-ri-play-fill" />
+                    <div className="flex items-center text-xs absolute right-1 top-1 text-white">
+                      <PlayIcon />
                       {getCount(playList?.playCount)}
                     </div>
                   </div>
                   <div className="flex flex-col gap-2 flex-1">
-                    <span className="text-gray-2">{playList?.name}</span>
-                    <div className="flex items-center gap-1 text-gray-2 text-sm">
+                    <span className="text-gray-200">{playList?.name}</span>
+                    <div className="flex items-center gap-1 text-gray-200 text-sm">
                       <div className="w-10 h-10">
                         <img
                           src={playList?.creator?.avatarUrl}
@@ -87,24 +85,24 @@ function Playlist() {
                       <span className="">{playList?.creator?.nickname}</span>
                     </div>
                     <p
-                      className="line-clamp-2 text-xs text-gray-3"
+                      className="line-clamp-2 text-xs text-gray-300"
                       title={playList?.description}
                     >
                       {playList?.description}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center justify-center bg-neutral-8 w-50 rounded-full text-xs text-white px-2 py-2 gap-2 mx-auto my-1">
+                <div className="flex items-center justify-center bg-gray-800 w-52 rounded-full text-xs text-white px-2 py-2 gap-2 mx-auto my-1">
                   <div className="flex items-center">
-                    <div className="i-ri-heart-add-fill text-xl" />
+                    <HeartIcon className="w-5 h-5" />
                     {getCount(playList?.subscribedCount || 0)}
                   </div>
                   <div className="flex items-center">
-                    <div className="i-ri-message-3-line text-xl" />
+                    <ChatBubbleOvalLeftEllipsisIcon className="w-5 h-5" />
                     {getCount(playList?.commentCount || 0)}
                   </div>
                   <div className="flex items-center">
-                    <div className="i-ri-share-circle-line text-xl" />
+                    <ShareIcon className="w-5 h-5" />
                     {getCount(playList?.shareCount || 0)}
                   </div>
                 </div>
@@ -115,17 +113,17 @@ function Playlist() {
                     return (
                       <div
                         key={item.id}
-                        className="flex items-center border-b-1"
+                        className="flex items-center border-b-[1px]"
                         onClick={() => handlePlay(item)}
                       >
-                        <span className="px-3 text-gray-5 w-8 h-8 flex justify-center items-center">
+                        <span className="px-3 text-gray-500 w-8 h-8 flex justify-center items-center">
                           {index + 1}
                         </span>
                         <div className="flex flex-col">
-                          <span className="text-gray-8 text-sm">
+                          <span className="text-gray-800 text-sm">
                             {item.name}
                           </span>
-                          <span className="text-gray-6 text-xs line-clamp-1">
+                          <span className="text-gray-600 text-xs line-clamp-1">
                             {item?.al?.name}-
                             {item?.ar?.map((v: any) => v.name)?.join('/')}
                           </span>

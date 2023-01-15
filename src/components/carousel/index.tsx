@@ -2,8 +2,8 @@ import { Autoplay, Pagination, Scrollbar } from 'swiper'
 import { Swiper, SwiperProps, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import React from 'react'
 import './style.scss'
+import { memo } from 'react'
 
 const Carousel = ({ banners }: any) => {
   return (
@@ -19,24 +19,10 @@ const Carousel = ({ banners }: any) => {
             <img
               src={banner.pic}
               alt={banner.typeTitle}
-              className="
-              block
-              w-full
-              h-full
-              object-cover
-              rounded-2"
+              className="w-full h-full object-cover rounded-xl"
             />
             <span
-              className="
-              text-white
-              text-sm
-              p-1
-              absolute
-              right-0
-              bottom-0
-              rounded-br-2
-              rounded-tl-2
-              "
+              className="text-white text-sm p-1 absolute right-0 bottom-0 rounded-br-xl rounded-tl-xl"
               style={{ backgroundColor: banner.titleColor }}
             >
               {banner.typeTitle}
@@ -48,4 +34,4 @@ const Carousel = ({ banners }: any) => {
   )
 }
 
-export default React.memo(Carousel)
+export default memo(Carousel)
