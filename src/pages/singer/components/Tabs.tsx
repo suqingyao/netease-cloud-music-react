@@ -30,8 +30,8 @@ function Tabs(props: TabsProps) {
     'text-xs',
     'px-2',
     'py-1',
-    'rounded-2',
-    'border-1',
+    'rounded-xl',
+    'border-[1px]',
     'whitespace-nowrap'
   )
 
@@ -47,7 +47,7 @@ function Tabs(props: TabsProps) {
                 onClick={() => handleClick(item.key)}
                 className={`${
                   oldVal === item.key
-                    ? `${classes} text-red-5 opacity-80`
+                    ? `${classes} text-red-500 opacity-80`
                     : `${classes} border-transparent`
                 }`}
               >

@@ -45,14 +45,14 @@ function Singer() {
                   key={item.id}
                   className="flex items-center gap-2 pb-1 border-b-1"
                 >
-                  <div className="w-15 h-15">
+                  <div className="w-14 h-14">
                     <img
                       src={`${item.picUrl}?param=300x300`}
                       alt="music"
                       className="w-full h-full object-cover rounded"
                     />
                   </div>
-                  <span className="text-sm font-medium">{item.name}</span>
+                  <span className="text-sm text-gray-800">{item.name}</span>
                 </div>
               )
             })}
