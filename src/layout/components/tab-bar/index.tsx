@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import {
   MusicalNoteIcon,
-  Bars3CenterLeftIcon,
+  Bars3BottomLeftIcon,
   UserIcon
 } from '@heroicons/react/24/outline'
 
@@ -24,7 +24,7 @@ const TabBar = () => {
       path: '/recommend'
     },
     {
-      icon: <Bars3CenterLeftIcon className="w-5 h-5" />,
+      icon: <Bars3BottomLeftIcon className="w-5 h-5 -rotate-90" />,
       title: '排行榜',
       path: '/rank'
     },
