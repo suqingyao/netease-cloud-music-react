@@ -41,7 +41,10 @@ const Recommend = () => {
             >
               <LazyLoad
                 placeholder={
-                  <img src={Logo} className="w-full h-full rounded-sm" />
+                  <img
+                    src={Logo}
+                    className="w-full h-full object-cover rounded-md"
+                  />
                 }
               >
                 <img

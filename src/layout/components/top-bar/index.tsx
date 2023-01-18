@@ -1,4 +1,4 @@
-import React, { ReactNode, FC } from 'react'
+import { ReactNode, FC, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 
@@ -11,7 +11,7 @@ export interface TopBarProps {
 const TopBar: FC<TopBarProps> = ({ leftSlot, centerSlot, rightSlot }) => {
   const navigate = useNavigate()
 
-  function handleClick() {
+  const handleClick = () => {
     navigate(-1)
   }
 
@@ -31,4 +31,4 @@ const TopBar: FC<TopBarProps> = ({ leftSlot, centerSlot, rightSlot }) => {
   )
 }
 
-export default React.memo(TopBar)
+export default memo(TopBar)

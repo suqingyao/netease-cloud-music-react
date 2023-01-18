@@ -6,6 +6,7 @@ interface PlayerState {
   playlist: Song[]
   currentPlay: Song
   currentPlayIndex: number
+  progress: number
   actions: {
     setPlaying: (playing: boolean) => void
     next: () => void
@@ -27,6 +28,7 @@ const usePlayerStore = create<PlayerState>(set => ({
   playlist: [],
   currentPlay: {} as Song,
   currentPlayIndex: -1,
+  progress: 0,
   actions: {
     setPlaying: playing => set({ playing }),
     next: () =>
@@ -63,11 +65,14 @@ const usePlayerStore = create<PlayerState>(set => ({
         }
       })
     },
-    pause: () => set({ playing: false })
+    pause: () => set({ playing: false }),
+    setProgress: (progress: number) => set({ progress })
   }
 }))
 
 export const usePlaying = () => usePlayerStore(state => state.playing)
+
+export const useProgress = () => usePlayerStore(state => state.progress)
 
 export const useCurrentPlay = () => usePlayerStore(state => state.currentPlay)
 
